@@ -1,0 +1,6 @@
+@APIMarcheEtDeviens_HostAddress = http://localhost:5083
+
+GET {{APIMarcheEtDeviens_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
