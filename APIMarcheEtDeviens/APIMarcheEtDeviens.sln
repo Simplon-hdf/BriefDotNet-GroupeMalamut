@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIMarcheEtDeviens", "APIMarcheEtDeviens\APIMarcheEtDeviens.csproj", "{78578FCD-A4DD-432D-83D1-D912D799D9DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78578FCD-A4DD-432D-83D1-D912D799D9DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78578FCD-A4DD-432D-83D1-D912D799D9DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78578FCD-A4DD-432D-83D1-D912D799D9DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78578FCD-A4DD-432D-83D1-D912D799D9DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F20B9B0-BB41-4FB8-B948-4FFF9DD15B9B}
+	EndGlobalSection
+EndGlobal
