@@ -7,22 +7,22 @@ namespace APIMarcheEtDeviens.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	public class MediaController : ControllerBase
+	public class RandonneurController : ControllerBase
 	{
 		private readonly DataContext _context;
-		public MediaController(DataContext context)
+		public RandonneurController(DataContext context)
 		{
 			_context = context;
 		}
 
 		[HttpGet]
-		public async Task<ActionResult<List<Media>>> GetAllMedias()
+		public async Task<ActionResult<List<Randonneur>>> GetAllRandonneurs()
 		{
-			var medias = await _context.Media.ToListAsync();
+			var randonneurs = await _context.Randonneur.ToListAsync();
 
-			return Ok(medias);
+			return Ok(randonneurs);
 		}
 
-		
 	}
 }
+

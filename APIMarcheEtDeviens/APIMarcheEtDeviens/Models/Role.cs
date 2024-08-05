@@ -1,10 +1,17 @@
-﻿namespace APIMarcheEtDeviens.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace APIMarcheEtDeviens.Models
 {
 	public class Role
 	{
-		public int Id { get; set; }
+		[Key]
+		public int RoleId { get; set; }
+
+		[Column(TypeName = "nvarchar(50)")]
 		public string Libelle { get; set; }
 
-		public ICollection<Randonneur> Randonneurs { get; set; }
+		[InverseProperty("Role")]
+		public virtual ICollection<Randonneur> Randonneurs { get; set; }
 	}
 }

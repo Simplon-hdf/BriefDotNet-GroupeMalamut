@@ -18,50 +18,12 @@ namespace APIMarcheEtDeviens.Controllers
 		[HttpGet]
 		public async Task<ActionResult<List<Pensee>>> GetAllPensees()
 		{
-			var pensees = await _context.Pensees.ToListAsync();
+			var pensees = await _context.Pensee.ToListAsync();
 
 			return Ok(pensees);
 		}
 
-		[HttpPost]
-		public async Task<ActionResult<List<Pensee>>> AddPensee()
-		{
-			List<Pensee> pensees = new List<Pensee> {
-				new Pensee
-				{
-					Id = "1",
-					NomDeLaPensee = "Pensee 1",
-					ContenuPensee = "Lorem",
-					Date = new DateTime(),
-					Media = null
-				},
-				new Pensee
-				{
-					Id = "2",
-					NomDeLaPensee = "Pensee 2",
-					ContenuPensee = "Ipsum",
-					Date = new DateTime(),
-					Media = null
-				},
-				new Pensee
-				{
-					Id = "3",
-					NomDeLaPensee = "Pensee 3",
-					ContenuPensee = "Dolor",
-					Date = new DateTime(),
-					Media = null
-				}
-				};
-
-
-			foreach (Pensee pensee in pensees)
-			{
-				_context.Pensees.Add(pensee);
-				_context.SaveChanges();
-			}
-
-			return Ok(await _context.Pensees.ToListAsync());
-		}
+		
 
 	}
 }

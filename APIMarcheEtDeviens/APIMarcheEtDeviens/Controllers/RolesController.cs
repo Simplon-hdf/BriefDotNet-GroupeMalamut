@@ -2,27 +2,28 @@
 using APIMarcheEtDeviens.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace APIMarcheEtDeviens.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	public class MediaController : ControllerBase
+	public class RolesController : ControllerBase
 	{
 		private readonly DataContext _context;
-		public MediaController(DataContext context)
+		public RolesController(DataContext context)
 		{
 			_context = context;
 		}
 
 		[HttpGet]
-		public async Task<ActionResult<List<Media>>> GetAllMedias()
+		public async Task<ActionResult<List<Role>>> GetAllRoles()
 		{
-			var medias = await _context.Media.ToListAsync();
+			var roles = await _context.Role.ToListAsync();
 
-			return Ok(medias);
+			return Ok(roles);
 		}
 
-		
 	}
 }
+
