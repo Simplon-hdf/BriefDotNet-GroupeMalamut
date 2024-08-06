@@ -1,5 +1,7 @@
 using APIMarcheEtDeviens.Data;
+using APIMarcheEtDeviens.Repository;
 using Microsoft.EntityFrameworkCore;
+using APIMarcheEtDeviens.Models;
 using MySql.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddScoped<IController<int, Role>, RoleService>();
 builder.Services.AddDbContext<DataContext>(options =>
 {
 	options.UseMySQL(builder.Configuration.GetConnectionString("DefaultValue"));
