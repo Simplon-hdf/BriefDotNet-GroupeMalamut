@@ -10,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<IController<int, Role>, RoleService>();
+builder.Services.AddScoped<IController<Guid, Randonnee>, RandonneeService>();
 builder.Services.AddDbContext<DataContext>(options =>
 {
 	options.UseMySQL(builder.Configuration.GetConnectionString("DefaultValue"));

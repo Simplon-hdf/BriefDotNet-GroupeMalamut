@@ -44,7 +44,15 @@ namespace APIMarcheEtDeviens.Repository
 			{
 				return null;
 			}
-			dbRandonnee.Libelle = request.Libelle;
+			dbRandonnee.Date = request.Date;
+			dbRandonnee.Description = request.Description;
+			dbRandonnee.Duree = request.Duree;
+			dbRandonnee.Pays = request.Pays;
+			dbRandonnee.Region = request.Region;
+			dbRandonnee.Ville = request.Ville;
+			dbRandonnee.PrixTotal = request.PrixTotal;
+			dbRandonnee.NombreMaxPersonnes = request.NombreMaxPersonnes;
+			
 
 			await _dataContext.SaveChangesAsync();
 
