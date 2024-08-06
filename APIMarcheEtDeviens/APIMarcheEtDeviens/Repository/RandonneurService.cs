@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace APIMarcheEtDeviens.Repository
 
 {
-    public class RandonneurService : IController(Guid ,Randonneur)
+    public class RandonneurService : IController<Guid , Randonneur>
     {
 
         private readonly DataContext _DbContext;
@@ -24,7 +24,7 @@ namespace APIMarcheEtDeviens.Repository
 
 
         //fonction pour recuperer un seul element depuis l'id
-        public async Task<Randonneur?> GetById(int id)
+        public async Task<Randonneur?> GetById(Guid id)
         {
             var result = _DbContext.Randonneur.Find(id);
             if (result == null)

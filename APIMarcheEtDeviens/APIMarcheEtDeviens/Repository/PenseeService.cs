@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace APIMarcheEtDeviens.Repository
 {
-    public class PenseeService : IController< Guid, Pensee>
+    public class PenseeService : IController<Guid, Pensee>
 
     {
         private readonly DataContext _DbContext;
@@ -44,9 +44,9 @@ namespace APIMarcheEtDeviens.Repository
             return await _DbContext.Pensee.ToListAsync();
         }
 
-        public async Task<List<Pensee>?> Update(int Guid, Pensee request)
+        public async Task<List<Pensee>?> Update(Guid id, Pensee request)
         { 
-            var dbPensee = _DbContext.Pensee.Find();
+            var dbPensee = _DbContext.Pensee.Find(id);
 
                 if(dbPensee == null)
                 return null;
