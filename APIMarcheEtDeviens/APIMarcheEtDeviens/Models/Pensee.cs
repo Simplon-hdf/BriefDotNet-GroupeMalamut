@@ -10,13 +10,13 @@ namespace APIMarcheEtDeviens.Models
 		public Guid PenseeId { get; set; }
 
 		[Column(TypeName = "nvarchar(50)")]
-		public string NomDeLaPensee { get; set; }
+		public string ?NomDeLaPensee { get; set; }
 
 		[Column(TypeName = "nvarchar(50)")]
-		public string ContenuPensee { get; set; }
+		public string ?ContenuPensee { get; set; }
 		public DateTime Date {  get; set; }
 
 		[ForeignKey("MediaId")]
-		public Media? Media { get; set; }
+		public Media ?Media { get; set; }
 	}
 }
