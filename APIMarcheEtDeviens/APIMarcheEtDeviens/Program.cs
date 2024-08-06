@@ -1,7 +1,7 @@
 using APIMarcheEtDeviens.Data;
 using APIMarcheEtDeviens.Repository;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using APIMarcheEtDeviens.Models;
 using MySql.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddScoped<IController<int, Role>, RoleService>();
 builder.Services.AddDbContext<DataContext>(options =>
 {
 	options.UseMySQL(builder.Configuration.GetConnectionString("DefaultValue"));
@@ -17,7 +18,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-//builder.Services.AddScoped<IController, Controllers>();
+
 
 
 var app = builder.Build();
