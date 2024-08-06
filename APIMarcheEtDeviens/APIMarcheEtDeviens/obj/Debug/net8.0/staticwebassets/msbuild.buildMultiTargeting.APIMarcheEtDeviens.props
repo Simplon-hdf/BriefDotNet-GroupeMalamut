@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\APIMarcheEtDeviens.props" />
+</Project>

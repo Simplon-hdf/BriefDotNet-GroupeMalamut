@@ -3980,24 +3980,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Utilisateur\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\nicol\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Utilisateur\\source\\repos\\BriefDotNet-GroupeMalamut\\APIMarcheEtDeviens\\APIMarcheEtDeviens\\APIMarcheEtDeviens.csproj",
+      "projectUniqueName": "C:\\Users\\nicol\\Documents\\BriefDotNet-GroupeMalamut\\APIMarcheEtDeviens\\APIMarcheEtDeviens\\APIMarcheEtDeviens.csproj",
       "projectName": "APIMarcheEtDeviens",
-      "projectPath": "C:\\Users\\Utilisateur\\source\\repos\\BriefDotNet-GroupeMalamut\\APIMarcheEtDeviens\\APIMarcheEtDeviens\\APIMarcheEtDeviens.csproj",
-      "packagesPath": "C:\\Users\\Utilisateur\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Utilisateur\\source\\repos\\BriefDotNet-GroupeMalamut\\APIMarcheEtDeviens\\APIMarcheEtDeviens\\obj\\",
+      "projectPath": "C:\\Users\\nicol\\Documents\\BriefDotNet-GroupeMalamut\\APIMarcheEtDeviens\\APIMarcheEtDeviens\\APIMarcheEtDeviens.csproj",
+      "packagesPath": "C:\\Users\\nicol\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\nicol\\Documents\\BriefDotNet-GroupeMalamut\\APIMarcheEtDeviens\\APIMarcheEtDeviens\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Utilisateur\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\nicol\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4070,5 +4065,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problème de lecture du fichier cache C:\\Users\\nicol\\Documents\\BriefDotNet-GroupeMalamut\\APIMarcheEtDeviens\\APIMarcheEtDeviens\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
