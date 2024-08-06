@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Utilisateur\\source\\repos\\BriefDotNet-GroupeMalamut\\APIMarcheEtDeviens\\APIMarcheEtDeviens\\APIMarcheEtDeviens.csproj": {}
+    "C:\\Users\\fborg\\Documents\\GitHub\\BriefDotNet-GroupeMalamut\\APIMarcheEtDeviens\\APIMarcheEtDeviens\\APIMarcheEtDeviens.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Utilisateur\\source\\repos\\BriefDotNet-GroupeMalamut\\APIMarcheEtDeviens\\APIMarcheEtDeviens\\APIMarcheEtDeviens.csproj": {
+    "C:\\Users\\fborg\\Documents\\GitHub\\BriefDotNet-GroupeMalamut\\APIMarcheEtDeviens\\APIMarcheEtDeviens\\APIMarcheEtDeviens.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Utilisateur\\source\\repos\\BriefDotNet-GroupeMalamut\\APIMarcheEtDeviens\\APIMarcheEtDeviens\\APIMarcheEtDeviens.csproj",
+        "projectUniqueName": "C:\\Users\\fborg\\Documents\\GitHub\\BriefDotNet-GroupeMalamut\\APIMarcheEtDeviens\\APIMarcheEtDeviens\\APIMarcheEtDeviens.csproj",
         "projectName": "APIMarcheEtDeviens",
-        "projectPath": "C:\\Users\\Utilisateur\\source\\repos\\BriefDotNet-GroupeMalamut\\APIMarcheEtDeviens\\APIMarcheEtDeviens\\APIMarcheEtDeviens.csproj",
-        "packagesPath": "C:\\Users\\Utilisateur\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Utilisateur\\source\\repos\\BriefDotNet-GroupeMalamut\\APIMarcheEtDeviens\\APIMarcheEtDeviens\\obj\\",
+        "projectPath": "C:\\Users\\fborg\\Documents\\GitHub\\BriefDotNet-GroupeMalamut\\APIMarcheEtDeviens\\APIMarcheEtDeviens\\APIMarcheEtDeviens.csproj",
+        "packagesPath": "C:\\Users\\fborg\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fborg\\Documents\\GitHub\\BriefDotNet-GroupeMalamut\\APIMarcheEtDeviens\\APIMarcheEtDeviens\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Utilisateur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\fborg\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
