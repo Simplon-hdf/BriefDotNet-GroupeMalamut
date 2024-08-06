@@ -12,7 +12,6 @@ namespace APIMarcheEtDeviens.Models
 		[Column(TypeName = "nvarchar(50)")]
 		public string ?NomDeLaPensee { get; set; }
 
-		[Column(TypeName = "nvarchar(50)")]
 		public string ?ContenuPensee { get; set; }
 		public DateTime Date {  get; set; }
 

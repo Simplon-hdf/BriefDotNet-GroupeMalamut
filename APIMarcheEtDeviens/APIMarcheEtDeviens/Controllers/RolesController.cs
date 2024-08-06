@@ -1,10 +1,6 @@
-﻿using APIMarcheEtDeviens.Data;
-using APIMarcheEtDeviens.Models;
+﻿using APIMarcheEtDeviens.Models;
 using APIMarcheEtDeviens.Repository;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Data;
-using System.Security.Cryptography.X509Certificates;
 
 namespace APIMarcheEtDeviens.Controllers
 {
