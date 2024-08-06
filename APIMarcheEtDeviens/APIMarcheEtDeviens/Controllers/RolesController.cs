@@ -1,10 +1,6 @@
-﻿using APIMarcheEtDeviens.Data;
-using APIMarcheEtDeviens.Models;
+﻿using APIMarcheEtDeviens.Models;
 using APIMarcheEtDeviens.Repository;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Data;
-using System.Security.Cryptography.X509Certificates;
 
 namespace APIMarcheEtDeviens.Controllers
 {
@@ -27,9 +23,9 @@ namespace APIMarcheEtDeviens.Controllers
 		}
 
 		[HttpGet("{id}")]
-		public async Task<ActionResult<Role>> GetRoleById()
+		public async Task<ActionResult<Role>> GetRoleById(int id)
 		{
-			var result = await roleService.GetById();
+			var result = await roleService.GetById(id);
 			if (result is null)
 				return NotFound("Role not found");
 
