@@ -8,8 +8,8 @@ namespace APIMarcheEtDeviens.Controllers
     [ApiController]
     public class ParticiperController : ControllerBase
     {
-        private readonly IController<Guid, Participer> participerService;
-        public ParticiperController(IController<Guid, Participer> service)
+        private readonly IController<int, Participer> participerService;
+        public ParticiperController(IController<int, Participer> service)
         {
             participerService = service;
         }
@@ -23,7 +23,7 @@ namespace APIMarcheEtDeviens.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Participer>> GetParticiperById(Guid id)
+        public async Task<ActionResult<Participer>> GetParticiperById(int id)
         {
             var result = await participerService.GetById(id);
             if (result is null)
@@ -33,7 +33,7 @@ namespace APIMarcheEtDeviens.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<List<Participer>>> AddParticiper(Media participer)
+        public async Task<ActionResult<List<Participer>>> AddParticiper(Participer participer)
         {
             var result = await participerService.Add(participer);
             if (result is null)
@@ -42,7 +42,7 @@ namespace APIMarcheEtDeviens.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<Role>>> DeleteRole(Guid id)
+        public async Task<ActionResult<List<Role>>> DeleteRole(int id)
         {
             var result = await participerService.DeleteById(id);
             if (result is null)
@@ -52,7 +52,7 @@ namespace APIMarcheEtDeviens.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<List<Role>>> Update(Guid id, Participer participer)
+        public async Task<ActionResult<List<Role>>> Update(int id, Participer participer)
         {
             var result = await participerService.Update(id, participer);
             if (result is null)
