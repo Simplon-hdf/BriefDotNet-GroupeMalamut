@@ -34,10 +34,7 @@ namespace APIMarcheEtDeviens.Repository
             if (mediaResult == null)
                 return null;
 
-            var dtoResult = new MediaDto();
-            dtoResult.TypeMedia = mediaResult.TypeMedia;
-            dtoResult.CheminDuMedia = mediaResult.CheminDuMedia;
-            dtoResult.NomMedia = mediaResult.NomMedia;
+            var dtoResult = _mapper.Map<MediaDto>(mediaResult);
 
             return dtoResult;
 
@@ -46,12 +43,7 @@ namespace APIMarcheEtDeviens.Repository
         //fonction pour creer un nouvel element 
         public async Task<List<MediaDto>> Add(MediaDto media)
         {
-            Media mediaInput = new Media();
-
-            mediaInput.CheminDuMedia = media.CheminDuMedia;
-            mediaInput.NomMedia = media.NomMedia;
-            mediaInput.TypeMedia = media.TypeMedia;
-            mediaInput.MediaId = Guid.NewGuid();
+            var mediaInput = _mapper.Map<Media>(media);
 
             Randonnee randonnee;
             if (media.NomRandonnee is null || media.NomRandonnee == "")
@@ -78,9 +70,7 @@ namespace APIMarcheEtDeviens.Repository
             if(dbMedia == null)
                 return null;
 
-            dbMedia.NomMedia = request.NomMedia;
-            dbMedia.CheminDuMedia = request.CheminDuMedia;
-            dbMedia.TypeMedia = request.TypeMedia;
+            dbMedia = _mapper.Map<Media>(request);
 
             await _DbContext.SaveChangesAsync();
 
