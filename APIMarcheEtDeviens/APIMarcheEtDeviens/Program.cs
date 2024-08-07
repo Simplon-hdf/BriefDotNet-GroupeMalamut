@@ -9,9 +9,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+
 builder.Services.AddScoped<IController<Guid, Media>, MediaService>();
 builder.Services.AddScoped<IController<int, Role>, RoleService>();
 builder.Services.AddScoped<IController<Guid, Randonnee>, RandonneeService>();
+builder.Services.AddScoped<IController<Guid, Randonneur>, RandonneurService>();
+builder.Services.AddScoped<IController<Guid, Pensee>, PenseeService>();
+
 builder.Services.AddDbContext<DataContext>(options =>
 
 {
