@@ -21,6 +21,12 @@ namespace APIMarcheEtDeviens.Models
 		[Column(TypeName = "nvarchar(50)")]
 		public string Mail { get; set; }
 
+
+		public byte[] MotDePasseHash { get; set; }
+
+		// ajoute une chaine de caractère au mdp pour plus de sécurité
+		public byte[] MotDePasseSalt { get; set; }
+
 		#region FK
 
 		[ForeignKey("RoleId")]
