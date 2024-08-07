@@ -3,6 +3,7 @@ using APIMarcheEtDeviens.Repository;
 using Microsoft.EntityFrameworkCore;
 using APIMarcheEtDeviens.Models;
 using MySql.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,11 +23,13 @@ builder.Services.AddDbContext<DataContext>(options =>
 	options.UseMySQL(builder.Configuration.GetConnectionString("DefaultValue"));
 });
 
+builder.Services.AddAuthentication();
+
+builder.Services.AddEntityApiFramework;
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
-
 
 var app = builder.Build();
 
