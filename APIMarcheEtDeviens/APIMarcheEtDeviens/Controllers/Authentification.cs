@@ -13,12 +13,14 @@ namespace APIMarcheEtDeviens.Controllers
 	public class Authentification : ControllerBase
 	{
 		public  Randonneur randonneur = new Randonneur();
+
 		private readonly IConfiguration _configuration;
 		private readonly DataContext _dataContext;
-		public Authentification(DataContext dataContext)
+		public Authentification(DataContext dataContext, IConfiguration configuration)
 		{
 			
 			_dataContext = dataContext;
+			_configuration = configuration;
 		}
 		
 
@@ -31,9 +33,9 @@ namespace APIMarcheEtDeviens.Controllers
 			randonneur.Mail = requete.Mail;
 			randonneur.Nom = requete.Nom;
 			randonneur.Prenom = requete.Prenom;
+			randonneur.MotDePasse = requete.MotDePasse;
 			randonneur.MotDePasseHash = passwordHash;
 			randonneur.MotDePasseSalt = passwordSalt;
-			randonneur.MotDePasse = requete.MotDePasse + passwordSalt +passwordHash;
 			await _dataContext.Randonneur.AddAsync(randonneur);
 
 			await _dataContext.SaveChangesAsync();
