@@ -11,6 +11,9 @@ namespace APIMarcheEtDeviens.Models
 		public DateTime Date { get; set; }
 
 		[Column(TypeName = "nvarchar(50)")]
+		public string Name { get; set; }
+
+		[Column(TypeName = "nvarchar(50)")]
 		public string Pays { get; set; }
 
 		[Column(TypeName = "nvarchar(50)")]

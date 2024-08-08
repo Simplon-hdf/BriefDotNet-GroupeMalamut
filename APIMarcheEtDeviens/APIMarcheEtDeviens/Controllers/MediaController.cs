@@ -10,14 +10,14 @@ namespace APIMarcheEtDeviens.Controllers
 	[ApiController]
 	public class MediaController : ControllerBase
 	{
-		private readonly IController<Guid, Media> mediaService;
-		public MediaController(IController<Guid, Media> service)
+		private readonly IController<Guid, MediaDto> mediaService;
+		public MediaController(IController<Guid, MediaDto> service)
 		{
 			mediaService = service;
 		}
 
 		[HttpGet]
-		public async Task<ActionResult<List<Media>>> GetAllMedias()
+		public async Task<ActionResult<List<MediaDto>>> GetAllMedias()
 		{
 			var medias = await mediaService.GetAll();
 
@@ -26,7 +26,7 @@ namespace APIMarcheEtDeviens.Controllers
 
 		[HttpGet("{id}")]
 
-		public async Task<ActionResult<List<Media>>> GetMediaById(Guid id)
+		public async Task<ActionResult<List<MediaDto>>> GetMediaById(Guid id)
 		{
 			var result = await mediaService.GetById(id);
 			if (result is null)
@@ -36,7 +36,7 @@ namespace APIMarcheEtDeviens.Controllers
 		
 		[HttpPost]
 		
-		public async Task<ActionResult<List<Media>>> AddMedia(Media media)
+		public async Task<ActionResult<List<MediaDto>>> AddMedia(MediaDto media)
 		{
 			var result = await mediaService.Add(media);
 			if (result is null)
@@ -45,7 +45,7 @@ namespace APIMarcheEtDeviens.Controllers
 		}
 		
 		[HttpDelete("{id}")]
-		public async Task<ActionResult<List<Media>>> DeleteMedia(Guid id)
+		public async Task<ActionResult<List<MediaDto>>> DeleteMedia(Guid id)
 		{
 			var result = await mediaService.DeleteById(id);
 			if (result is null)
@@ -55,7 +55,7 @@ namespace APIMarcheEtDeviens.Controllers
 		
 		[HttpPut]
 		
-		public async Task<ActionResult<List<Media>>> UpdateMedia(Guid id, Media media)
+		public async Task<ActionResult<List<MediaDto>>> UpdateMedia(Guid id, MediaDto media)
 		{
 			var result = await mediaService.Update(id, media);
 			if (result is null)
