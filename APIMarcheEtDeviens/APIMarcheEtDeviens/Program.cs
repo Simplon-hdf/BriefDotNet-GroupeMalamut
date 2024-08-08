@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using APIMarcheEtDeviens.Models;
 using MySql.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using AutoMapper;
+using APIMarcheEtDeviens.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +17,7 @@ builder.Services.AddScoped<IController<Guid, MediaDto>, MediaService>();
 builder.Services.AddScoped<IController<int, Role>, RoleService>();
 builder.Services.AddScoped<IController<Guid, Randonnee>, RandonneeService>();
 builder.Services.AddScoped<IController<Guid, Randonneur>, RandonneurService>();
-builder.Services.AddScoped<IController<Guid, Pensee>, PenseeService>();
+builder.Services.AddScoped<IController<Guid, PenseeDto>, PenseeService>();
 
 builder.Services.AddDbContext<DataContext>(options =>
 
@@ -25,11 +27,20 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 builder.Services.AddAuthentication();
 
-builder.Services.AddEntityApiFramework;
+//builder.Services.AddEntityApiFramework;
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
+var config = new MapperConfiguration(cfg => {
+	cfg.AddProfile<MediaAutomapper>();
+	cfg.AddProfile<RoleAutomapper>();
+	cfg.AddProfile<PenseeAutomapper>();
+	cfg.AddProfile<RandonneurAutomapper>();
+	cfg.AddProfile<RandonneeAutomapper>();
+});
 
 var app = builder.Build();
 

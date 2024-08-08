@@ -7,7 +7,10 @@ namespace APIMarcheEtDeviens.Mapping
     {
         public MediaAutomapper()
         {
-            CreateMap<Media, MediaDto>();
-        }
+            CreateMap<Media, MediaDto>()
+				.ForMember(dest => dest.NomRandonnee, opt => opt.MapFrom(src => src.Randonnee.Name));
+            CreateMap<MediaDto, Media>();
+
+		}
     }
 }
