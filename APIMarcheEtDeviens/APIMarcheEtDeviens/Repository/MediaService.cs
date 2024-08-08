@@ -1,65 +1,84 @@
 using Microsoft.EntityFrameworkCore;
 using APIMarcheEtDeviens.Data;
 using APIMarcheEtDeviens.Models;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace APIMarcheEtDeviens.Repository
 {
-    public class MediaService : IController<Guid, Media>
+    public class MediaService : IController<Guid, MediaDto>
 
     {
         private readonly DataContext _DbContext;
-        public MediaService(DataContext context)
+        public MediaService(DataContext context, IMapper mapper)
         {
             _DbContext = context;
+            _mapper = mapper;
         }
 
+        private readonly IMapper _mapper;
+
         //Fonction qui récupère et affiche une liste des pensées  
-        public async Task<List<Media>?> GetAll()
+        public async Task<List<MediaDto>?> GetAll()
         {
-            var medias = await _DbContext.Media.ToListAsync();
+            var medias = _DbContext.Media.Select(media => _mapper.Map<MediaDto>(media)).ToList();
             return medias;
         }
 
 
         //fonction pour recuperer un seul element depuis l'id
-        public async Task<Media?> GetById(Guid id)
+        public async Task<MediaDto?> GetById(Guid id)
         {
-            var result = _DbContext.Media.Find(id);
-            if (result == null)
+            var mediaResult = _DbContext.Media.Find(id);
+            if (mediaResult == null)
                 return null;
 
+            var dtoResult = _mapper.Map<MediaDto>(mediaResult);
 
-            return result;
+            return dtoResult;
 
         }
 
         //fonction pour creer un nouvel element 
-        public async Task<List<Media>> Add(Media media)
+        public async Task<List<MediaDto>> Add(MediaDto media)
         {
-            _DbContext.Media.Add(media);
+            var mediaInput = _mapper.Map<Media>(media);
+
+            Randonnee randonnee;
+            if (media.NomRandonnee is null || media.NomRandonnee == "")
+            {
+                mediaInput.Randonnee = null;
+            }
+            else
+            {
+                randonnee = await _DbContext.Randonnee.FirstOrDefaultAsync(c => c.Name == media.NomRandonnee);
+                mediaInput.Randonnee = randonnee;
+            }
+           
+
+            _DbContext.Media.Add(mediaInput);
             await _DbContext.SaveChangesAsync();
 
-            return await _DbContext.Media.ToListAsync();
+            return await _DbContext.Media.Select(media => _mapper.Map<MediaDto>(media)).ToListAsync();
         }
 
-        public async Task<List<Media>?> Update(Guid id, Media request)
+        public async Task<List<MediaDto>?> Update(Guid id, MediaDto request)
         { 
-            var dbPensee = _DbContext.Pensee.Find(id);
+            var dbMedia = _DbContext.Media.Find(id);
 
-            if(dbPensee == null)
+            if(dbMedia == null)
                 return null;
 
-            dbPensee.NomDeLaPensee = request.NomMedia;
+            dbMedia = _mapper.Map<Media>(request);
 
             await _DbContext.SaveChangesAsync();
 
-            return await _DbContext.Media.ToListAsync();
+            return await _DbContext.Media.Select(media => _mapper.Map<MediaDto>(media)).ToListAsync();
         }
 
 
-        public async Task<List<Media>?> DeleteById(Guid id)
+        public async Task<List<MediaDto>?> DeleteById(Guid id)
         {
             var result = _DbContext.Pensee.Find(id);
             if (result is null)
@@ -68,7 +87,7 @@ namespace APIMarcheEtDeviens.Repository
             _DbContext.Pensee.Remove(result);
             await _DbContext.SaveChangesAsync();
 
-            return await _DbContext.Media.ToListAsync();
+            return await _DbContext.Media.Select(media => _mapper.Map<MediaDto>(media)).ToListAsync();
         }
 
 
