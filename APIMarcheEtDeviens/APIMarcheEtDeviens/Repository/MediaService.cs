@@ -11,13 +11,13 @@ namespace APIMarcheEtDeviens.Repository
 
     {
         private readonly DataContext _DbContext;
+        private readonly IMapper _mapper;
         public MediaService(DataContext context, IMapper mapper)
         {
             _DbContext = context;
             _mapper = mapper;
         }
 
-        private readonly IMapper _mapper;
 
         //Fonction qui récupère et affiche une liste des pensées  
         public async Task<List<MediaDto>?> GetAll()
@@ -55,7 +55,7 @@ namespace APIMarcheEtDeviens.Repository
                 randonnee = await _DbContext.Randonnee.FirstOrDefaultAsync(c => c.Name == media.NomRandonnee);
                 mediaInput.Randonnee = randonnee;
             }
-           
+           mediaInput.MediaId = Guid.NewGuid();
 
             _DbContext.Media.Add(mediaInput);
             await _DbContext.SaveChangesAsync();
