@@ -44,17 +44,6 @@ namespace APIMarcheEtDeviens.Repository
         public async Task<List<MediaDto>> Add(MediaDto media)
         {
             var mediaInput = _mapper.Map<Media>(media);
-
-            Randonnee randonnee;
-            if (media.NomRandonnee is null || media.NomRandonnee == "")
-            {
-                mediaInput.Randonnee = null;
-            }
-            else
-            {
-                randonnee = await _DbContext.Randonnee.FirstOrDefaultAsync(c => c.Name == media.NomRandonnee);
-                mediaInput.Randonnee = randonnee;
-            }
            mediaInput.MediaId = Guid.NewGuid();
 
             _DbContext.Media.Add(mediaInput);
