@@ -8,14 +8,14 @@ namespace APIMarcheEtDeviens.Controllers
     [ApiController]
     public class ParticiperController : ControllerBase
     {
-        private readonly IController<int, Participer> participerService;
-        public ParticiperController(IController<int, Participer> service)
+        private readonly IController<int, ParticiperDto> participerService;
+        public ParticiperController(IController<int, ParticiperDto> service)
         {
             participerService = service;
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Participer>>> GetAllParticiper()
+        public async Task<ActionResult<List<ParticiperDto>>> GetAllParticiper()
         {
             var result = await participerService.GetAll();
 
@@ -23,7 +23,7 @@ namespace APIMarcheEtDeviens.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Participer>> GetParticiperById(int id)
+        public async Task<ActionResult<ParticiperDto>> GetParticiperById(int id)
         {
             var result = await participerService.GetById(id);
             if (result is null)
@@ -33,7 +33,7 @@ namespace APIMarcheEtDeviens.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<List<Participer>>> AddParticiper(Participer participer)
+        public async Task<ActionResult<List<ParticiperDto>>> AddParticiper(ParticiperDto participer)
         {
             var result = await participerService.Add(participer);
             if (result is null)
@@ -42,7 +42,7 @@ namespace APIMarcheEtDeviens.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<Role>>> DeleteRole(int id)
+        public async Task<ActionResult<List<ParticiperDto>>> DeleteRole(int id)
         {
             var result = await participerService.DeleteById(id);
             if (result is null)
@@ -52,7 +52,7 @@ namespace APIMarcheEtDeviens.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<List<Role>>> Update(int id, Participer participer)
+        public async Task<ActionResult<List<ParticiperDto>>> Update(int id, ParticiperDto participer)
         {
             var result = await participerService.Update(id, participer);
             if (result is null)
