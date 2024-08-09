@@ -10,14 +10,14 @@ namespace APIMarcheEtDeviens.Controllers
 	[ApiController]
 	public class RandoneeController : ControllerBase
 	{
-		private readonly IController<Guid, Randonnee> randonneeService;
-		public RandoneeController(IController<Guid, Randonnee> service)
+		private readonly IController<Guid, RandonneeDto> randonneeService;
+		public RandoneeController(IController<Guid, RandonneeDto> service)
 		{
 			randonneeService = service;
 		}
 
 		[HttpGet]
-		public async Task<ActionResult<List<Role>>> GetAllRandonne()
+		public async Task<ActionResult<List<RandonneeDto>>> GetAllRandonne()
 		{
 			var result = await randonneeService.GetAll();
 
@@ -25,7 +25,7 @@ namespace APIMarcheEtDeviens.Controllers
 		}
 
 		[HttpGet("{id}")]
-		public async Task<ActionResult<Role>> GetRandonneById(Guid id)
+		public async Task<ActionResult<RandonneeDto>> GetRandonneById(Guid id)
 		{
 			var result = await randonneeService.GetById(id);
 			if (result is null)
@@ -36,7 +36,7 @@ namespace APIMarcheEtDeviens.Controllers
 
 		[HttpPost]
 
-		public async Task<ActionResult<List<Randonnee>>> AddRandonne(Randonnee randonnee)
+		public async Task<ActionResult<List<RandonneeDto>>> AddRandonne(RandonneeDto randonnee)
 		{
 			var result = await randonneeService.Add(randonnee);
 			if (result is null)
@@ -46,7 +46,7 @@ namespace APIMarcheEtDeviens.Controllers
 		}
 
 		[HttpDelete("{id}")]
-		public async Task<ActionResult<List<Role>>> DeleteRandonne(Guid id)
+		public async Task<ActionResult<List<RandonneeDto>>> DeleteRandonne(Guid id)
 		{
 			var result = await randonneeService.DeleteById(id);
 			if (result is null)
@@ -56,7 +56,7 @@ namespace APIMarcheEtDeviens.Controllers
 		}
 
 		[HttpPut]
-		public async Task<ActionResult<List<Role>>> Update(Guid id, Randonnee randonnee)
+		public async Task<ActionResult<List<RandonneeDto>>> Update(Guid id, RandonneeDto randonnee)
 		{
 			var result = await randonneeService.Update(id, randonnee);
 			if (result is null)
