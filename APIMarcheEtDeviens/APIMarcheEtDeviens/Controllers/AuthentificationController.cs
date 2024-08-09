@@ -14,7 +14,7 @@ namespace APIMarcheEtDeviens.Controllers
 	[ApiController]
 	public class AuthentificationController : ControllerBase
 	{
-		public Randonneur randonneur = new Randonneur();
+		public static Randonneur randonneur = new Randonneur();
 
 		private readonly IConfiguration _configuration;
 		private readonly DataContext _dataContext;
@@ -46,20 +46,22 @@ namespace APIMarcheEtDeviens.Controllers
 		[HttpPost("login")]
 		public ActionResult<Randonneur> Connecter(LoginDTO requete)
 		{
-			randonneur.Mail = requete.Mail;
-			randonneur.MotDePasse = requete.Password;
-			if ( randonneur.Mail != requete.Mail || !BCrypt.Net.BCrypt.Verify(requete.Password, randonneur.MotDePasse))
+			if (requete == null || requete.Mail == null || requete.Password == null)
+			{
+				return BadRequest("formulaire incomplet");
+			}
+			 if ( randonneur.Mail != requete.Mail || !BCrypt.Net.BCrypt.Verify(requete.Password, randonneur.MotDePasse))
 			{
 				return BadRequest("Mail ou Mot de passe  incorrect");
 			}
 
 
-			string token = CreationToken(randonneur);
+			//string token = CreationToken(randonneur);
 
-			return Ok(token);
+			return Ok(randonneur);
 		}
 
-		private string CreationToken(Randonneur randonneur)
+		/*private string CreationToken(Randonneur randonneur)
 		{
 			List<Claim> claims = new List<Claim> {
 				new Claim(ClaimTypes.Email, randonneur.Mail)
@@ -68,7 +70,7 @@ namespace APIMarcheEtDeviens.Controllers
 			var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
 				_configuration.GetSection("AppSettings:Token").Value!));
 
-			var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+			var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
 
 			var token = new JwtSecurityToken(
 					claims: claims,
@@ -80,6 +82,6 @@ namespace APIMarcheEtDeviens.Controllers
 			var jwt = new JwtSecurityTokenHandler().WriteToken(token);
 
 			return jwt;
-		}
+		}*/
 	}
 }
