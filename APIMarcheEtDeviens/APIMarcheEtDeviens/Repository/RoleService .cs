@@ -1,63 +1,67 @@
 ﻿using APIMarcheEtDeviens.Data;
 using APIMarcheEtDeviens.Models;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
 namespace APIMarcheEtDeviens.Repository
 {
-	public class RoleService : IController<int, Role>
+	public class RoleService : IController<int, RoleDto>
 	{
-		private readonly DataContext _dataContext;
-		public RoleService(DataContext dataContext)
+		private readonly DataContext _DbContext;
+		private readonly IMapper _mapper;
+		public RoleService(DataContext dataContext, IMapper mapper)
 		{
-
-		_dataContext = dataContext;
+			_mapper = mapper;
+			_DbContext = dataContext;
 		}
 
-		public async Task<List<Role>> Add(Role role)
+		public async Task<List<RoleDto>> Add(RoleDto role)
 		{
-			_dataContext.Role.Add(role);
-			await _dataContext.SaveChangesAsync();
+			var roleInput = _mapper.Map<Role>(role);
 
-			return await _dataContext.Role.ToListAsync();
+			_DbContext.Role.Add(roleInput);
+			await _DbContext.SaveChangesAsync();
+
+			return await _DbContext.Role.Select(media => _mapper.Map<RoleDto>(media)).ToListAsync();
 		}
 
-		public async Task<List<Role>> GetAll()
+		public async Task<List<RoleDto>> GetAll()
 		{
-			return await _dataContext.Role.ToListAsync();
+			return await _DbContext.Role.Select(media => _mapper.Map<RoleDto>(media)).ToListAsync();
 		}
 
-		public async Task<Role> GetById(int id)
+		public async Task<RoleDto> GetById(int id)
 		{
-			var role = _dataContext.Role.Find(id);
+			var role = _DbContext.Role.Find(id);
 			if (role is null)
 				return null;
-			return role;
+			return _mapper.Map<RoleDto>(role);
 		}
 
-		public async Task<List<Role>> Update(int id, Role request)
+		public async Task<List<RoleDto>> Update(int id, RoleDto request)
 		{
-			var dbRole = _dataContext.Role.Find(id);
+			var dbRole = _DbContext.Role.Find(id);
 
 			if (dbRole is null)
 				return null;
 
 			dbRole.Libelle = request.Libelle;
 
-			await _dataContext.SaveChangesAsync();
+			await _DbContext.SaveChangesAsync();
 
-			return await _dataContext.Role.ToListAsync();
+			return await _DbContext.Role.Select(media => _mapper.Map<RoleDto>(media)).ToListAsync();
 		}
 
-		public async Task<List<Role>> DeleteById(int id)
+		public async Task<List<RoleDto>> DeleteById(int id)
 		{
-			var dbRole = _dataContext.Role.Find(id);
+			var dbRole = _DbContext.Role.Find(id);
 			if (dbRole is null)
 				return null;
 
-			_dataContext.Role.Remove(dbRole);
-			await _dataContext.SaveChangesAsync();
+			_DbContext.Role.Remove(dbRole);
+			await _DbContext.SaveChangesAsync();
 
-			return await _dataContext.Role.ToListAsync();
+			return await _DbContext.Role.Select(media => _mapper.Map<RoleDto>(media)).ToListAsync();
 		}
 	}
 }

@@ -13,7 +13,7 @@ namespace APIMarcheEtDeviens.Models
         public string? NomMedia { get; set; }
 
         [Column(TypeName = "nvarchar(50)")]
-        public string? NomRandonnee { get; set; }
+        public string? IdRandonnee { get; set; }
 
-    }
+	}
 }

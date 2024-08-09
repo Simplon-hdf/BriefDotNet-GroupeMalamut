@@ -10,8 +10,8 @@ namespace APIMarcheEtDeviens.Controllers
 	[ApiController]
 	public class PenseeController : ControllerBase
 	{
-        private readonly IController<Guid, Pensee> penseeService;
-        public PenseeController(IController<Guid, Pensee> service)
+        private readonly IController<Guid, PenseeDto> penseeService;
+        public PenseeController(IController<Guid, PenseeDto> service)
 
 
         {
@@ -19,7 +19,7 @@ namespace APIMarcheEtDeviens.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Pensee>>> GetAllRandonneurs()
+        public async Task<ActionResult<List<PenseeDto>>> GetAllRandonneurs()
         {
             var result = await penseeService.GetAll();
 
@@ -27,7 +27,7 @@ namespace APIMarcheEtDeviens.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Pensee>> GetRandonneurById(Guid id)
+        public async Task<ActionResult<PenseeDto>> GetRandonneurById(Guid id)
         {
             var result = await penseeService.GetById(id);
             if (result is null)
@@ -38,7 +38,7 @@ namespace APIMarcheEtDeviens.Controllers
 
         [HttpPost]
 
-        public async Task<ActionResult<List<Pensee>>> AddRole(Pensee randonneur)
+        public async Task<ActionResult<List<PenseeDto>>> AddRole(PenseeDto randonneur)
         {
             var result = await penseeService.Add(randonneur);
             if (result is null)
@@ -48,7 +48,7 @@ namespace APIMarcheEtDeviens.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<Pensee>>> DeleteRole(Guid id)
+        public async Task<ActionResult<List<PenseeDto>>> DeleteRole(Guid id)
         {
             var result = await penseeService.DeleteById(id);
             if (result is null)
@@ -58,7 +58,7 @@ namespace APIMarcheEtDeviens.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<List<Pensee>>> Update(Guid id, Pensee randonneur)
+        public async Task<ActionResult<List<PenseeDto>>> Update(Guid id, PenseeDto randonneur)
         {
             var result = await penseeService.Update(id, randonneur);
             if (result is null)
