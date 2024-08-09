@@ -2,8 +2,7 @@ using APIMarcheEtDeviens.Data;
 using APIMarcheEtDeviens.Repository;
 using Microsoft.EntityFrameworkCore;
 using APIMarcheEtDeviens.Models;
-using MySql.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
+using APIMarcheEtDeviens.Services;
 using AutoMapper;
 using APIMarcheEtDeviens.Mapping;
 
@@ -14,9 +13,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddScoped<IController<int, Participer>, ParticiperService>();
 builder.Services.AddScoped<IController<Guid, MediaDto>, MediaService>();
-builder.Services.AddScoped<IController<int, Role>, RoleService>();
-builder.Services.AddScoped<IController<Guid, Randonnee>, RandonneeService>();
-builder.Services.AddScoped<IController<Guid, Randonneur>, RandonneurService>();
+builder.Services.AddScoped<IController<int, RoleDto>, RoleService>();
+builder.Services.AddScoped<IController<Guid, RandonneeDto>, RandonneeService>();
+builder.Services.AddScoped<IController<Guid, RandonneurDTO>, RandonneurService>();
 builder.Services.AddScoped<IController<Guid, PenseeDto>, PenseeService>();
 
 builder.Services.AddDbContext<DataContext>(options =>

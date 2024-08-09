@@ -62,6 +62,7 @@ namespace APIMarcheEtDeviens.Repository
                 return null;
 
             dbPensee = _mapper.Map<Pensee>(request);
+            _DbContext.Pensee.Update(dbPensee);
 
             await _DbContext.SaveChangesAsync();
 

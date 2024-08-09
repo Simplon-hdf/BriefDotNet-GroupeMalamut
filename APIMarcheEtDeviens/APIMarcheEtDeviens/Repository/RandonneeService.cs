@@ -53,7 +53,8 @@ namespace APIMarcheEtDeviens.Repository
 				return null;
 			}
 
-			var dtoRandonnee = _mapper.Map<RandonneeDto>(request);
+			dbRandonnee = _mapper.Map<Randonnee>(request);
+			_DbContext.Randonnee.Update(dbRandonnee);
 
 			await _DbContext.SaveChangesAsync();
 
@@ -61,7 +62,7 @@ namespace APIMarcheEtDeviens.Repository
 		}
 
 		//supprimer une randonnee
-		public async Task<List<Randonnee?>> DeleteById(Guid id)
+		public async Task<List<RandonneeDto?>> DeleteById(Guid id)
 		{
 			var randonnee = _DbContext.Randonnee.Find(id);
 			if (randonnee == null)
@@ -71,7 +72,7 @@ namespace APIMarcheEtDeviens.Repository
 			_DbContext.Randonnee.Remove(randonnee);
 			await _DbContext.SaveChangesAsync();
 
-			return await _DbContext.Randonnee.ToListAsync();
+			return await _DbContext.Randonnee.Select(rando => _mapper.Map<RandonneeDto>(rando)).ToListAsync();
 		}
 	}
 }

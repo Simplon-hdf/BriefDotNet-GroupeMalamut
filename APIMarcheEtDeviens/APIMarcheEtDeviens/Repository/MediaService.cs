@@ -60,6 +60,7 @@ namespace APIMarcheEtDeviens.Repository
                 return null;
 
             dbMedia = _mapper.Map<Media>(request);
+            _DbContext.Media.Update(dbMedia);
 
             await _DbContext.SaveChangesAsync();
 
