@@ -44,7 +44,7 @@ namespace APIMarcheEtDeviens.Repository
         public async Task<List<MediaDto>> Add(MediaDto media)
         {
             var mediaInput = _mapper.Map<Media>(media);
-           mediaInput.MediaId = Guid.NewGuid();
+            mediaInput.MediaId = Guid.NewGuid();
 
             _DbContext.Media.Add(mediaInput);
             await _DbContext.SaveChangesAsync();
@@ -59,8 +59,9 @@ namespace APIMarcheEtDeviens.Repository
             if(dbMedia == null)
                 return null;
 
-            dbMedia = _mapper.Map<Media>(request);
-            _DbContext.Media.Update(dbMedia);
+            dbMedia.CheminDuMedia = request.CheminDuMedia;
+            dbMedia.NomMedia = request.NomMedia;
+            dbMedia.TypeMedia = request.TypeMedia;
 
             await _DbContext.SaveChangesAsync();
 

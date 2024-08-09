@@ -2,6 +2,7 @@
 using APIMarcheEtDeviens.Models;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace APIMarcheEtDeviens.Repository
 {
@@ -53,8 +54,16 @@ namespace APIMarcheEtDeviens.Repository
 				return null;
 			}
 
-			dbRandonnee = _mapper.Map<Randonnee>(request);
-			_DbContext.Randonnee.Update(dbRandonnee);
+			dbRandonnee.NombreMaxPersonnes = request.NombreMaxPersonnes;
+			dbRandonnee.Duree = request.Duree;
+			dbRandonnee.NombreMaxPersonnes = request.NombreMaxPersonnes;
+			dbRandonnee.Date = request.Date;
+			dbRandonnee.Name = request.Name;
+			dbRandonnee.Pays = request.Pays;
+			dbRandonnee.Region = request.Region;
+			dbRandonnee.Ville = request.Ville;
+			dbRandonnee.PrixTotal = request.PrixTotal;
+			dbRandonnee.Description = request.Description;
 
 			await _DbContext.SaveChangesAsync();
 

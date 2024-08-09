@@ -45,8 +45,7 @@ namespace APIMarcheEtDeviens.Repository
 			if (dbRole is null)
 				return null;
 
-			dbRole = _mapper.Map<Role>(request);
-			_DbContext.Role.Update(dbRole);
+			dbRole.Libelle = request.Libelle;
 
 			await _DbContext.SaveChangesAsync();
 

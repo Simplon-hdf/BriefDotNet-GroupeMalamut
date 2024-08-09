@@ -59,6 +59,7 @@ namespace APIMarcheEtDeviens.Repository
                 return null;
 
             dbParticiper = _mapper.Map<Participer>(request);
+            dbParticiper.ParticiperId = id;
             _DbContext.Participer.Update(dbParticiper);
 
             await _DbContext.SaveChangesAsync();

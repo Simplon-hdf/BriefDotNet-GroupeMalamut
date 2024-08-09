@@ -58,8 +58,8 @@ namespace APIMarcheEtDeviens.Repository
             if (dbRandonneur == null)
                 return null;
 
-            dbRandonneur = _mapper.Map<Randonneur>(request);
-            _DbContext.Randonneur.Update(dbRandonneur);
+            dbRandonneur.Nom = request.Nom;
+            dbRandonneur.Prenom = request.Prenom;
 
             await _DbContext.SaveChangesAsync();
 
