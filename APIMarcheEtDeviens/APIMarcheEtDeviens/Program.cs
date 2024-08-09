@@ -34,11 +34,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 var config = new MapperConfiguration(cfg => {
-	cfg.AddProfile<MediaAutomapper>();
-	cfg.AddProfile<RoleAutomapper>();
-	cfg.AddProfile<PenseeAutomapper>();
-	cfg.AddProfile<RandonneurAutomapper>();
-	cfg.AddProfile<RandonneeAutomapper>();
+	cfg.AddProfile<AutomapperProfile>();
 });
 
 var app = builder.Build();

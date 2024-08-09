@@ -21,5 +21,7 @@ namespace APIMarcheEtDeviens.Models
 		public int Duree { get; set; }
 		public string Description { get; set; }
 		public int NombreMaxPersonnes { get; set; }
+
+
 	}
 }

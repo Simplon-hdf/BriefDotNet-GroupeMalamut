@@ -11,7 +11,7 @@ namespace APIMarcheEtDeviens.Models
 		public DateTime Date { get; set; }
 
 		[Column(TypeName = "nvarchar(50)")]
-		public string? NomMedia {  get; set; }
+		public Guid MediaId {  get; set; }
 
 	}
 }

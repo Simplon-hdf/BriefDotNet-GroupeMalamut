@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using APIMarcheEtDeviens.Services;
 
 namespace APIMarcheEtDeviens.Models
 {
@@ -6,5 +7,6 @@ namespace APIMarcheEtDeviens.Models
 	{
 		[Column(TypeName = "nvarchar(50)")]
 		public string Libelle { get; set; }
+
 	}
 }

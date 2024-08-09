@@ -1,4 +1,6 @@
-﻿namespace APIMarcheEtDeviens.Services
+﻿using APIMarcheEtDeviens.Models;
+
+namespace APIMarcheEtDeviens.Services
 {
 	public class RandonneurDTO
 	{
