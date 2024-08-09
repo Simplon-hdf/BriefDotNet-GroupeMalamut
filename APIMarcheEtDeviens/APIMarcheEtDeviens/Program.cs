@@ -25,7 +25,8 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 builder.Services.AddAuthentication();
 
-builder.Services.AddEntityApiFramework;
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -39,6 +40,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 
 app.UseHttpsRedirection();
 
