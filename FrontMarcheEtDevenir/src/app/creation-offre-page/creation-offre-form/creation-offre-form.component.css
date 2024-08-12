@@ -1,0 +1,31 @@
+form {
+  padding-left: 5vw;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  justify-content: center;
+}
+
+input {
+  height: 30px;
+  font-size: 1.2rem;
+}
+
+form div:last-child input {
+  height: 140px
+}
+
+.submit {
+    align-self: flex-end;
+    margin-top: 1vh;
+}
+
+label {
+  font-size: 1.5em;
+  margin-bottom: 0.8vh;
+}
+

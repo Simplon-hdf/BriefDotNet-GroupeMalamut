@@ -1,0 +1,19 @@
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  padding: 2vw;
+}
+
+.crea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70vw;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bolder;
+  align-self: center;
+}
