@@ -11,5 +11,10 @@ import { HeaderComponent } from './page-accueil/header/header.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+<<<<<<< HEAD:FRONTMarcheEtDeviens/src/app/app.component.ts
   
 }
+=======
+  title = 'FrontMarcheEtDevenir';
+}
+>>>>>>> 22243d4468b9e305ae8d0d807af67e99ce4bc335:FrontMarcheEtDevenir/src/app/app.component.ts

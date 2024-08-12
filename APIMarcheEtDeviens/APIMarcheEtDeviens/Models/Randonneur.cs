@@ -15,11 +15,12 @@ namespace APIMarcheEtDeviens.Models
 		[Column(TypeName = "nvarchar(50)")]
 		public string Prenom { get; set; }
 
-		[Column(TypeName = "nvarchar(50)")]
+		[Column(TypeName = "longtext")]
 		public string MotDePasse { get; set; }
 
 		[Column(TypeName = "nvarchar(50)")]
 		public string Mail { get; set; }
+
 
 		#region FK
 

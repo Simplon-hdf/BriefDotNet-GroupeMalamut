@@ -1,13 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace APIMarcheEtDeviens.Models
 {
-	public class Randonnee
+	public class RandonneeDto
 	{
-		[Key]
-		[Column(TypeName = "nvarchar(128)")]
-		public Guid RandonneeId { get; set; }
 		public DateTime Date { get; set; }
 
 		[Column(TypeName = "nvarchar(50)")]
@@ -26,11 +22,6 @@ namespace APIMarcheEtDeviens.Models
 		public string Description { get; set; }
 		public int NombreMaxPersonnes { get; set; }
 
-		[InverseProperty("Randonnee")]
-		public virtual ICollection<Participer> Participers { get; set; }
-
-		[InverseProperty("Randonnee")]
-		public virtual ICollection<Media> Medias { get; set; }
 
 	}
 }
