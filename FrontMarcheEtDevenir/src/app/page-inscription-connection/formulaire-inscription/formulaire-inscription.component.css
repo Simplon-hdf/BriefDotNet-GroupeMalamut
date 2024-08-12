@@ -1,0 +1,68 @@
+/* alignement du formulaire au centre*/
+h3{
+    display:flex;
+    justify-content:center;
+}
+form {
+  display: grid;
+  border-right: solid 3px black;
+  justify-content:center
+}
+
+/* stylisation des "input" */
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+  /*application de style sur le "input" de type "submit"*/
+  input[type=submit] {
+    background-color: rgb(88, 129, 87);
+    color: white;
+  }
+
+ /* affiche un message pour les requis du mot de passe*/
+.messageCache {
+  display: none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.messageAfficher {
+  display: block;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.message p {
+    padding: 10px 35px;
+    font-size: 18px;
+}
+
+
+/*change le style du message du mot de passe*/
+.invalid {
+  color: red;
+}
+  .invalid:before {
+  content: "&#10006;";
+}
+
+.valid {
+  color: green;
+}
+
+  .valid:before {
+    content: "&#10004;";
+  }
