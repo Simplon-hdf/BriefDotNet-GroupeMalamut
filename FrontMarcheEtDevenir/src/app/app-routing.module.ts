@@ -4,10 +4,10 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
 import { CreationOffreComponent } from './creation-offre-page/creation-offre.component';
 
 const routes: Routes = [
-  { path: '/admin/ajoutrandonnee', component: CreationOffreComponent },
-  { path: '/contact', component: ContactPageComponent },
+  { path: './admin/ajoutrandonnee', component: CreationOffreComponent },
+  { path: './contact', component: ContactPageComponent },
 
-  { path: '**', redirectTo: '/contact' }
+  { path: '**', redirectTo: './contact' }
 ];
 
 @NgModule({
