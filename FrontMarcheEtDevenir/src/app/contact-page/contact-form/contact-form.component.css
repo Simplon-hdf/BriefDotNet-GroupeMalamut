@@ -1,15 +1,14 @@
-app-contact-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  width: 70vw;
 }
 
 form {
-  width: 70%;
-  padding-left: 5vw;
+    grid-column: 1 / 5;
 }
 
-div {
+form div {
     display: flex;
     flex-direction: column;
     margin-top: 1vh;
@@ -22,8 +21,14 @@ input {
     font-size: 1.2rem;
 }
 
-form div:last-child input {
-    height: 140px
+.submit {
+  grid-column : 4;
+  margin-top: 1vh;
+}
+
+textarea {
+  height: 140px;
+  font-size: 1.2rem;
 }
 
 label {
