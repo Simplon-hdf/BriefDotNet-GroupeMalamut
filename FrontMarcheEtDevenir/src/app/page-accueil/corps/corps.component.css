@@ -119,7 +119,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     margin-bottom: 50px;
     color: #000000;
 }
@@ -168,7 +167,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .btnDevis {
@@ -182,4 +181,42 @@
     font-weight: 450;
     letter-spacing: 0.5px;
     text-align: center;
+}
+
+/* Partie cohésion */
+
+.venez-seuls-title {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.venez-seuls-subtitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: lighter;
+    padding: 10px;
+}
+
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh; 
+}
+
+.cohesion-container {
+    display: flex;
+    justify-content: center;
+    border : 2px solid #8C8989;
+    height: 300px;
+    width: 65%;
+    gap: 150px;
+    margin-bottom: 20px;
+    background-color: #C5C5A9;
+    align-items: center;
 }
