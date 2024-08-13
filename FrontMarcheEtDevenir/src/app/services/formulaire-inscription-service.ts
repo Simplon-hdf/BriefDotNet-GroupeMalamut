@@ -13,14 +13,14 @@ export class FormulaireInscriptionServiceService {
 
   constructor(private http: HttpClient) { }
 
-  Inscription(randonneur: FormulaireInscriptionComponent): Observable<FormulaireInscriptionComponent> {
+  Inscription(randonneur: FormulaireInscriptionComponent): Observable<Randonneur[]> {
   /*  return this.http.post<Randonneur>(this.apiUrl, randonneur)
       .pipe(
         catchError(this.handleError('ajoutUser', randonneur))
     );*/
 
-      this.http.post<FormulaireInscriptionComponent>(this.apiUrl, randonneur.subscribe(config => {
-        console.log('Updated config:', config));
+    this.http.post<FormulaireInscriptionComponent>(this.apiUrl, randonneur.subscribe(config => {
+      console.log('Updated config:',  )));
   }
 
 

@@ -13,8 +13,11 @@ import { FormulaireInscriptionServiceService } from '../../services/formulaire-i
 @Injectable({ providedIn: 'root' })
 export class FormulaireInscriptionComponent {
 
+
+
+
   AjoutRandonneur() {
-    this.
+    
   }
 
  
