@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PageInscriptionConnectionComponent } from './page-inscription-connection/page-inscription-connection.component';
 import { FormulaireInscriptionComponent } from './page-inscription-connection/formulaire-inscription/formulaire-inscription.component';
 import { FormulaireConnexionComponent } from './page-inscription-connection/formulaire-connexion/formulaire-connexion.component';
+import { HttpClient, provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent
@@ -15,7 +16,7 @@ import { FormulaireConnexionComponent } from './page-inscription-connection/form
     AppRoutingModule,
     PageInscriptionConnectionComponent,
     FormulaireInscriptionComponent,
-    FormulaireConnexionComponent
+    FormulaireConnexionComponent,
   ],
   exports: [
     PageInscriptionConnectionComponent,
@@ -23,7 +24,7 @@ import { FormulaireConnexionComponent } from './page-inscription-connection/form
     FormulaireInscriptionComponent,
     FormulaireConnexionComponent
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
