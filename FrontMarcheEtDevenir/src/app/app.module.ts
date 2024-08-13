@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageInscriptionConnectionComponent } from './page-inscription-connection/page-inscription-connection.component';
 import { FormulaireInscriptionComponent } from './page-inscription-connection/formulaire-inscription/formulaire-inscription.component';
 import { FormulaireConnexionComponent } from './page-inscription-connection/formulaire-connexion/formulaire-connexion.component';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+
+
 
 @NgModule({
   declarations: [AppComponent
@@ -17,6 +19,8 @@ import { HttpClient, provideHttpClient } from '@angular/common/http';
     PageInscriptionConnectionComponent,
     FormulaireInscriptionComponent,
     FormulaireConnexionComponent,
+    CommonModule,
+
   ],
   exports: [
     PageInscriptionConnectionComponent,
