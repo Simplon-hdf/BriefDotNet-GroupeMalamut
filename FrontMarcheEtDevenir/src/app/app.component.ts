@@ -8,7 +8,7 @@ import { HeaderComponent } from './page-accueil/header/header.component';
   standalone: true,
   imports: [RouterOutlet, CorpsComponent, HeaderComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'FrontMarcheEtDevenir';
