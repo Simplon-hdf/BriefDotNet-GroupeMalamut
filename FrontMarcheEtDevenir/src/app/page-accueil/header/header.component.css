@@ -1,0 +1,22 @@
+.btn-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.devis, .login, .burger-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0b8221;
+    color: white;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.button {
+    margin-left: 10px;
+}
