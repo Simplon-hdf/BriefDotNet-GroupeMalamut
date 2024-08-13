@@ -97,25 +97,89 @@
     top: 70px;
 }
 
+.btnEnSavoirPlus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #535953;
+    color: white;
+    width: 200px;
+    height: 45px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 450;
+    letter-spacing: 0.5px;
+}
+
 /* Partie événements */
+
+.evenements-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 50px;
+    color: #000000;
+}
+
+.evenements-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+    margin-bottom: 20px;
+}
 
 .evenements-container {
     border: 2px solid #8C8989;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    align-items: left;
-    padding: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
     background-color: #C5C5A9;
-    cursor: pointer;
+    width: 427px;
+    height: auto;
 }
 
 .evenement-image-title {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    height: 70px;
     font-size: 25px;
     margin-bottom: 10px;
     color: #000000;
+    text-align: center; 
+}
+
+.image-evenement {
+    width: 30%;
+    height: 30%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.details-evenement {
+    text-align: center;
+}
+
+.divBtnDevis {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.btnDevis {
+    background-color: #535953;
+    color: white;
+    width: 200px;
+    height: auto;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 450;
+    letter-spacing: 0.5px;
+    text-align: center;
 }
