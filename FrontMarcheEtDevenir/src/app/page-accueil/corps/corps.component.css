@@ -7,7 +7,7 @@
     display: flex;
     justify-content: flex-end;
     gap: 100px;
-    margin-bottom: 40px;
+
 }
 
 .boutons {
@@ -16,13 +16,16 @@
     justify-content: center;
     background-color: #535953;
     color: white;
-    width: 200px;
-    height: 45px;
+    width: 350px;
+    height: 75px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 45px;
     font-weight: 450;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    margin: 1px; /* Ajout de marge */
+    position: relative;
+    top:70px;    
 }
 
 /* Pour titre */
@@ -32,9 +35,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: auto;
+    padding: 20px; /* Ajout de padding */
     background-color: #C5C5A9;
     cursor: pointer;
+    width: 100%;
+    height: 73vh;
+    box-sizing: border-box; /* Assure que le padding est inclus dans la largeur et la hauteur */
+    margin-bottom: 80px; /* Ajout de marge */
 }
 
 .hero-page_title {
@@ -42,8 +49,8 @@
     justify-content: center;
     align-items: center;
     height: 70px;
-    font-size: 30px;
-    margin-bottom: 10px;
+    font-size: 60px;
+    margin-bottom: 20px; /* Augmentation de la marge */
     color: #000000;
 }
 
@@ -52,20 +59,20 @@
     justify-content: center;
     align-items: center;
     font-weight: lighter;
-    padding: 10px;
+    padding:15px; /* Augmentation du padding */
 }
 
 /* Partie présentation */
 
 .presentation-container {
     border: 2px solid #8C8989;
-    padding: 10px;
+    padding: 20px; /* Augmentation du padding */
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 80px; /* Augmentation de la marge */
     height: 299px;
     width: 65%;
     background-color: #8C8989;
-    margin-left: 80px;
+    margin-left: 260px;
     margin-right: auto;
     cursor: pointer;
     position: relative;
@@ -77,7 +84,7 @@
     align-items: center;
     height: 70px;
     font-size: 25px;
-    margin-bottom: 10px;
+    margin-bottom: 35px; /* Augmentation de la marge */
     color: #000000;
 }
 
@@ -89,11 +96,12 @@
     width: 100%;
     background-color: #8C8989;
     color: white;
+    padding: 20px; /* Ajout de padding */
 }
 
 .video-info {
     position: absolute;
-    right: -250px;
+    right: -300px;
     top: 70px;
 }
 
@@ -111,6 +119,7 @@
     font-size: 20px;
     font-weight: 450;
     letter-spacing: 0.5px;
+    margin: 10px; /* Ajout de marge */
 }
 
 /* Partie événements */
@@ -119,7 +128,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 50px;
+    margin-top: 150px;
+    margin-bottom: 30px; /* Augmentation de la marge */
     color: #000000;
 }
 
@@ -127,7 +137,8 @@
     display: flex;
     justify-content: center;
     gap: 150px;
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Augmentation de la marge */
+    padding: 20px; /* Ajout de padding */
 }
 
 .evenements-container {
@@ -140,6 +151,7 @@
     background-color: #C5C5A9;
     width: 427px;
     height: auto;
+    margin: 10px; /* Augmentation de la marge */
 }
 
 .evenement-image-title {
@@ -147,7 +159,7 @@
     justify-content: center;
     align-items: center;
     font-size: 25px;
-    margin-bottom: 10px;
+    margin-bottom: 80px; /* Augmentation de la marge */
     color: #000000;
     text-align: center; 
 }
@@ -156,7 +168,7 @@
     width: 30%;
     height: 30%;
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .details-evenement {
@@ -167,7 +179,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    
+    margin-bottom: 20px; /* Augmentation de la marge */
 }
 
 .btnDevis {
@@ -181,16 +194,16 @@
     font-weight: 450;
     letter-spacing: 0.5px;
     text-align: center;
+    margin: 30px; /* Ajout de marge */
 }
 
 /* Partie cohésion */
 
 .venez-seuls-title {
     display: flex;
-    margin-top: 20px;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-top: 150px;
     color: #000000;
 }
 
@@ -199,7 +212,7 @@
     justify-content: center;
     align-items: center;
     font-weight: lighter;
-    padding: 10px;
+    margin-bottom: 70px;
 }
 
 .page-container {
@@ -207,7 +220,10 @@
     justify-content: center;
     align-items: center;
     height: 30vh; 
+    
 }
+
+/* Partie carousel avis */
 
 .cohesion-container {
     display: flex;
@@ -216,7 +232,60 @@
     height: 300px;
     width: 65%;
     gap: 150px;
-    margin-bottom: 20px;
+    margin-bottom: 80px; /* Augmentation de la marge */
     background-color: #C5C5A9;
     align-items: center;
+    padding: 30px; /* Ajout de padding */
+}
+
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 65%;
+    background-color: #C5C5A9;
+    color: white;
+    margin-bottom: 60px; /* Augmentation de la marge */
+    border: 2px solid #8C8989;
+    padding: 30px; /* Ajout de padding */
+}
+
+.carousel-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:150px;
+    margin-bottom: 90px; /* Ajout de marge */
+}
+
+/* Partie "ils nous ont fait confiance" */
+
+.confiance-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:150px;
+    margin-bottom: 60px; /* Augmentation de la marge */
+    color: #000000;
+}
+
+.confiance-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+    margin-bottom: 80px; /* Augmentation de la marge */
+    padding: 30px; /* Ajout de padding */
+}
+
+.confiance-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #8C8989;
+    height: 368px;
+    width: 15%;
+    background-color: #C5C5A9;
+    margin-bottom: 80px; /* Augmentation de la marge */
+    padding: 30px; /* Ajout de padding */
 }
