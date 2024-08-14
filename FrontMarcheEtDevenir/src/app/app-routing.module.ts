@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'user/profil', component: ProfilPageComponent },
   { path: 'contact', component: ContactPageComponent },
   { path: '', pathMatch: 'full', component: PageAccueilComponent },
-  {  path: '', component: PageInscriptionConnectionComponent}
+  {  path: 'login', component: PageInscriptionConnectionComponent}
 
   //{ path: '**', redirectTo: '' }
 ];
