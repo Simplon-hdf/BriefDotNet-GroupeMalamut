@@ -4,10 +4,10 @@ using APIMarcheEtDeviens.Services;
 
 namespace APIMarcheEtDeviens.Mapping
 {
-    public class AutomapperProfile : Profile
-    {
-        public AutomapperProfile()
-        {
+	public class AutomapperProfile : Profile
+	{
+		public AutomapperProfile()
+		{
 			CreateMap<Media, MediaDto>()
 				.ForMember(dest => dest.IdRandonnee, opt => opt.MapFrom(src => src.Randonnee.RandonneeId))
 				.ReverseMap();
@@ -27,9 +27,8 @@ namespace APIMarcheEtDeviens.Mapping
 				.ReverseMap();
 
 			CreateMap<Participant, ParticipantDTO>()
-				.ForMember(dest => dest.RandonneeId, opt => opt.MapFrom(src => src.Randonnee.RandonneeId))
-				.ForMember(dest => dest.RandonneurId, opt => opt.MapFrom(src => src.Randonneur.RandonneurId))
 				.ReverseMap();
+
 		}
-    }
+	}
 }
