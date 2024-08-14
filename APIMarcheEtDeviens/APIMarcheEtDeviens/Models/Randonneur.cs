@@ -23,7 +23,7 @@ namespace APIMarcheEtDeviens.Models
 		public int? Telephone { get; set; }
 		public DateTime DateDeCreation { get; set; } = DateTime.Now;
 		public DateTime DateDeMaj { get; set; } = DateTime.Now;
-
+		public int RoleId { get; set; } = 1;
 		#region FK
 
 		[ForeignKey("RoleId")]

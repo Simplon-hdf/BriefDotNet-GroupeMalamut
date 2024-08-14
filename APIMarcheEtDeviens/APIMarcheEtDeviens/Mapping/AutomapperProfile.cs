@@ -20,7 +20,6 @@ namespace APIMarcheEtDeviens.Mapping
 				.ReverseMap();
 
 			CreateMap<Randonneur, RandonneurDTO>()
-				.ForMember(dest => dest.RoleId, opt => opt.MapFrom(src => src.Role.RoleId))
 				.ReverseMap();
 
 			CreateMap<RoleDto, Role>()
