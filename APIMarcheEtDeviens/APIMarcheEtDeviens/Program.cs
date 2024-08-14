@@ -42,7 +42,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors(options =>
+options.WithOrigins("http://localhost:7157")
+.AllowAnyMethod()
+.AllowAnyHeader());
 
 app.UseHttpsRedirection();
 
