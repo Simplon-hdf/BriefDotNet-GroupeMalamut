@@ -3,11 +3,12 @@ using APIMarcheEtDeviens.Data;
 using APIMarcheEtDeviens.Models;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
+using APIMarcheEtDeviens.Services;
 
 
 namespace APIMarcheEtDeviens.Repository
 {
-    public class ParticiperService : IController<int, ParticiperDto>
+    public class ParticiperService : IController<Guid, ParticiperDto>
 
     {
         private readonly DataContext _DbContext;
@@ -23,13 +24,13 @@ namespace APIMarcheEtDeviens.Repository
         //Fonction qui récupère et affiche une liste des pensées  
         public async Task<List<ParticiperDto>?> GetAll()
         {
-            var medias = await _DbContext.Participer.ToListAsync();
-            return medias.Select(media => _mapper.Map<ParticiperDto>(media)).ToList();
-        }
+			var medias = _DbContext.Participer.Select(media => _mapper.Map<ParticiperDto>(media)).ToList();
+			return medias;
+		}
 
 
         //fonction pour recuperer un seul element depuis l'id
-        public async Task<ParticiperDto?> GetById(int id)
+        public async Task<ParticiperDto?> GetById(Guid id)
         {
             var result = _DbContext.Participer.Find(id);
             if (result == null)
@@ -40,8 +41,8 @@ namespace APIMarcheEtDeviens.Repository
 
         }
 
-        //fonction pour creer un nouvel element 
-        public async Task<List<ParticiperDto?>> Add(ParticiperDto participer)
+		//fonction pour creer un nouvel element 
+		public async Task<List<ParticiperDto?>> Add(ParticiperDto participer)
         {
 			var participerInput = _mapper.Map<Participer>(participer);
 
@@ -51,7 +52,7 @@ namespace APIMarcheEtDeviens.Repository
             return await _DbContext.Participer.Select(media => _mapper.Map<ParticiperDto>(media)).ToListAsync();
         }
 
-        public async Task<List<ParticiperDto>?> Update(int id, ParticiperDto request)
+        public async Task<List<ParticiperDto>?> Update(Guid id, ParticiperDto request)
         { 
             var dbParticiper = _DbContext.Participer.Find(id);
 
@@ -68,7 +69,7 @@ namespace APIMarcheEtDeviens.Repository
         }
 
 
-        public async Task<List<ParticiperDto>?> DeleteById(int id)
+        public async Task<List<ParticiperDto>?> DeleteById(Guid id)
         {
             var result = _DbContext.Participer.Find(id);
             if (result is null)

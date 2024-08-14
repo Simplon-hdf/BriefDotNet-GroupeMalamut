@@ -37,7 +37,7 @@ namespace APIMarcheEtDeviens.Controllers
             return Ok(result);
         }
 
-        [HttpPost]
+		[HttpPost]
 
         public async Task<ActionResult<List<RandonneurDTO>>> AddRole(RandonneurDTO randonneur)
         {
