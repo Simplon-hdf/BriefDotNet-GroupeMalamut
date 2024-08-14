@@ -1,7 +1,6 @@
 using APIMarcheEtDeviens.Data;
 using APIMarcheEtDeviens.Repository;
 using Microsoft.EntityFrameworkCore;
-using APIMarcheEtDeviens.Models;
 using APIMarcheEtDeviens.Services;
 using AutoMapper;
 using APIMarcheEtDeviens.Mapping;
@@ -11,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddScoped<IController<int, ParticiperDto>, ParticiperService>();
+builder.Services.AddScoped<IController<Guid, ParticipantDTO>, ParticipantService>();
 builder.Services.AddScoped<IController<Guid, MediaDto>, MediaService>();
 builder.Services.AddScoped<IController<int, RoleDto>, RoleService>();
 builder.Services.AddScoped<IController<Guid, RandonneeDto>, RandonneeService>();

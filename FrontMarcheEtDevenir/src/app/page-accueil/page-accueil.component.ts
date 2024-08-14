@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CorpsComponent } from './corps/corps.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'page-accueil',

@@ -3,10 +3,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace APIMarcheEtDeviens.Models
 {
-	public class Participer
+	public class Participant
 	{
 		[Key]
-		public int ParticiperId { get; set; }
+		public Guid ParticiperId { get; set; }
 
 		[ForeignKey("RandonneurId")]
 		public Randonneur? Randonneur { get; set; }

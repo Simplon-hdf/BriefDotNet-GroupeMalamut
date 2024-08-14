@@ -1,10 +1,10 @@
-﻿using APIMarcheEtDeviens.Models;
-using APIMarcheEtDeviens.Repository;
+﻿using APIMarcheEtDeviens.Repository;
+using APIMarcheEtDeviens.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APIMarcheEtDeviens.Controllers
 {
-	[Route("api/[controller]")]
+    [Route("api/[controller]")]
 	[ApiController]
 	public class RolesController : ControllerBase
 	{

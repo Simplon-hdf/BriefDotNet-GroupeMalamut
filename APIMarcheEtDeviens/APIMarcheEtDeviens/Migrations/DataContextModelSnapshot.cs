@@ -16,7 +16,7 @@ namespace APIMarcheEtDeviens.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.7")
+                .HasAnnotation("ProductVersion", "8.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("APIMarcheEtDeviens.Models.Media", b =>
@@ -27,6 +27,12 @@ namespace APIMarcheEtDeviens.Migrations
 
                     b.Property<string>("CheminDuMedia")
                         .HasColumnType("longtext");
+
+                    b.Property<DateTime>("DateDeCreation")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DateDeMaj")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("NomMedia")
                         .HasColumnType("nvarchar(50)");
@@ -44,11 +50,11 @@ namespace APIMarcheEtDeviens.Migrations
                     b.ToTable("Media");
                 });
 
-            modelBuilder.Entity("APIMarcheEtDeviens.Models.Participer", b =>
+            modelBuilder.Entity("APIMarcheEtDeviens.Models.Participant", b =>
                 {
-                    b.Property<int>("ParticiperId")
+                    b.Property<Guid>("ParticiperId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("RandonneeId")
                         .HasColumnType("nvarchar(128)");
@@ -74,7 +80,10 @@ namespace APIMarcheEtDeviens.Migrations
                     b.Property<string>("ContenuPensee")
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime>("Date")
+                    b.Property<DateTime>("DateDeCreation")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DateDeMaj")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("MediaId")
@@ -99,6 +108,12 @@ namespace APIMarcheEtDeviens.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<DateTime>("DateDeCreation")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DateDeMaj")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -111,6 +126,9 @@ namespace APIMarcheEtDeviens.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("NombreMaxPersonnes")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NombreMinPersonnes")
                         .HasColumnType("int");
 
                     b.Property<string>("Pays")
@@ -139,13 +157,19 @@ namespace APIMarcheEtDeviens.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(128)");
 
+                    b.Property<DateTime>("DateDeCreation")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DateDeMaj")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("Mail")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("MotDePasse")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Nom")
                         .IsRequired()
@@ -156,6 +180,9 @@ namespace APIMarcheEtDeviens.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<int?>("RoleId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Telephone")
                         .HasColumnType("int");
 
                     b.HasKey("RandonneurId");
@@ -189,7 +216,7 @@ namespace APIMarcheEtDeviens.Migrations
                     b.Navigation("Randonnee");
                 });
 
-            modelBuilder.Entity("APIMarcheEtDeviens.Models.Participer", b =>
+            modelBuilder.Entity("APIMarcheEtDeviens.Models.Participant", b =>
                 {
                     b.HasOne("APIMarcheEtDeviens.Models.Randonnee", "Randonnee")
                         .WithMany("Participers")

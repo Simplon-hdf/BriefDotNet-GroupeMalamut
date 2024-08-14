@@ -7,7 +7,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace APIMarcheEtDeviens.Migrations
 {
     /// <inheritdoc />
-    public partial class init2 : Migration
+    public partial class MERISEV2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -21,13 +21,17 @@ namespace APIMarcheEtDeviens.Migrations
                 {
                     RandonneeId = table.Column<string>(type: "nvarchar(128)", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     Pays = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     Region = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     Ville = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     PrixTotal = table.Column<float>(type: "float", nullable: false),
                     Duree = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "longtext", nullable: false),
-                    NombreMaxPersonnes = table.Column<int>(type: "int", nullable: false)
+                    NombreMinPersonnes = table.Column<int>(type: "int", nullable: false),
+                    NombreMaxPersonnes = table.Column<int>(type: "int", nullable: false),
+                    DateDeCreation = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DateDeMaj = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -54,9 +58,11 @@ namespace APIMarcheEtDeviens.Migrations
                 columns: table => new
                 {
                     MediaId = table.Column<string>(type: "nvarchar(128)", nullable: false),
-                    CheminDuMedia = table.Column<string>(type: "longtext", nullable: false),
-                    TypeMedia = table.Column<string>(type: "nvarchar(50)", nullable: false),
-                    NomMedia = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    CheminDuMedia = table.Column<string>(type: "longtext", nullable: true),
+                    TypeMedia = table.Column<string>(type: "nvarchar(50)", nullable: true),
+                    NomMedia = table.Column<string>(type: "nvarchar(50)", nullable: true),
+                    DateDeCreation = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DateDeMaj = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     RandonneeId = table.Column<string>(type: "nvarchar(128)", nullable: true)
                 },
                 constraints: table =>
@@ -77,8 +83,11 @@ namespace APIMarcheEtDeviens.Migrations
                     RandonneurId = table.Column<string>(type: "nvarchar(128)", nullable: false),
                     Nom = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     Prenom = table.Column<string>(type: "nvarchar(50)", nullable: false),
-                    MotDePasse = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    MotDePasse = table.Column<string>(type: "longtext", nullable: false),
                     Mail = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    Telephone = table.Column<int>(type: "int", nullable: true),
+                    DateDeCreation = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DateDeMaj = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     RoleId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -97,9 +106,10 @@ namespace APIMarcheEtDeviens.Migrations
                 columns: table => new
                 {
                     PenseeId = table.Column<string>(type: "nvarchar(128)", nullable: false),
-                    NomDeLaPensee = table.Column<string>(type: "nvarchar(50)", nullable: false),
-                    ContenuPensee = table.Column<string>(type: "nvarchar(50)", nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    NomDeLaPensee = table.Column<string>(type: "nvarchar(50)", nullable: true),
+                    ContenuPensee = table.Column<string>(type: "longtext", nullable: true),
+                    DateDeCreation = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DateDeMaj = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     MediaId = table.Column<string>(type: "nvarchar(128)", nullable: true)
                 },
                 constraints: table =>
@@ -117,8 +127,7 @@ namespace APIMarcheEtDeviens.Migrations
                 name: "Participer",
                 columns: table => new
                 {
-                    ParticiperId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    ParticiperId = table.Column<Guid>(type: "char(36)", nullable: false),
                     RandonneurId = table.Column<string>(type: "nvarchar(128)", nullable: true),
                     RandonneeId = table.Column<string>(type: "nvarchar(128)", nullable: true)
                 },
