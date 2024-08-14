@@ -1,22 +1,30 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ConceptComponent } from './concept/concept.component';
-import { OffreRandonneesComponent } from './offre-randonnees/offre-randonnees.component';
+import { PageInscriptionConnectionComponent } from './page-inscription-connection/page-inscription-connection.component';
+import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+
+
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ConceptComponent,
-    OffreRandonneesComponent,
+  declarations: [AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PageInscriptionConnectionComponent,
+
+    CommonModule,
+
   ],
-  providers: [],
+  exports: [
+    PageInscriptionConnectionComponent,
+    AppComponent,
+
+  ],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

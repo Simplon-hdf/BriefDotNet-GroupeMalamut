@@ -2,8 +2,7 @@
 using APIMarcheEtDeviens.Data;
 using APIMarcheEtDeviens.Models;
 using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using MySqlX.XDevAPI.Common;
+using APIMarcheEtDeviens.Services;
 
 
 namespace APIMarcheEtDeviens.Repository
@@ -63,7 +62,7 @@ namespace APIMarcheEtDeviens.Repository
 
             dbPensee.NomDeLaPensee = request.NomDeLaPensee;
             dbPensee.ContenuPensee = request.ContenuPensee;
-            dbPensee.Date = request.Date;
+            dbPensee.DateDeMaj = DateTime.Now;
 
             await _DbContext.SaveChangesAsync();
 

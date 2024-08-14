@@ -2,7 +2,6 @@
 using APIMarcheEtDeviens.Data;
 using APIMarcheEtDeviens.Models;
 using APIMarcheEtDeviens.Services;
-using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 
 namespace APIMarcheEtDeviens.Repository
@@ -39,8 +38,39 @@ namespace APIMarcheEtDeviens.Repository
 
         }
 
-        //fonction pour creer un nouvel element 
-        public async Task<List<RandonneurDTO>> Add(RandonneurDTO randonneur)
+		public async Task<List<RandonneurDTO>?> GetAllByFK(Guid id)
+		{
+			DbSet<Randonneur> randonneurs = _DbContext.Randonneur;
+			DbSet<Participant> participers = _DbContext.Participer;
+
+			var query = participers.GroupJoin(randonneurs,
+				participer => participer.Randonneur.RandonneurId,
+				randonneur => randonneur.RandonneurId,
+				(participer, randonneur) => new
+				{
+					randonneurParticipant = _mapper.Map<RandonneurDTO>(participer.Randonneur),
+					randonneeId = participer.Randonnee.RandonneeId
+				});
+
+			var allParticipants = new List<RandonneurDTO>();
+
+			foreach (var participant in query)
+			{
+				if (participant.randonneeId == id)
+				{
+					allParticipants.Add(participant.randonneurParticipant);
+				}
+			}
+
+			if (allParticipants.Count == 0)
+				return null;
+
+
+			return allParticipants;
+		}
+
+		//fonction pour creer un nouvel element 
+		public async Task<List<RandonneurDTO>> Add(RandonneurDTO randonneur)
         {
 			var randInput = _mapper.Map<Randonneur>(randonneur);
 			randInput.RandonneurId = Guid.NewGuid();
@@ -60,6 +90,9 @@ namespace APIMarcheEtDeviens.Repository
 
             dbRandonneur.Nom = request.Nom;
             dbRandonneur.Prenom = request.Prenom;
+            dbRandonneur.Mail = request.Mail;
+            dbRandonneur.Telephone = request.Telephone;
+            dbRandonneur.DateDeMaj = DateTime.Now;
 
             await _DbContext.SaveChangesAsync();
 

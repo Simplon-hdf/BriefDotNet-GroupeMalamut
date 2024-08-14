@@ -20,7 +20,9 @@ namespace APIMarcheEtDeviens.Models
 
 		[Column(TypeName = "nvarchar(50)")]
 		public string Mail { get; set; }
-
+		public int? Telephone { get; set; }
+		public DateTime DateDeCreation { get; set; } = DateTime.Now;
+		public DateTime DateDeMaj { get; set; } = DateTime.Now;
 
 		#region FK
 
@@ -28,7 +30,7 @@ namespace APIMarcheEtDeviens.Models
 		public Role? Role { get; set; }
 
 		[InverseProperty("Randonneur")]
-		public virtual ICollection<Participer> Participers { get; set; }
+		public virtual ICollection<Participant> Participers { get; set; }
 		#endregion
 
 	}

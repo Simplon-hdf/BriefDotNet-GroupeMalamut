@@ -1,0 +1,12 @@
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  padding: 2vw;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bolder;
+  align-self: center;
+}

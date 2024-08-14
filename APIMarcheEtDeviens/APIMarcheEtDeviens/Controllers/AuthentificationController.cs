@@ -33,6 +33,7 @@ namespace APIMarcheEtDeviens.Controllers
 			string passwordHash
 				= BCrypt.Net.BCrypt.HashPassword(requete.MotDePasse);
 
+			randonneur.RandonneurId = Guid.NewGuid();
 			randonneur.Mail = requete.Mail;
 			randonneur.MotDePasse = passwordHash;
 			randonneur.Nom = requete.Nom;

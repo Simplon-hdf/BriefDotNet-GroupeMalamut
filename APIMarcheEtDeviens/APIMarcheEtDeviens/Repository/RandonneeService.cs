@@ -1,12 +1,12 @@
 ﻿using APIMarcheEtDeviens.Data;
 using APIMarcheEtDeviens.Models;
+using APIMarcheEtDeviens.Services;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace APIMarcheEtDeviens.Repository
 {
-	public class RandonneeService : IController<Guid, RandonneeDto>
+    public class RandonneeService : IController<Guid, RandonneeDto>
 	{
 		private readonly DataContext _DbContext;
 		private readonly IMapper _mapper;
@@ -55,8 +55,8 @@ namespace APIMarcheEtDeviens.Repository
 			}
 
 			dbRandonnee.NombreMaxPersonnes = request.NombreMaxPersonnes;
+			dbRandonnee.NombreMinPersonnes = request.NombreMinPersonnes;
 			dbRandonnee.Duree = request.Duree;
-			dbRandonnee.NombreMaxPersonnes = request.NombreMaxPersonnes;
 			dbRandonnee.Date = request.Date;
 			dbRandonnee.Name = request.Name;
 			dbRandonnee.Pays = request.Pays;
@@ -64,6 +64,7 @@ namespace APIMarcheEtDeviens.Repository
 			dbRandonnee.Ville = request.Ville;
 			dbRandonnee.PrixTotal = request.PrixTotal;
 			dbRandonnee.Description = request.Description;
+			dbRandonnee.DateDeMaj = DateTime.Now;
 
 			await _DbContext.SaveChangesAsync();
 

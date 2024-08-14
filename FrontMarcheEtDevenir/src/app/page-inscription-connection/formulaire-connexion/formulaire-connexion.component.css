@@ -1,0 +1,39 @@
+/* centrer le contenue de la page*/
+h3 {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  display: grid;
+  border-right: solid 3px black;
+  justify-content: center
+}
+
+/* affiche un message d'erreur si erreur dans le mail ou le mot de passe*/
+.Inactif{
+    display: none
+}
+
+.Actif{
+    display: flex;
+    justify-content: center;
+    color: red;
+}
+
+/* stylisation des "input" */
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+/*application de style sur le "input" de type "submit"*/
+  input[type=submit] {
+    background-color: rgb(88, 129, 87);
+    color: white;
+  }
