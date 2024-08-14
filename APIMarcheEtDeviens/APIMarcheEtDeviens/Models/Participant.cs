@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace APIMarcheEtDeviens.Models
 {
-	public class Participer
+	public class Participant
 	{
 		[Key]
 		public Guid ParticiperId { get; set; }

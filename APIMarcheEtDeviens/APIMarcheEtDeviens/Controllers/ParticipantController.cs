@@ -10,13 +10,13 @@ namespace APIMarcheEtDeviens.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ParticiperController : ControllerBase
+    public class ParticipantController : ControllerBase
     {
-        private readonly IController<Guid, ParticiperDto> participerService;
+        private readonly IController<Guid, ParticipantDTO> participerService;
 		private readonly DataContext _DbContext;
 		private readonly IMapper _mapper;
 
-		public ParticiperController(IController<Guid, ParticiperDto> service, DataContext context, IMapper mapper)
+		public ParticipantController(IController<Guid, ParticipantDTO> service, DataContext context, IMapper mapper)
         {
             participerService = service;
             _DbContext = context;
@@ -24,7 +24,7 @@ namespace APIMarcheEtDeviens.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<ParticiperDto>>> GetAllParticiper()
+        public async Task<ActionResult<List<ParticipantDTO>>> GetAllParticiper()
         {
             var result = await participerService.GetAll();
 
@@ -32,7 +32,7 @@ namespace APIMarcheEtDeviens.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ParticiperDto>> GetParticiperById(Guid id)
+        public async Task<ActionResult<ParticipantDTO>> GetParticiperById(Guid id)
         {
             var result = await participerService.GetById(id);
             if (result is null)
@@ -45,7 +45,7 @@ namespace APIMarcheEtDeviens.Controllers
 		public async Task<ActionResult<List<RandonneurDTO>>> GetAllByRandonneeId(Guid id)
 		{
 			DbSet<Randonneur> randonneurs = _DbContext.Randonneur;
-			DbSet<Participer> participers = _DbContext.Participer;
+			DbSet<Participant> participers = _DbContext.Participer;
 
             var query = participers.GroupJoin(randonneurs,
                 participer => participer.Randonneur.RandonneurId,
@@ -77,7 +77,7 @@ namespace APIMarcheEtDeviens.Controllers
 		public async Task<ActionResult<List<RandonneeDto>>> GetAllByRandonneurId(Guid id)
 		{
 			DbSet<Randonnee> randonnee = _DbContext.Randonnee;
-			DbSet<Participer> participers = _DbContext.Participer;
+			DbSet<Participant> participers = _DbContext.Participer;
 
 			var query = participers.GroupJoin(randonnee,
 				participer => participer.Randonnee.RandonneeId,
@@ -106,7 +106,7 @@ namespace APIMarcheEtDeviens.Controllers
 		}
 
 		[HttpPost]
-        public async Task<ActionResult<List<ParticiperDto>>> AddParticiper(ParticiperDto participer)
+        public async Task<ActionResult<List<ParticipantDTO>>> AddParticiper(ParticipantDTO participer)
         {
             var result = await participerService.Add(participer);
             if (result is null)
@@ -115,7 +115,7 @@ namespace APIMarcheEtDeviens.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<ParticiperDto>>> DeleteRole(Guid id)
+        public async Task<ActionResult<List<ParticipantDTO>>> DeleteRole(Guid id)
         {
             var result = await participerService.DeleteById(id);
             if (result is null)
@@ -125,7 +125,7 @@ namespace APIMarcheEtDeviens.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<List<ParticiperDto>>> Update(Guid id, ParticiperDto participer)
+        public async Task<ActionResult<List<ParticipantDTO>>> Update(Guid id, ParticipantDTO participer)
         {
             var result = await participerService.Update(id, participer);
             if (result is null)

@@ -2,7 +2,6 @@
 using APIMarcheEtDeviens.Data;
 using APIMarcheEtDeviens.Models;
 using APIMarcheEtDeviens.Services;
-using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 
 namespace APIMarcheEtDeviens.Repository
@@ -42,7 +41,7 @@ namespace APIMarcheEtDeviens.Repository
 		public async Task<List<RandonneurDTO>?> GetAllByFK(Guid id)
 		{
 			DbSet<Randonneur> randonneurs = _DbContext.Randonneur;
-			DbSet<Participer> participers = _DbContext.Participer;
+			DbSet<Participant> participers = _DbContext.Participer;
 
 			var query = participers.GroupJoin(randonneurs,
 				participer => participer.Randonneur.RandonneurId,
@@ -91,6 +90,9 @@ namespace APIMarcheEtDeviens.Repository
 
             dbRandonneur.Nom = request.Nom;
             dbRandonneur.Prenom = request.Prenom;
+            dbRandonneur.Mail = request.Mail;
+            dbRandonneur.Telephone = request.Telephone;
+            dbRandonneur.DateDeMaj = DateTime.Now;
 
             await _DbContext.SaveChangesAsync();
 
