@@ -1,6 +1,10 @@
+using APIMarcheEtDeviens.Data;
 using APIMarcheEtDeviens.Models;
 using APIMarcheEtDeviens.Repository;
+using APIMarcheEtDeviens.Services;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace APIMarcheEtDeviens.Controllers
 {
@@ -9,9 +13,14 @@ namespace APIMarcheEtDeviens.Controllers
     public class ParticiperController : ControllerBase
     {
         private readonly IController<int, ParticiperDto> participerService;
-        public ParticiperController(IController<int, ParticiperDto> service)
+		private readonly DataContext _DbContext;
+		private readonly IMapper _mapper;
+
+		public ParticiperController(IController<int, ParticiperDto> service, DataContext context, IMapper mapper)
         {
             participerService = service;
+            _DbContext = context;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -32,7 +41,39 @@ namespace APIMarcheEtDeviens.Controllers
             return Ok(result);
         }
 
-        [HttpPost]
+        [HttpGet("randonnee/{id}")]
+		public async Task<ActionResult<List<RandonneurDTO>>> GetAllByRandonneeId(Guid id)
+		{
+			DbSet<Randonneur> randonneurs = _DbContext.Randonneur;
+			DbSet<Participer> participers = _DbContext.Participer;
+
+            var query = participers.GroupJoin(randonneurs,
+                participer => participer.Randonneur.RandonneurId,
+                randonneur => randonneur.RandonneurId,
+                (participer, randonneur) => new
+                {
+                    randonneurParticipant = _mapper.Map<RandonneurDTO>(participer.Randonneur),
+                    randonneeId = participer.Randonnee.RandonneeId
+                });
+
+			var allParticipants = new List<RandonneurDTO>();
+
+			foreach (var participant in query)
+			{
+                if (participant.randonneeId == id)
+                {
+                    allParticipants.Add(participant.randonneurParticipant);
+                }
+			}
+
+            if (allParticipants.Count == 0)
+                return NotFound("Il n'y a pas de participants pour cette randonnée");
+
+
+			return Ok(allParticipants);
+		}
+
+		[HttpPost]
         public async Task<ActionResult<List<ParticiperDto>>> AddParticiper(ParticiperDto participer)
         {
             var result = await participerService.Add(participer);

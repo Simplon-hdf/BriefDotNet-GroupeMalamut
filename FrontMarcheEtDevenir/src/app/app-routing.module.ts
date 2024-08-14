@@ -1,10 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContactPageComponent } from './contact-page/contact-page.component';
+import { CreationOffreComponent } from './creation-offre-page/creation-offre.component';
+import { ProfilPageComponent } from './profile-page/profil-page.component';
+import { PageAccueilComponent } from './page-accueil/page-accueil.component';
 
-const routes: Routes = [];
+
+const routes: Routes = [
+  { path: 'admin/ajoutrandonnee', component: CreationOffreComponent },
+  { path: 'user/profil', component: ProfilPageComponent },
+  { path: 'contact', component: ContactPageComponent },
+  { path: '', pathMatch: 'full', component: PageAccueilComponent }
+
+  //{ path: '**', redirectTo: '' }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+  
+}

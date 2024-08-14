@@ -1,69 +1,69 @@
 ﻿.DS_STORE
 
-/FRONTMarcheEtDevenir/dist/
-/FRONTMarcheEtDevenir/bazel-out
-/FRONTMarcheEtDevenir/integration/bazel/bazel-*
-/FRONTMarcheEtDevenir/*.log
-/FRONTMarcheEtDevenir/node_modules/
+FRONTMarcheEtDevenir/dist/
+FRONTMarcheEtDevenir/bazel-out
+FRONTMarcheEtDevenir/integration/bazel/bazel-*
+FRONTMarcheEtDevenir/*.log
+FRONTMarcheEtDevenir/node_modules/
 
 # CircleCI temporary file for cache key computation.
 # See `save_month_to_file` in `.circleci/config.yml`.
-/FRONTMarcheEtDevenir/month.txt
+FRONTMarcheEtDevenir/month.txt
 
 # Include when developing application packages.
-/FRONTMarcheEtDevenir/pubspec.lock
-/FRONTMarcheEtDevenir/.c9
-/FRONTMarcheEtDevenir/.idea/
-/FRONTMarcheEtDevenir/.devcontainer/*
-/FRONTMarcheEtDevenir/!.devcontainer/README.md
-/FRONTMarcheEtDevenir/!.devcontainer/recommended-devcontainer.json
-/FRONTMarcheEtDevenir/!.devcontainer/recommended-Dockerfile
-/FRONTMarcheEtDevenir/.settings/
-/FRONTMarcheEtDevenir/.vscode/launch.json
-/FRONTMarcheEtDevenir/.vscode/settings.json
-/FRONTMarcheEtDevenir/.vscode/tasks.json
-/FRONTMarcheEtDevenir/*.swo
-/FRONTMarcheEtDevenir/*.swp
-/FRONTMarcheEtDevenir/modules/.settings
-/FRONTMarcheEtDevenir/modules/.vscode
-/FRONTMarcheEtDevenir/.vimrc
-/FRONTMarcheEtDevenir/.nvimrc
+FRONTMarcheEtDevenir/pubspec.lock
+FRONTMarcheEtDevenir/.c9
+FRONTMarcheEtDevenir/.idea/
+FRONTMarcheEtDevenir/.devcontainer/*
+FRONTMarcheEtDevenir/!.devcontainer/README.md
+FRONTMarcheEtDevenir/!.devcontainer/recommended-devcontainer.json
+FRONTMarcheEtDevenir/!.devcontainer/recommended-Dockerfile
+FRONTMarcheEtDevenir/.settings/
+FRONTMarcheEtDevenir/.vscode/launch.json
+FRONTMarcheEtDevenir/.vscode/settings.json
+FRONTMarcheEtDevenir/.vscode/tasks.json
+FRONTMarcheEtDevenir/*.swo
+FRONTMarcheEtDevenir/*.swp
+FRONTMarcheEtDevenir/modules/.settings
+FRONTMarcheEtDevenir/modules/.vscode
+FRONTMarcheEtDevenir/.vimrc
+FRONTMarcheEtDevenir/.nvimrc
 
 # Don't check in secret files
-/FRONTMarcheEtDevenir/*secret.js
+FRONTMarcheEtDevenir/*secret.js
 
 # Ignore npm/yarn debug log
-/FRONTMarcheEtDevenir/npm-debug.log
-/FRONTMarcheEtDevenir/yarn-error.log
+FRONTMarcheEtDevenir/npm-debug.log
+FRONTMarcheEtDevenir/yarn-error.log
 
 # build-analytics
-/FRONTMarcheEtDevenir/.build-analytics
+FRONTMarcheEtDevenir/.build-analytics
 
 # rollup-test output
-/FRONTMarcheEtDevenir/modules/rollup-test/dist/
+FRONTMarcheEtDevenir/modules/rollup-test/dist/
 
 # User specific bazel settings
-/FRONTMarcheEtDevenir/.bazelrc.user
+FRONTMarcheEtDevenir/.bazelrc.user
 
 # User specific ng-dev settings
-/FRONTMarcheEtDevenir/.ng-dev.user*
+FRONTMarcheEtDevenir/.ng-dev.user*
 
-/FRONTMarcheEtDevenir/.notes.md
-/FRONTMarcheEtDevenir/baseline.json
+FRONTMarcheEtDevenir/.notes.md
+FRONTMarcheEtDevenir/baseline.json
 
 # Ignore .history for the xyz.local-history VSCode extension
-/FRONTMarcheEtDevenir/.history
+FRONTMarcheEtDevenir/.history
 
 # Husky
-/FRONTMarcheEtDevenir/.husky/_
+FRONTMarcheEtDevenir/.husky/_
 
 
 # Ignore cache created with the Angular CLI.
-/FRONTMarcheEtDevenir/.angular/
+FRONTMarcheEtDevenir/.angular/
 
 # Ignore AIO files, useful when changing branches 
 aio/node_modules
-/FRONTMarcheEtDevenir/aio/out-tsc
+FRONTMarcheEtDevenir/aio/out-tsc
 
 /APIMarcheEtDeviens/APIMarcheEtDeviens/obj/
 /.vs/
@@ -167,3 +167,4 @@ APIMarcheEtDeviens/APIMarcheEtDeviens/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAna
 APIMarcheEtDeviens/APIMarcheEtDeviens/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.resources.dll
 APIMarcheEtDeviens/APIMarcheEtDeviens/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
 APIMarcheEtDeviens/APIMarcheEtDeviens/bin/Debug/net8.0/appsettings.json
+FrontMarcheEtDevenir/package-lock.json
