@@ -1,6 +1,6 @@
 import { ReactiveFormsModule } from '@angular/forms';
 import { Component, Injectable } from '@angular/core';
-import { FormulaireInscriptionServiceService } from '../../services/formulaire-inscription-service'
+// import { FormulaireInscriptionServiceService } from '../../services/formulaire-inscription-service'
 
 
 @Component({
@@ -17,10 +17,12 @@ export class FormulaireInscriptionComponent {
 
 
   AjoutRandonneur() {
-    
+    // Code
   }
 
- 
+ CreerCompte() {
+  // Code
+ }
  
 
 }
