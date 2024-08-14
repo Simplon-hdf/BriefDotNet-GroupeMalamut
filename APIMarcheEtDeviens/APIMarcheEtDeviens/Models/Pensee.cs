@@ -13,7 +13,8 @@ namespace APIMarcheEtDeviens.Models
 		public string ?NomDeLaPensee { get; set; }
 
 		public string ?ContenuPensee { get; set; }
-		public DateTime Date {  get; set; }
+		public DateTime DateDeCreation { get; set; } = DateTime.Now;
+		public DateTime DateDeMaj { get; set; } = DateTime.Now;
 
 		[ForeignKey("MediaId")]
 		public Media ?Media { get; set; }

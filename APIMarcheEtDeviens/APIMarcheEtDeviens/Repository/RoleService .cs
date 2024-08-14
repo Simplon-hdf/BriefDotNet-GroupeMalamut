@@ -1,11 +1,12 @@
 ﻿using APIMarcheEtDeviens.Data;
 using APIMarcheEtDeviens.Models;
+using APIMarcheEtDeviens.Services;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
 namespace APIMarcheEtDeviens.Repository
 {
-	public class RoleService : IController<int, RoleDto>
+    public class RoleService : IController<int, RoleDto>
 	{
 		private readonly DataContext _DbContext;
 		private readonly IMapper _mapper;

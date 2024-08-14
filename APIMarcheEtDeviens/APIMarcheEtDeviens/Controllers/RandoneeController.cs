@@ -1,16 +1,18 @@
 ﻿using APIMarcheEtDeviens.Data;
-using APIMarcheEtDeviens.Models;
 using APIMarcheEtDeviens.Repository;
+using APIMarcheEtDeviens.Services;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace APIMarcheEtDeviens.Controllers
 {
-	[Route("api/[controller]")]
+    [Route("api/[controller]")]
 	[ApiController]
 	public class RandoneeController : ControllerBase
 	{
 		private readonly IController<Guid, RandonneeDto> randonneeService;
+
 		public RandoneeController(IController<Guid, RandonneeDto> service)
 		{
 			randonneeService = service;
@@ -33,6 +35,7 @@ namespace APIMarcheEtDeviens.Controllers
 
 			return Ok(result);
 		}
+
 
 		[HttpPost]
 
