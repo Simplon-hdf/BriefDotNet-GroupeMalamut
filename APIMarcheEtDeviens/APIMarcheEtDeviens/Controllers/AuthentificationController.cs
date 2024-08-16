@@ -1,6 +1,7 @@
 ﻿using APIMarcheEtDeviens.Data;
 using APIMarcheEtDeviens.Models;
 using APIMarcheEtDeviens.Services;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -26,7 +27,8 @@ namespace APIMarcheEtDeviens.Controllers
 
 
 
-		// methode d'enregistrement du mail est du mot de passe (le mdp est sale et hashe)
+		// methode d'enregistrement du mail est du mot de passe (le mdp est  hashe)
+		[EnableCors]
 		[HttpPost("enregistrer")]
 		public ActionResult<Randonneur> Enregistrer(RandonneurDTO requete)
 		{
