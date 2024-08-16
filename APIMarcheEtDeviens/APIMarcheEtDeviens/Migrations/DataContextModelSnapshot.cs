@@ -47,7 +47,7 @@ namespace APIMarcheEtDeviens.Migrations
 
                     b.HasIndex("RandonneeId");
 
-                    b.ToTable("Media");
+                    b.ToTable("Media", (string)null);
                 });
 
             modelBuilder.Entity("APIMarcheEtDeviens.Models.Participant", b =>
@@ -57,11 +57,9 @@ namespace APIMarcheEtDeviens.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<string>("RandonneeId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("RandonneurId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(128)");
 
                     b.HasKey("ParticiperId");
@@ -70,7 +68,7 @@ namespace APIMarcheEtDeviens.Migrations
 
                     b.HasIndex("RandonneurId");
 
-                    b.ToTable("Participer");
+                    b.ToTable("Participer", (string)null);
                 });
 
             modelBuilder.Entity("APIMarcheEtDeviens.Models.Pensee", b =>
@@ -98,7 +96,7 @@ namespace APIMarcheEtDeviens.Migrations
 
                     b.HasIndex("MediaId");
 
-                    b.ToTable("Pensee");
+                    b.ToTable("Pensee", (string)null);
                 });
 
             modelBuilder.Entity("APIMarcheEtDeviens.Models.Randonnee", b =>
@@ -150,7 +148,7 @@ namespace APIMarcheEtDeviens.Migrations
 
                     b.HasKey("RandonneeId");
 
-                    b.ToTable("Randonnee");
+                    b.ToTable("Randonnee", (string)null);
                 });
 
             modelBuilder.Entity("APIMarcheEtDeviens.Models.Randonneur", b =>
@@ -181,7 +179,7 @@ namespace APIMarcheEtDeviens.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("RoleId")
+                    b.Property<int?>("RoleId")
                         .HasColumnType("int");
 
                     b.Property<int?>("Telephone")
@@ -191,7 +189,7 @@ namespace APIMarcheEtDeviens.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("Randonneur");
+                    b.ToTable("Randonneur", (string)null);
                 });
 
             modelBuilder.Entity("APIMarcheEtDeviens.Models.Role", b =>
@@ -206,7 +204,7 @@ namespace APIMarcheEtDeviens.Migrations
 
                     b.HasKey("RoleId");
 
-                    b.ToTable("Role");
+                    b.ToTable("Role", (string)null);
                 });
 
             modelBuilder.Entity("APIMarcheEtDeviens.Models.Media", b =>
@@ -222,15 +220,11 @@ namespace APIMarcheEtDeviens.Migrations
                 {
                     b.HasOne("APIMarcheEtDeviens.Models.Randonnee", "Randonnee")
                         .WithMany("Participers")
-                        .HasForeignKey("RandonneeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RandonneeId");
 
                     b.HasOne("APIMarcheEtDeviens.Models.Randonneur", "Randonneur")
                         .WithMany("Participers")
-                        .HasForeignKey("RandonneurId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RandonneurId");
 
                     b.Navigation("Randonnee");
 
@@ -250,9 +244,7 @@ namespace APIMarcheEtDeviens.Migrations
                 {
                     b.HasOne("APIMarcheEtDeviens.Models.Role", "Role")
                         .WithMany("Randonneurs")
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RoleId");
 
                     b.Navigation("Role");
                 });
