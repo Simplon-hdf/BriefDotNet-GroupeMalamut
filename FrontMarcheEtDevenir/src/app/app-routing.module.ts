@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'admin/ajoutrandonnee', component: CreationOffreComponent },
    { path: 'user/profil', component: ProfilPageComponent },
    { path: 'concept', component: ConceptComponent },
-   { path: 'offreRandonnees', component: OffreRandonneesComponent, }
+   { path: 'offreRandonnees', component: OffreRandonneesComponent},
   { path: 'contact', component: ContactPageComponent },
   { path: '', pathMatch: 'full', component: PageAccueilComponent },
   {  path: 'login', component: PageInscriptionConnectionComponent}
