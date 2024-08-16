@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { FormulaireInscriptionComponent } from './formulaire-inscription/formulaire-inscription.component';
 import { FormulaireConnexionComponent } from './formulaire-connexion/formulaire-connexion.component';
 
