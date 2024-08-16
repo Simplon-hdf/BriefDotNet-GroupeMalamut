@@ -15,9 +15,9 @@ const routes: Routes = [
    { path: 'offreRandonnees', component: OffreRandonneesComponent},
   { path: 'contact', component: ContactPageComponent },
   { path: '', pathMatch: 'full', component: PageAccueilComponent },
-  {  path: 'login', component: PageInscriptionConnectionComponent}
+  {  path: 'login', component: PageInscriptionConnectionComponent},
 
-  //{ path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '' }
 ];
 
 

@@ -37,7 +37,6 @@
     align-items: center;
     padding: 20px; /* Ajout de padding */
     background-color: #C5C5A9;
-    cursor: pointer;
     width: 100%;
     height: 73vh;
     box-sizing: border-box; /* Assure que le padding est inclus dans la largeur et la hauteur */
