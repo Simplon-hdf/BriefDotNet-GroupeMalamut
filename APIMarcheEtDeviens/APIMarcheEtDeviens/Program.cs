@@ -25,7 +25,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 builder.Services.AddAuthentication();
 
-builder.Services.AddEntityApiFramework;
+//builder.Services.AddEntityApiFramework;
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
