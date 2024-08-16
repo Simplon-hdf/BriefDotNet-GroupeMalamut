@@ -3,6 +3,7 @@ using System;
 using APIMarcheEtDeviens.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APIMarcheEtDeviens.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240814120543_Participant-Guids")]
+    partial class ParticipantGuids
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -181,7 +184,7 @@ namespace APIMarcheEtDeviens.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("RoleId")
+                    b.Property<int?>("RoleId")
                         .HasColumnType("int");
 
                     b.Property<int?>("Telephone")
@@ -250,9 +253,7 @@ namespace APIMarcheEtDeviens.Migrations
                 {
                     b.HasOne("APIMarcheEtDeviens.Models.Role", "Role")
                         .WithMany("Randonneurs")
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RoleId");
 
                     b.Navigation("Role");
                 });
