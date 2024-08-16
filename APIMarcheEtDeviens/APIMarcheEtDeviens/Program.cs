@@ -4,8 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using APIMarcheEtDeviens.Services;
 using AutoMapper;
 using APIMarcheEtDeviens.Mapping;
+using Microsoft.AspNetCore.WebUtilities;
 
 var builder = WebApplication.CreateBuilder(args);
+var originFormulaire = "Formulaire";
 
 // Add services to the container.
 
@@ -33,18 +35,28 @@ var config = new MapperConfiguration(cfg => {
 	cfg.AddProfile<AutomapperProfile>();
 });
 
-var app = builder.Build();
 
+
+builder.Services.AddCors(options =>
+{
+	options.AddPolicy("AutoriserunOriginSpecific",
+		builder => builder.WithOrigins("http://localhost:4200")
+		.AllowAnyHeader()
+		.AllowAnyMethod());
+});
+
+var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseCors(options =>
-options.WithOrigins("http://localhost:7157")
+
+app.UseCors("AutoriserunOriginSpecific"/*options =>
+options.WithOrigins("http://localhost:4200/")
 .AllowAnyMethod()
-.AllowAnyHeader());
+.AllowAnyHeader()*/);
 
 app.UseHttpsRedirection();
 
