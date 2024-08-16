@@ -1,12 +1,12 @@
 ﻿using APIMarcheEtDeviens.Data;
-using APIMarcheEtDeviens.Models;
 using APIMarcheEtDeviens.Repository;
+using APIMarcheEtDeviens.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace APIMarcheEtDeviens.Controllers
 {
-	[Route("api/[controller]")]
+    [Route("api/[controller]")]
 	[ApiController]
 	public class MediaController : ControllerBase
 	{

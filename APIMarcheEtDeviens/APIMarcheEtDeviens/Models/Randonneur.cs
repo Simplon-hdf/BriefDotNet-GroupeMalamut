@@ -15,17 +15,14 @@ namespace APIMarcheEtDeviens.Models
 		[Column(TypeName = "nvarchar(50)")]
 		public string Prenom { get; set; }
 
-		[Column(TypeName = "nvarchar(50)")]
+		[Column(TypeName = "longtext")]
 		public string MotDePasse { get; set; }
 
 		[Column(TypeName = "nvarchar(50)")]
 		public string Mail { get; set; }
-
-
-		public byte[] MotDePasseHash { get; set; }
-
-		// ajoute une chaine de caractère au mdp pour plus de sécurité
-		public byte[] MotDePasseSalt { get; set; }
+		public int? Telephone { get; set; }
+		public DateTime DateDeCreation { get; set; } = DateTime.Now;
+		public DateTime DateDeMaj { get; set; } = DateTime.Now;
 
 		#region FK
 
@@ -33,7 +30,7 @@ namespace APIMarcheEtDeviens.Models
 		public Role? Role { get; set; }
 
 		[InverseProperty("Randonneur")]
-		public virtual ICollection<Participer> Participers { get; set; }
+		public virtual ICollection<Participant> Participers { get; set; }
 		#endregion
 
 	}

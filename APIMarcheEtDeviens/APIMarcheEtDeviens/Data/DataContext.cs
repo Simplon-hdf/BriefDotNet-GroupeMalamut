@@ -7,7 +7,7 @@ namespace APIMarcheEtDeviens.Data
 	public class DataContext : DbContext
 	{
 		public DbSet<Media> Media { get; set; }
-		public DbSet<Participer> Participer { get; set; }
+		public DbSet<Participant> Participer { get; set; }
 		public DbSet<Randonnee> Randonnee { get; set; }
 		public DbSet<Randonneur> Randonneur { get; set; }
 		public DbSet<Role> Role { get; set; }

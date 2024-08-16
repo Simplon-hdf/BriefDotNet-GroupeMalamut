@@ -16,6 +16,9 @@ namespace APIMarcheEtDeviens.Models
 		[Column(TypeName = "nvarchar(50)")]
 		public string ?NomMedia { get; set; }
 
+		public DateTime DateDeCreation { get; set; } = DateTime.Now; 
+		public DateTime DateDeMaj {  get; set; } = DateTime.Now;
+
 		[ForeignKey("RandonneeId")]
 		public Randonnee? Randonnee { get; set; }
 

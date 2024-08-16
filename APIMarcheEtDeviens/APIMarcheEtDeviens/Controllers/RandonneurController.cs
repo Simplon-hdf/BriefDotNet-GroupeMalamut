@@ -1,5 +1,6 @@
 ﻿using APIMarcheEtDeviens.Data;
 using APIMarcheEtDeviens.Models;
+using APIMarcheEtDeviens.Services;
 using APIMarcheEtDeviens.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,8 +11,8 @@ namespace APIMarcheEtDeviens.Controllers
 	[ApiController]
 	public class RandonneurController : ControllerBase
 	{
-		private readonly IController<Guid, Randonneur> randonneurService;
-        public RandonneurController(IController<Guid, Randonneur> service)
+		private readonly IController<Guid, RandonneurDTO> randonneurService;
+        public RandonneurController(IController<Guid, RandonneurDTO> service)
 		
 		
 		{
@@ -19,7 +20,7 @@ namespace APIMarcheEtDeviens.Controllers
 		}
 
 		[HttpGet]
-		public async Task<ActionResult<List<Randonneur>>> GetAllRandonneurs()
+		public async Task<ActionResult<List<RandonneurDTO>>> GetAllRandonneurs()
 		{
 			var result = await randonneurService.GetAll();
 
@@ -27,7 +28,7 @@ namespace APIMarcheEtDeviens.Controllers
 		}
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Randonneur>> GetRandonneurById(Guid id)
+        public async Task<ActionResult<RandonneurDTO>> GetRandonneurById(Guid id)
         {
             var result = await randonneurService.GetById(id);
             if (result is null)
@@ -36,9 +37,9 @@ namespace APIMarcheEtDeviens.Controllers
             return Ok(result);
         }
 
-        [HttpPost]
+		[HttpPost]
 
-        public async Task<ActionResult<List<Randonneur>>> AddRole(Randonneur randonneur)
+        public async Task<ActionResult<List<RandonneurDTO>>> AddRole(RandonneurDTO randonneur)
         {
             var result = await randonneurService.Add(randonneur);
             if (result is null)
@@ -48,7 +49,7 @@ namespace APIMarcheEtDeviens.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<Randonneur>>> DeleteRole(Guid id)
+        public async Task<ActionResult<List<RandonneurDTO>>> DeleteRole(Guid id)
         {
             var result = await randonneurService.DeleteById(id);
             if (result is null)
@@ -58,7 +59,7 @@ namespace APIMarcheEtDeviens.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<List<Randonneur>>> Update(Guid id, Randonneur randonneur)
+        public async Task<ActionResult<List<RandonneurDTO>>> Update(Guid id, RandonneurDTO randonneur)
         {
             var result = await randonneurService.Update(id, randonneur);
             if (result is null)

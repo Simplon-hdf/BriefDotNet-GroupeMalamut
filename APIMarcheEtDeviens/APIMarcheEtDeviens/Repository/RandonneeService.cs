@@ -1,76 +1,88 @@
 ﻿using APIMarcheEtDeviens.Data;
 using APIMarcheEtDeviens.Models;
+using APIMarcheEtDeviens.Services;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
 namespace APIMarcheEtDeviens.Repository
 {
-	public class RandonneeService : IController<Guid, Randonnee>
+    public class RandonneeService : IController<Guid, RandonneeDto>
 	{
-		private readonly DataContext _dataContext;
-		public RandonneeService(DataContext dataContext)
+		private readonly DataContext _DbContext;
+		private readonly IMapper _mapper;
+		public RandonneeService(DataContext dataContext, IMapper mapper)
 		{
-
-			_dataContext = dataContext;
+			_DbContext = dataContext;
+			_mapper = mapper;
 		}
 
 
 		//ajouter un randonneur
-		public async Task<List<Randonnee>> Add(Randonnee randonnee)
+		public async Task<List<RandonneeDto>> Add(RandonneeDto randonnee)
 		{
-			_dataContext.Randonnee.Add(randonnee);
-			await _dataContext.SaveChangesAsync();
+			var rando = _mapper.Map<Randonnee>(randonnee);
+			rando.RandonneeId = Guid.NewGuid();
 
-			return await _dataContext.Randonnee.ToListAsync();
+			_DbContext.Randonnee.Add(rando);
+			await _DbContext.SaveChangesAsync();
+
+			return await _DbContext.Randonnee.Select(randonnee => _mapper.Map<RandonneeDto>(randonnee)).ToListAsync();
 		}
-		public async Task<List<Randonnee>> GetAll()
+		public async Task<List<RandonneeDto>> GetAll()
 		{
-			return await _dataContext.Randonnee.ToListAsync();
+			return await _DbContext.Randonnee.Select(rando => _mapper.Map<RandonneeDto>(rando)).ToListAsync();
 		}
 
-		public async Task<Randonnee?> GetById(Guid id)
+		public async Task<RandonneeDto?> GetById(Guid id)
 		{
-			var randonnee = _dataContext.Randonnee.Find(id);
+			var randonnee = _DbContext.Randonnee.Find(id);
 			if (randonnee == null) 
 			{
 				return null;
 			}
-			return randonnee;
+
+			var dtoResult = _mapper.Map<RandonneeDto>(randonnee);
+
+			return dtoResult;
 		}
 
-		public async Task<List<Randonnee?>> Update(Guid id, Randonnee request)
+		public async Task<List<RandonneeDto?>> Update(Guid id, RandonneeDto request)
 		{
-			var dbRandonnee = _dataContext.Randonnee.Find(id);
+			var dbRandonnee = _DbContext.Randonnee.Find(id);
 			if (dbRandonnee == null)
 			{
 				return null;
 			}
-			dbRandonnee.Date = request.Date;
-			dbRandonnee.Description = request.Description;
+
+			dbRandonnee.NombreMaxPersonnes = request.NombreMaxPersonnes;
+			dbRandonnee.NombreMinPersonnes = request.NombreMinPersonnes;
 			dbRandonnee.Duree = request.Duree;
+			dbRandonnee.Date = request.Date;
+			dbRandonnee.Name = request.Name;
 			dbRandonnee.Pays = request.Pays;
 			dbRandonnee.Region = request.Region;
 			dbRandonnee.Ville = request.Ville;
 			dbRandonnee.PrixTotal = request.PrixTotal;
-			dbRandonnee.NombreMaxPersonnes = request.NombreMaxPersonnes;
-			
+			dbRandonnee.Description = request.Description;
+			dbRandonnee.DateDeMaj = DateTime.Now;
 
-			await _dataContext.SaveChangesAsync();
+			await _DbContext.SaveChangesAsync();
 
-			return await _dataContext.Randonnee.ToListAsync();
+			return await _DbContext.Randonnee.Select(rando => _mapper.Map<RandonneeDto>(rando)).ToListAsync();
 		}
 
 		//supprimer une randonnee
-		public async Task<List<Randonnee?>> DeleteById(Guid id)
+		public async Task<List<RandonneeDto?>> DeleteById(Guid id)
 		{
-			var randonnee = _dataContext.Randonnee.Find(id);
+			var randonnee = _DbContext.Randonnee.Find(id);
 			if (randonnee == null)
 			{
 				return null;
 			}
-			_dataContext.Randonnee.Remove(randonnee);
-			await _dataContext.SaveChangesAsync();
+			_DbContext.Randonnee.Remove(randonnee);
+			await _DbContext.SaveChangesAsync();
 
-			return await _dataContext.Randonnee.ToListAsync();
+			return await _DbContext.Randonnee.Select(rando => _mapper.Map<RandonneeDto>(rando)).ToListAsync();
 		}
 	}
 }

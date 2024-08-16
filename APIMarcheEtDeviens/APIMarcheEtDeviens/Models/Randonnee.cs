@@ -24,10 +24,13 @@ namespace APIMarcheEtDeviens.Models
 		public float PrixTotal { get; set; }
 		public int Duree { get; set; }
 		public string Description { get; set; }
+		public int NombreMinPersonnes { get; set; }
 		public int NombreMaxPersonnes { get; set; }
+		public DateTime DateDeCreation { get; set; } = DateTime.Now;
+		public DateTime DateDeMaj { get; set; } = DateTime.Now;
 
 		[InverseProperty("Randonnee")]
-		public virtual ICollection<Participer> Participers { get; set; }
+		public virtual ICollection<Participant> Participers { get; set; }
 
 		[InverseProperty("Randonnee")]
 		public virtual ICollection<Media> Medias { get; set; }

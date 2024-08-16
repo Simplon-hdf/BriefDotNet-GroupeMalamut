@@ -1,0 +1,291 @@
+* {
+    font-family: 'open sans', sans-serif;
+    box-sizing: border-box;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 100px;
+
+}
+
+.boutons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #535953;
+    color: white;
+    width: 350px;
+    height: 75px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 45px;
+    font-weight: 450;
+    letter-spacing: 1px;
+    margin: 1px; /* Ajout de marge */
+    position: relative;
+    top:70px;    
+}
+
+/* Pour titre */
+
+.hero-page_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Ajout de padding */
+    background-color: #C5C5A9;
+    cursor: pointer;
+    width: 100%;
+    height: 73vh;
+    box-sizing: border-box; /* Assure que le padding est inclus dans la largeur et la hauteur */
+    margin-bottom: 80px; /* Ajout de marge */
+}
+
+.hero-page_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    font-size: 60px;
+    margin-bottom: 20px; /* Augmentation de la marge */
+    color: #000000;
+}
+
+.hero-page_subtitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: lighter;
+    padding:15px; /* Augmentation du padding */
+}
+
+/* Partie présentation */
+
+.presentation-container {
+    border: 2px solid #8C8989;
+    padding: 20px; /* Augmentation du padding */
+    border-radius: 5px;
+    margin-bottom: 80px; /* Augmentation de la marge */
+    height: 299px;
+    width: 65%;
+    background-color: #8C8989;
+    margin-left: 260px;
+    margin-right: auto;
+    cursor: pointer;
+    position: relative;
+}
+
+.presentation-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    font-size: 25px;
+    margin-bottom: 35px; /* Augmentation de la marge */
+    color: #000000;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: #8C8989;
+    color: white;
+    padding: 20px; /* Ajout de padding */
+}
+
+.video-info {
+    position: absolute;
+    right: -300px;
+    top: 70px;
+}
+
+.btnEnSavoirPlus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #535953;
+    color: white;
+    width: 200px;
+    height: 45px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 450;
+    letter-spacing: 0.5px;
+    margin: 10px; /* Ajout de marge */
+}
+
+/* Partie événements */
+
+.evenements-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+    margin-bottom: 30px; /* Augmentation de la marge */
+    color: #000000;
+}
+
+.evenements-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+    margin-bottom: 10px; /* Augmentation de la marge */
+    padding: 20px; /* Ajout de padding */
+}
+
+.evenements-container {
+    border: 2px solid #8C8989;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #C5C5A9;
+    width: 427px;
+    height: auto;
+    margin: 10px; /* Augmentation de la marge */
+}
+
+.evenement-image-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    margin-bottom: 80px; /* Augmentation de la marge */
+    color: #000000;
+    text-align: center; 
+}
+
+.image-evenement {
+    width: 30%;
+    height: 30%;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.details-evenement {
+    text-align: center;
+}
+
+.divBtnDevis {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin-bottom: 20px; /* Augmentation de la marge */
+}
+
+.btnDevis {
+    background-color: #535953;
+    color: white;
+    width: 200px;
+    height: auto;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 450;
+    letter-spacing: 0.5px;
+    text-align: center;
+    margin: 30px; /* Ajout de marge */
+}
+
+/* Partie cohésion */
+
+.venez-seuls-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+    color: #000000;
+}
+
+.venez-seuls-subtitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: lighter;
+    margin-bottom: 70px;
+}
+
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh; 
+    
+}
+
+/* Partie carousel avis */
+
+.cohesion-container {
+    display: flex;
+    justify-content: center;
+    border : 2px solid #8C8989;
+    height: 300px;
+    width: 65%;
+    gap: 150px;
+    margin-bottom: 80px; /* Augmentation de la marge */
+    background-color: #C5C5A9;
+    align-items: center;
+    padding: 30px; /* Ajout de padding */
+}
+
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 65%;
+    background-color: #C5C5A9;
+    color: white;
+    margin-bottom: 60px; /* Augmentation de la marge */
+    border: 2px solid #8C8989;
+    padding: 30px; /* Ajout de padding */
+}
+
+.carousel-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:150px;
+    margin-bottom: 90px; /* Ajout de marge */
+}
+
+/* Partie "ils nous ont fait confiance" */
+
+.confiance-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:150px;
+    margin-bottom: 60px; /* Augmentation de la marge */
+    color: #000000;
+}
+
+.confiance-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+    margin-bottom: 80px; /* Augmentation de la marge */
+    padding: 30px; /* Ajout de padding */
+}
+
+.confiance-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #8C8989;
+    height: 368px;
+    width: 15%;
+    background-color: #C5C5A9;
+    margin-bottom: 80px; /* Augmentation de la marge */
+    padding: 30px; /* Ajout de padding */
+}

@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using APIMarcheEtDeviens.Data;
 using APIMarcheEtDeviens.Models;
 using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
+using APIMarcheEtDeviens.Services;
 
 
 namespace APIMarcheEtDeviens.Repository
@@ -11,13 +11,13 @@ namespace APIMarcheEtDeviens.Repository
 
     {
         private readonly DataContext _DbContext;
+        private readonly IMapper _mapper;
         public MediaService(DataContext context, IMapper mapper)
         {
             _DbContext = context;
             _mapper = mapper;
         }
 
-        private readonly IMapper _mapper;
 
         //Fonction qui récupère et affiche une liste des pensées  
         public async Task<List<MediaDto>?> GetAll()
@@ -44,18 +44,7 @@ namespace APIMarcheEtDeviens.Repository
         public async Task<List<MediaDto>> Add(MediaDto media)
         {
             var mediaInput = _mapper.Map<Media>(media);
-
-            Randonnee randonnee;
-            if (media.NomRandonnee is null || media.NomRandonnee == "")
-            {
-                mediaInput.Randonnee = null;
-            }
-            else
-            {
-                randonnee = await _DbContext.Randonnee.FirstOrDefaultAsync(c => c.Name == media.NomRandonnee);
-                mediaInput.Randonnee = randonnee;
-            }
-           
+            mediaInput.MediaId = Guid.NewGuid();
 
             _DbContext.Media.Add(mediaInput);
             await _DbContext.SaveChangesAsync();
@@ -70,7 +59,9 @@ namespace APIMarcheEtDeviens.Repository
             if(dbMedia == null)
                 return null;
 
-            dbMedia = _mapper.Map<Media>(request);
+            dbMedia.CheminDuMedia = request.CheminDuMedia;
+            dbMedia.NomMedia = request.NomMedia;
+            dbMedia.TypeMedia = request.TypeMedia;
 
             await _DbContext.SaveChangesAsync();
 
