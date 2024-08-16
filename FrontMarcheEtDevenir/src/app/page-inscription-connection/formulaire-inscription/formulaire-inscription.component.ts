@@ -28,7 +28,9 @@ constructor(public service: FormulaireInscriptionService){}
     })
   }
 
- 
+ CreerCompte() {
+  // Code
+ }
  
 
 }
