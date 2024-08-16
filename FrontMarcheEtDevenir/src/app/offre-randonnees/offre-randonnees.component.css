@@ -11,16 +11,13 @@ section {
   align-items:center;
   height: auto;
   width: 100%;
-  background-color:orange;
 }
 
 .img_sejourGroupe {
   display: flex;
   justify-content: space-around;
-  width: 950px;
-  height: 400px;
+  height: 700px;
   margin: 140px 0;
-  background-color:red;
 }
 
 img{
@@ -53,7 +50,6 @@ p {
 
 .sejours_courts{
     width: 100%;
-    background-color:antiquewhite;
     margin-top:30px;
 }
 
@@ -76,14 +72,12 @@ p {
  
   width: 250px;
   height: 400px;
-  background-color: darkred;
   margin: 60px 15px 80px 15px;
 
 }
 
   .card p {
     width: 240px;
-    background-color: pink;
     font-size: 16px;
     text-align: center;
     margin-left:5px;
@@ -104,7 +98,6 @@ p {
 }
 
 button {
-  background-color: palevioletred;
   width: 251px;
   height:200px;
   padding:30px;
