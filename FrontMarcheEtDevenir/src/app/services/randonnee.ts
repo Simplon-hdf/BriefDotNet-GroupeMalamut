@@ -1,5 +1,5 @@
 export class Randonnee {
-  DateTime: Date = new Date()
+  Date: Date = new Date()
 	Name : string = ""
 	Pays : string = ""
 	Region : string = ""
