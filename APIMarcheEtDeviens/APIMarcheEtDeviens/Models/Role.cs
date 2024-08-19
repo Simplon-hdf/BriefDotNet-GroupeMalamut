@@ -6,7 +6,7 @@ namespace APIMarcheEtDeviens.Models
 	public class Role
 	{
 		[Key]
-		public int RoleId { get; set; }
+		public Guid RoleId { get; set; }
 
 		[Column(TypeName = "nvarchar(50)")]
 		public string Libelle { get; set; }

@@ -7,6 +7,8 @@ namespace APIMarcheEtDeviens.Models
 	{
 		[Key]
 		public Guid ParticiperId { get; set; }
+		public Guid RandonneurId { get; set; }
+		public Guid RandonneeId { get; set; }
 
 		[ForeignKey("RandonneurId")]
 		public Randonneur? Randonneur { get; set; }
