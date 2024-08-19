@@ -1,68 +1,82 @@
 <div class="container">
-<form method="post">
+<form #form="ngForm" (submit)="onSubmit(form)">
 
   <div class="form-group">
     <label for="date">Date de la randonnée</label>
-    <input type="date" class="form-control" id="date" required
-           name="date" />
+    <input type="date" class="form-control" id="date"
+          name="date" #date="ngModel"
+           [(ngModel)]="service.FormData.Date" required />
   </div>
 
   <div class="form-group">
     <label for="pays">Pays</label>
-    <input type="text" class="form-control" id="pays" required
-           name="pays" />
+    <input type="text" class="form-control" id="pays"
+         name="pays"  #pays="ngModel"
+           [(ngModel)]="service.FormData.Pays" required />
   </div>
 
   <div class="form-group">
     <label for="region">Region</label>
     <input type="text" class="form-control" id="region"
-           name="region" />
+         name="region"  #region="ngModel"
+           [(ngModel)]="service.FormData.Region" />
   </div>
 
   <div class="form-group">
     <label for="ville">Commune de départ</label>
-    <input type="text" class="form-control" id="ville" required
-           name="ville" />
+    <input type="text" class="form-control" id="ville"
+         name="ville"  #ville="ngModel"
+           [(ngModel)]="service.FormData.Ville" required />
   </div>
 
   <div class="form-group">
-    <label for="prix">Prix total</label>
-    <input type="number" class="form-control" id="prix" required
-           name="prix" />
+    <label for="prixTotal">Prix total</label>
+    <input type="number" class="form-control" id="prix"
+         name="prixTotal"  #prixTotal="ngModel"
+           [(ngModel)]="service.FormData.PrixTotal" required />
   </div>
 
   <div class="form-group">
     <label for="duree">Durée</label>
-    <input type="text" class="form-control" id="duree" required
-           name="duree" />
+    <input type="text" class="form-control" id="duree" 
+          name="duree" #duree="ngModel"
+            [(ngModel)]="service.FormData.Duree" required />
   </div>
 
   <div class="form-group">
     <label for="nb-min-participants">Nombre minimum de participants</label>
-    <input type="number" class="form-control" id="nb-min-participants" required
-           name="nb-min-participants" />
+    <input type="number" class="form-control" id="nb-min-participants" 
+        name="nb-min-participants"   #nombreMinPersonnes="ngModel"
+          [(ngModel)]="service.FormData.NombreMinPersonnes" required />
   </div>
 
   <div class="form-group">
     <label for="nb-max-participants">Nombre maximum de participants</label>
-    <input type="number" class="form-control" id="nb-max-participants" required
-           name="nb-max-participants" />
+    <input type="number" class="form-control" id="nb-max-participants" 
+         name="nb-max-participants"  #nombreMaxPersonnes="ngModel"
+            [(ngModel)]="service.FormData.NombreMaxPersonnes" required />
   </div>
 
   <div class="form-group">
     <label for="nom">Nom de la randonnée</label>
-    <input type="text" class="form-control" id="nom" required
-           name="nom" />
+    <input type="text" class="form-control" id="nom"
+          name="nom"  #nom="ngModel"
+            [(ngModel)]="service.FormData.Name"
+           required
+           />
   </div>
 
   <div class="form-group">
     <label for="description">Description</label>
-    <input type="text" class="form-control" id="description" required
-           name="description" />
+    <input type="text" class="form-control" id="description"
+          name="description"  #description="ngModel"
+            [(ngModel)]="service.FormData.Description"
+           required
+           />
   </div>
+<input type="submit" class="submit"/>
 
 </form>
 
-<input type="submit" class="submit"/>
 </div>
 
