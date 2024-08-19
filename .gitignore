@@ -65,11 +65,13 @@ FRONTMarcheEtDevenir/.angular/
 aio/node_modules
 FRONTMarcheEtDevenir/aio/out-tsc
 
+/APIMarcheEtDeviens/APIMarcheEtDeviens/appsettings.json
 /APIMarcheEtDeviens/APIMarcheEtDeviens/obj/
 /.vs/
 /APIMarcheEtDeviens/.vs/
 /APIMarcheEtDeviens/APIMarcheEtDeviens/bin/
 ./APIMarcheEtDeviens/APIMarcheEtDeviens/bin/Debug/net8.0/
+
 APIMarcheEtDeviens/APIMarcheEtDeviens/bin/Debug/net8.0/APIMarcheEtDeviens.deps.json
 APIMarcheEtDeviens/APIMarcheEtDeviens/bin/Debug/net8.0/APIMarcheEtDeviens.dll
 APIMarcheEtDeviens/APIMarcheEtDeviens/bin/Debug/net8.0/APIMarcheEtDeviens.pdb
@@ -170,3 +172,4 @@ APIMarcheEtDeviens/APIMarcheEtDeviens/bin/Debug/net8.0/appsettings.json
 FrontMarcheEtDevenir/package-lock.json
 APIMarcheEtDeviens/APIMarcheEtDeviens/bin/Debug/net8.0/APIMarcheEtDeviens.dll
 APIMarcheEtDeviens/APIMarcheEtDeviens/bin/Debug/net8.0/appsettings.json
+
