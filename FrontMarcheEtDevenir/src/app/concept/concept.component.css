@@ -1,0 +1,307 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Pathway Gothic One", sans-serif;
+}
+
+section {
+  display:block;
+  height: auto;
+  margin: 30px auto;
+}
+
+h2 {
+text-align: center;
+
+}
+
+section p {
+    width : 500px;
+    height : 250px;
+    margin:50px 30px;
+    text-align:center;
+
+}
+
+section img {
+  height: 350px;
+  width: 500px;
+  border-radius:15%;
+  border:solid 1px black;
+  
+}
+
+#histoireParagraphe {
+  width: 500px;
+  height: 150px;
+  margin-right:100px;
+}
+
+#offreParagraphe {
+  width: 375px;
+  height: 150px;
+  margin-top: 150px;
+  
+}
+
+.description {
+    display:flex;
+    margin: 10px;
+    justify-content:space-around;
+
+}
+
+.description2{
+    display:flex;
+    margin: 10px;
+    justify-content: space-around;
+}
+
+.sejour {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: 50px 0 0;
+  padding: 50px;
+  flex-direction:column;
+  justify-content:center;
+}
+
+
+.sejour .descriptionSejour {
+  //display:flex;
+  width: auto;
+  height:700px;
+ 
+}
+
+#titreSejour{
+   margin:0 auto 20px;
+}
+
+.descriptionSejour  p{
+    margin:150px auto 0;
+    text-align:center;
+    padding:25px;
+    //background-color:pink;
+    height:200px;
+    
+}
+
+.container {
+  width: 700px;
+  height: 300px;
+  margin: 0 auto;
+  border-radius: 10px;
+ 
+}
+
+  .container img {
+    position: absolute;
+    width: 700px;
+    height: 450px;
+    border-radius:10px;
+    
+   
+  }
+
+ .container #imageSejour {
+    animation-name: opacite-imageSejour;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+@keyframes opacite-imageSejour {
+  10% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.container #laponie {
+  animation-name: opacite-laponie;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes opacite-laponie {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.container #reflexion {
+  animation-name: opacite-reflexion;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes opacite-reflexion {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+
+.container #sejour {
+  animation-name: opacite-sejour;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes opacite-sejour {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.boutonResa{
+    display:flex;
+    justify-content:space-around;
+    margin:25px;
+    //background-color:red;
+
+}
+
+
+#devis {
+  height: 50px;
+  width: 300px;
+  background-color: #3A5A40;
+  color: white;
+  font-size: 20px;
+  border-radius: 20%;
+  border: solid 0px;
+  cursor: pointer;
+}
+
+  #devis:hover {
+    background-color: #A3B18A;
+    color: #3A5A40;
+  }
+
+#reservation {
+  height: 50px;
+  width: 300px;
+  background-color: #3A5A40;
+  color: white;
+  font-size: 20px;
+  border-radius: 20% ;
+  border: solid 0px;
+  cursor: pointer;
+}
+
+  #reservation:hover {
+    background-color: #A3B18A;
+    color: #3A5A40;
+  }
+
+
+.chien {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 0 0;
+  padding: 50px;
+}
+
+.malamut {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 16px auto;
+}
+
+.adopterMalamut {
+  display: flex;
+  justify-content:space-between;
+  margin: 10px auto;
+  width: 100%;
+}
+
+.chien p {
+  margin: 30px auto 0;
+  text-align: center;
+  height: 200px;
+  width: 600px;
+  padding: 25px;
+}
+.chien img{
+    width:400px;
+    height:250px;
+    
+}
+
+#boutonElevageChien {
+  height: 50px;
+  width: 300px;
+  background-color: #3A5A40;
+  color: white;
+  font-size: 20px;
+  border-radius: 20%;
+  border: solid 0px;
+  cursor: pointer;
+  margin:25px;
+}
+
+#titreChien{
+   margin:0 auto 40px;
+}
+
+
+
+
+
+   
+   
+

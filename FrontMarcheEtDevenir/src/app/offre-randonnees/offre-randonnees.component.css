@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Pathway Gothic One", sans-serif;
+}
+
+section {
+  display: flex;
+  flex-direction:column;
+  align-items:center;
+  height: auto;
+  width: 100%;
+}
+
+.img_sejourGroupe {
+  display: flex;
+  justify-content: space-around;
+  height: 700px;
+  margin: 140px 0;
+}
+
+img{
+      width: 200px;
+      height: 400px;
+      margin:10px;
+      
+ }
+
+p {
+    text-align: center;
+    margin: 30px;
+    font-size: 30px;
+    width: 600px;
+ }
+
+
+#devis {
+  height: 50px;
+  width: 300px;
+  background-color: #3A5A40;
+  color: white;
+  font-size: 20px;
+  border: solid 0px;
+  cursor: pointer;
+  
+}
+
+----------------------------------------------------------------------------------
+
+.sejours_courts{
+    width: 100%;
+    margin-top:30px;
+}
+
+ .cardSejourCourt {
+  display: flex;
+  height:500px;
+  width:850px;
+  background-color: blue;
+  margin:80px auto 150px;
+  
+}
+
+.sejours_courts h1{
+    margin:35px;
+}
+.card {
+ display:flex;
+ flex-direction:column;
+ align-items:flex-start;
+ 
+  width: 250px;
+  height: 400px;
+  margin: 60px 15px 80px 15px;
+
+}
+
+  .card p {
+    width: 240px;
+    font-size: 16px;
+    text-align: center;
+    margin-left:5px;
+  }
+
+.card img{
+    width:250px;
+    height:250px;
+}
+
+.card h3{
+    text-align:center;
+    
+    margin: 5px auto;
+}
+.card h4{
+    margin: 10px auto;
+}
+
+button {
+  width: 251px;
+  height:200px;
+  padding:30px;
+  font-size:20px;
+}
+
+------------------------------------------------------------------------
