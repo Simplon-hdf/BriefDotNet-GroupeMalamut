@@ -23,8 +23,8 @@ namespace APIMarcheEtDeviens.Models
 		public int? Telephone { get; set; }
 		public DateTime DateDeCreation { get; set; } = DateTime.Now;
 		public DateTime DateDeMaj { get; set; } = DateTime.Now;
-
 		#region FK
+		public Guid RoleId { get; set; }
 
 		[ForeignKey("RoleId")]
 		public Role? Role { get; set; }

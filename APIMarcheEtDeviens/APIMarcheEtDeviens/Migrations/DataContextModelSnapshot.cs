@@ -47,7 +47,7 @@ namespace APIMarcheEtDeviens.Migrations
 
                     b.HasIndex("RandonneeId");
 
-                    b.ToTable("Media");
+                    b.ToTable("Media", (string)null);
                 });
 
             modelBuilder.Entity("APIMarcheEtDeviens.Models.Participant", b =>
@@ -68,7 +68,7 @@ namespace APIMarcheEtDeviens.Migrations
 
                     b.HasIndex("RandonneurId");
 
-                    b.ToTable("Participer");
+                    b.ToTable("Participer", (string)null);
                 });
 
             modelBuilder.Entity("APIMarcheEtDeviens.Models.Pensee", b =>
@@ -96,7 +96,7 @@ namespace APIMarcheEtDeviens.Migrations
 
                     b.HasIndex("MediaId");
 
-                    b.ToTable("Pensee");
+                    b.ToTable("Pensee", (string)null);
                 });
 
             modelBuilder.Entity("APIMarcheEtDeviens.Models.Randonnee", b =>
@@ -148,7 +148,7 @@ namespace APIMarcheEtDeviens.Migrations
 
                     b.HasKey("RandonneeId");
 
-                    b.ToTable("Randonnee");
+                    b.ToTable("Randonnee", (string)null);
                 });
 
             modelBuilder.Entity("APIMarcheEtDeviens.Models.Randonneur", b =>
@@ -179,8 +179,8 @@ namespace APIMarcheEtDeviens.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("RoleId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("char(36)");
 
                     b.Property<int?>("Telephone")
                         .HasColumnType("int");
@@ -189,14 +189,14 @@ namespace APIMarcheEtDeviens.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("Randonneur");
+                    b.ToTable("Randonneur", (string)null);
                 });
 
             modelBuilder.Entity("APIMarcheEtDeviens.Models.Role", b =>
                 {
-                    b.Property<int>("RoleId")
+                    b.Property<Guid>("RoleId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("Libelle")
                         .IsRequired()
@@ -204,7 +204,7 @@ namespace APIMarcheEtDeviens.Migrations
 
                     b.HasKey("RoleId");
 
-                    b.ToTable("Role");
+                    b.ToTable("Role", (string)null);
                 });
 
             modelBuilder.Entity("APIMarcheEtDeviens.Models.Media", b =>
