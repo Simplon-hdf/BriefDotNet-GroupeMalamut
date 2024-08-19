@@ -15,6 +15,7 @@ import { CreationOffreService } from '../../services/creation-offre.service';
 @Injectable({ providedIn: 'root' })
 
 export class CreationOffreFormComponent {
+
   constructor(public service: CreationOffreService) { }
 
   onSubmit(form: NgForm) {
@@ -25,5 +26,6 @@ export class CreationOffreFormComponent {
         },
         error: err => { console.log(err) }
       })
+    this.service.formReset();
   }
 }
