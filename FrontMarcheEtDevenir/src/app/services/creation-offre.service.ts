@@ -17,4 +17,8 @@ export class CreationOffreService {
   postEnregistrer() {
     return this.http.post(this.Url, this.FormData)
   }
+
+  formReset() {
+    this.FormData = new Randonnee();
+  }
 }
