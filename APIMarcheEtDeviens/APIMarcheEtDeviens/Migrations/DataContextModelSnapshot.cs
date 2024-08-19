@@ -181,8 +181,8 @@ namespace APIMarcheEtDeviens.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("RoleId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("char(36)");
 
                     b.Property<int?>("Telephone")
                         .HasColumnType("int");
@@ -196,9 +196,9 @@ namespace APIMarcheEtDeviens.Migrations
 
             modelBuilder.Entity("APIMarcheEtDeviens.Models.Role", b =>
                 {
-                    b.Property<int>("RoleId")
+                    b.Property<Guid>("RoleId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("Libelle")
                         .IsRequired()
