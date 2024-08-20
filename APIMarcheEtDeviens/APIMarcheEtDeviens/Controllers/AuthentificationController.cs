@@ -110,8 +110,15 @@ namespace APIMarcheEtDeviens.Controllers
 				new Claim(ClaimTypes.Role, "User")
 			};
 
-			var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(
-				_configuration.GetSection("AppSettings:Token").Value));
+			var secretKey = _configuration.GetValue<string>("Token");
+
+			if (string.IsNullOrEmpty(secretKey))
+			{
+				throw new InvalidOperationException("La clé secrète du token n'est pas configurée.");
+			}
+
+			var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
+
 
 			var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
 
