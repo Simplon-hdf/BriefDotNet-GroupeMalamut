@@ -7,14 +7,17 @@
   font-family: "Pathway Gothic One", sans-serif;
 }
 
-body {
-  background-color: #f5f5f5;
-  color: #333;
+h3 {
+    text-align: center;
+    font-size: 3rem;
+    padding-top: 10vh;
 }
 
-/* Partie boutons */
-
-button {
+section {
+  display: flex;
+  flex-direction:column;
+  align-items:center;
+  height: auto;
   width: 100%;
   height: 50px;
   padding: 10px;
@@ -103,30 +106,9 @@ button:hover {
   background-color: #65b173;
 }
 
-/* Partie sections */
-
-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 40px;
-}
-
-.sejours_courts,
-.sejours_longs {
-  width: 100%;
-  padding: 20px;
-  background-color: #fff;
-  margin-bottom: 40px;
-}
-
-.sejours_courts h1,
-.sejours_longs h1 {
-  margin-top: 30px;
-  margin-bottom: 20px;
-  font-size: 2rem;
-  color: #3a5a40;
+.sejours_courts{
+    width: 100%;
+    margin-top:30px;
 }
 
 /* Partie container / images */
@@ -185,6 +167,4 @@ section {
   margin-top: 10px;
   border-radius: 30px;
 }
-.reservation-btn:hover {
-  background-color: #65b173;
-}
+
