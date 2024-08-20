@@ -1,20 +1,13 @@
-.container {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  width: 70vw;
+h2{
+  display:flex;
+  justify-content:center;
 }
 
 form {
-  grid-column: 1 / 5;
+  display: grid;
+  border-right: solid 3px black;
+  justify-content: center
 }
-
-  form div {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-    justify-content: center;
-  }
 
 input {
   height: 30px;
@@ -22,7 +15,7 @@ input {
 }
 
 .submit {
-  grid-column: 4;
+
   margin-top: 1vh;
 }
 

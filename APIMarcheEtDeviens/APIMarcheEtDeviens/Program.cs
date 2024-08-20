@@ -4,10 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using APIMarcheEtDeviens.Services;
 using AutoMapper;
 using APIMarcheEtDeviens.Mapping;
-
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
-
 
 // Add services to the container.
 
@@ -21,7 +21,7 @@ builder.Services.AddScoped<IController<Guid, PenseeDto>, PenseeService>();
 
 builder.Services.AddDbContext<DataContext>(options =>
 {
-	options.UseMySQL(builder.Configuration.GetConnectionString("DefaultValue"));
+    options.UseMySQL(builder.Configuration.GetConnectionString("DefaultValue"));
 });
 
 builder.Services.AddAuthentication();
@@ -29,23 +29,27 @@ builder.Services.AddAuthentication();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 var config = new MapperConfiguration(cfg => {
-	cfg.AddProfile<AutomapperProfile>();
+    cfg.AddProfile<AutomapperProfile>();
 });
 
 
+// ajout de l'autorisation pour le JWT 
+builder.Services.AddAuthentication();
 
+
+// Ajoutez les services CORS
 builder.Services.AddCors(options =>
 {
-	options.AddPolicy("AutoriserunOriginSpecific",
-		builder => builder.WithOrigins("http://localhost:4200")
-		.AllowAnyHeader()
-		.AllowAnyMethod());
+    options.AddPolicy("AllowSpecificOrigin",
+        builder => builder.WithOrigins("http://localhost:4200")
+            .AllowAnyMethod()
+            .AllowAnyHeader());
 });
 
 var app = builder.Build();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -53,7 +57,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors("AutoriserunOriginSpecific");
+// Utilisez la politique CORS configurée
+app.UseCors("AllowSpecificOrigin");
+
+
 
 app.UseHttpsRedirection();
 
