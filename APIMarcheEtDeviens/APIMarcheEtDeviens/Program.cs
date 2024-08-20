@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using APIMarcheEtDeviens.Services;
 using AutoMapper;
 using APIMarcheEtDeviens.Mapping;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +34,11 @@ var config = new MapperConfiguration(cfg => {
     cfg.AddProfile<AutomapperProfile>();
 });
 
+
+// ajout de l'autorisation pour le JWT 
+builder.Services.AddAuthentication();
+
+
 // Ajoutez les services CORS
 builder.Services.AddCors(options =>
 {
@@ -52,6 +59,8 @@ if (app.Environment.IsDevelopment())
 
 // Utilisez la politique CORS configurée
 app.UseCors("AllowSpecificOrigin");
+
+
 
 app.UseHttpsRedirection();
 
