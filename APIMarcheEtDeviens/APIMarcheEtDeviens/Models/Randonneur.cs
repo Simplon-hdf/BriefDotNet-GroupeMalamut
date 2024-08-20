@@ -15,12 +15,11 @@ namespace APIMarcheEtDeviens.Models
 		[Column(TypeName = "nvarchar(50)")]
 		public string Prenom { get; set; }
 
-		[Column(TypeName = "longtext")]
-		public string MotDePasse { get; set; }
-
 		[Column(TypeName = "nvarchar(50)")]
 		public string Mail { get; set; }
 		public int? Telephone { get; set; }
+		public byte[] MotDePasseHash { get; set; }
+		public byte[] MotDePasseSalt { get; set; }
 		public DateTime DateDeCreation { get; set; } = DateTime.Now;
 		public DateTime DateDeMaj { get; set; } = DateTime.Now;
 		#region FK
