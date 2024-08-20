@@ -4,9 +4,12 @@ using APIMarcheEtDeviens.Services;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Org.BouncyCastle.Asn1.Ocsp;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace APIMarcheEtDeviens.Controllers
@@ -30,44 +33,79 @@ namespace APIMarcheEtDeviens.Controllers
 		// methode d'enregistrement du mail est du mot de passe (le mdp est  hashe)
 		[EnableCors]
 		[HttpPost("enregistrer")]
-		public ActionResult<Randonneur> Enregistrer(RandonneurDTO requete)
+		public async  Task<ActionResult<Randonneur>> Enregistrer(RandonneurDTO requete)
 		{
-			string passwordHash
-				= BCrypt.Net.BCrypt.HashPassword(requete.MotDePasse);
+			try { 
+			CreatePasswordHash(requete.MotDePasse, out byte[] motDePasseSalt, out byte[] motDePasseHash);
 
+			 
 			randonneur.RandonneurId = Guid.NewGuid();
 			randonneur.Mail = requete.Mail;
-			randonneur.MotDePasse = passwordHash;
 			randonneur.Nom = requete.Nom;
 			randonneur.Prenom = requete.Prenom;
+			randonneur.MotDePasseHash = motDePasseHash;
+			randonneur.MotDePasseSalt = motDePasseSalt;
+			randonneur.RoleId = 1;
 			_dataContext.Randonneur.Add(randonneur);
 			_dataContext.SaveChanges();
 			return Ok(randonneur);
+			}
+			catch (Exception ex)
+			{
+				return StatusCode(500, $"Erreur du serveur : {ex.Message}");
+			}
 		}
 
+		private void CreatePasswordHash(string password, out byte[] motDePasseHash, out byte[] motDePasseSalt)
+		{
+			using (var hmac = new HMACSHA512())
+			{
+				motDePasseSalt = hmac.Key;
+				motDePasseHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+			}
+		}
 
 		[HttpPost("login")]
-		public ActionResult<Randonneur> Connecter(LoginDTO requete)
+		public async Task<ActionResult<Randonneur>> Connecter(LoginDTO requete)
 		{
-			if (requete == null || requete.Mail == null || requete.Password == null)
+
+
+			try
 			{
-				return BadRequest("formulaire incomplet");
+				if (requete == null || string.IsNullOrEmpty(requete.Mail) || string.IsNullOrEmpty(requete.MotDePasse))
+				{
+					return BadRequest("formulaire incomplet");
+				}
+
+				var randonneur = await _dataContext.Randonneur.FirstOrDefaultAsync(r => r.Mail == requete.Mail);
+
+				if (randonneur == null || VerifyPasswordHash(requete.MotDePasse, randonneur.MotDePasseHash, randonneur.MotDePasseSalt))
+				{
+					return BadRequest("Mail ou Mot de passe  incorrect");
+				}
+
+
+				return Ok(randonneur);
 			}
-			 if ( randonneur.Mail != requete.Mail || !BCrypt.Net.BCrypt.Verify(requete.Password, randonneur.MotDePasse))
+			catch (Exception ex)
 			{
-				return BadRequest("Mail ou Mot de passe  incorrect");
+				return StatusCode(500, $"Erreur du serveur : {ex.Message}");
 			}
 
-
-			//string token = CreationToken(randonneur);
-
-			return Ok(randonneur);
 		}
-
-		/*private string CreationToken(Randonneur randonneur)
+		private bool VerifyPasswordHash(string Password, byte[] motDePasseHash, byte[] motDePasseSalt)
+		{
+			using (var hmac = new HMACSHA512(motDePasseSalt))
+			{
+				var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(Password));
+				return computedHash.SequenceEqual(motDePasseHash);
+			}
+		}
+		private string CreationToken(Randonneur randonneur)
 		{
 			List<Claim> claims = new List<Claim> {
-				new Claim(ClaimTypes.Email, randonneur.Mail)
+				new Claim(ClaimTypes.Email, randonneur.Mail),
+				new Claim(ClaimTypes.Role, "User")
 			};
 
 			var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
@@ -85,6 +123,6 @@ namespace APIMarcheEtDeviens.Controllers
 			var jwt = new JwtSecurityTokenHandler().WriteToken(token);
 
 			return jwt;
-		}*/
+		}
 	}
 }
