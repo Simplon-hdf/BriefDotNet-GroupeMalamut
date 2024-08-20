@@ -1,4 +1,5 @@
 ﻿using APIMarcheEtDeviens.Data;
+using APIMarcheEtDeviens.Migrations;
 using APIMarcheEtDeviens.Models;
 using APIMarcheEtDeviens.Services;
 using Microsoft.AspNetCore.Cors;
@@ -69,27 +70,28 @@ namespace APIMarcheEtDeviens.Controllers
 		public async Task<ActionResult<Randonneur>> Connecter(LoginDTO requete)
 		{
 
+			if (requete == null || string.IsNullOrEmpty(requete.Mail) || string.IsNullOrEmpty(requete.MotDePasse))
+			{
+				return BadRequest("formulaire incomplet");
+			}
 
+			var randonneur = await _dataContext.Randonneur.FirstOrDefaultAsync(r => r.Mail == requete.Mail);
+
+			if (randonneur == null ||VerifyPasswordHash(requete.MotDePasse, randonneur.MotDePasseHash, randonneur.MotDePasseSalt))
+			{
+				return BadRequest("Mail ou Mot de passe  incorrect");
+			}
 			try
 			{
-				if (requete == null || string.IsNullOrEmpty(requete.Mail) || string.IsNullOrEmpty(requete.MotDePasse))
-				{
-					return BadRequest("formulaire incomplet");
-				}
 
-				var randonneur = await _dataContext.Randonneur.FirstOrDefaultAsync(r => r.Mail == requete.Mail);
+				string token = CreationToken(randonneur);
 
-				if (randonneur == null || VerifyPasswordHash(requete.MotDePasse, randonneur.MotDePasseHash, randonneur.MotDePasseSalt))
-				{
-					return BadRequest("Mail ou Mot de passe  incorrect");
-				}
+				return Ok(new { Randonneur = randonneur, Token = token });
 
-
-				return Ok(randonneur);
 			}
 			catch (Exception ex)
 			{
-				return StatusCode(500, $"Erreur du serveur : {ex.Message}");
+				return StatusCode(500, $"Erreur du serveur : {ex.Message} - {ex.StackTrace}");
 			}
 
 		}
@@ -108,8 +110,8 @@ namespace APIMarcheEtDeviens.Controllers
 				new Claim(ClaimTypes.Role, "User")
 			};
 
-			var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-				_configuration.GetSection("AppSettings:Token").Value!));
+			var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(
+				_configuration.GetSection("AppSettings:Token").Value));
 
 			var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
 
