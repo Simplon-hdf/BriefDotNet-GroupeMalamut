@@ -1,36 +1,145 @@
+
 .btn-container {
-    display: flex;
-    justify-content: flex-end;
-    gap: 15px;
+  height: 50px;
+  width: 100vw;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  position: fixed;
+  background: none;
+  padding-top: 1vh;
+  background: linear-gradient( 115deg, rgba(21,71,34,0.5) 0%, rgba(164,238,118, 0.5) 5%, rgba(255,255,255, 0.5) 10%), linear-gradient(0deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,1) 100%);
 }
 
-.header-container {
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 99.99%;
-    height: 90px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    z-index: 1000;
+img {
+    padding-left: 1vw;
 }
 
-.devis, .login, .burger-menu {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #339056;
-    color: white;
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
+
+li {
+  height: auto;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 3px 2px 2px #154734, 0px 0px 2px #154734, -1px 0px 2px #154734;
+}
+
+button {
+  border-radius: 5px;
+  height: 75%;
+  color: black;
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: 800;
+  width: 200px;
+}
+
+button,
+li {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  transition: 100ms ease-in-out;
+}
+
+  button:hover {
+    color: #154734
+  }
+
+  li:hover {
+    color: #BFEA92;
+  }
+
+/* Burger menu button */
+.burger {
+  align-self: end;
+  width: 30px;
+  border: 0;
+  background: none;
+  outline: 0;
+  cursor: pointer;
+  transition: border 1s ease-in-out;
+  -webkit-transition: border 1s ease-in-out;
+}
+
+  .burger:hover {
+    color: rgba(21, 71, 52, 1);
+  }
+
+  .burger:before {
+    content: "";
+    display: block;
+    border-bottom: 4px solid currentColor;
+    border-top: 4px solid currentColor;
     margin-bottom: 5px;
-    cursor: pointer;
-    font-size: 16px;
+    margin-top: 10px;
+    padding-top: 5px;
+    transition: transform 0.5s ease-in-out;
+    -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  }
+
+.burger:after {
+  content: "";
+  display: block;
+  border-bottom: 4px solid currentColor;
+  border-top: 0px transparent;
+  padding-top: 0px;
+  margin-top: 0;
+  width: 100%;
+  margin-bottom: 5px;
+  transition: transform 0.5s ease-in-out;
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
 }
 
-.button {
-    margin-left: 10px;
+.burger-check {
+  display: none;
+}
+
+  .burger-check:checked ~ .burger {
+    border-bottom: 4px solid transparent;
+    border-top: 0px transparent;
+    transition: 0.8s ease-in-out;
+    -webkit-transition: 0.8s ease-in-out;
+  }
+    .burger-check:checked ~ .burger:before {
+  transform: rotate(-405deg) translateY(1px) translateX(-3px);
+  -webkit-transform: rotate(-405deg) translateY(1px) translateX(-3px);
+  transition: transform 0.5s ease-in-out;
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+}
+
+    .burger-check:checked ~ .burger:after {
+      transform: rotate(405deg) translateY(-4px) translateX(-5px);
+      -webkit-transform: rotate(405deg) translateY(-4px) translateX(-5px);
+      transition: transform 0.5s ease-in-out;
+      -webkit-transition: -webkit-transform 0.5s ease-in-out;
+    }
+
+
+
+/* Navigation */
+.menu-unfold {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: left;
+    height: 50vh;
+    padding-right: 2vw;
+}
+
+.navigation {
+  overflow: hidden;
+  display: flex;
+  max-height: 0;
+  transition: 0.5s ease-in-out;
+  padding-top: 2vh;
+}
+
+.burger-check:checked ~ .navigation {
+    overflow: revert;
+  max-height: 250px;
+  transition: 0.5s ease-in-out;
 }

@@ -5,6 +5,12 @@
   font-family: "Pathway Gothic One", sans-serif;
 }
 
+h3 {
+    text-align: center;
+    font-size: 3rem;
+    padding-top: 10vh;
+}
+
 section {
   display: flex;
   flex-direction:column;
@@ -45,8 +51,6 @@ p {
   cursor: pointer;
   
 }
-
-----------------------------------------------------------------------------------
 
 .sejours_courts{
     width: 100%;
@@ -97,11 +101,4 @@ p {
     margin: 10px auto;
 }
 
-button {
-  width: 251px;
-  height:200px;
-  padding:30px;
-  font-size:20px;
-}
 
-------------------------------------------------------------------------

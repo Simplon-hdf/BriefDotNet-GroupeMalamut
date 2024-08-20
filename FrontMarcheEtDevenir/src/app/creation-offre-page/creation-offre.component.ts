@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CreationOffreFormComponent } from './creation-offre-form/creation-offre-form.component'
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-creation-offre-page',
@@ -8,6 +10,8 @@ import { CreationOffreFormComponent } from './creation-offre-form/creation-offre
   standalone: true,
   imports: [
     CreationOffreFormComponent,
+    HeaderComponent,
+    FooterComponent
   ]
 })
 export class CreationOffreComponent {
