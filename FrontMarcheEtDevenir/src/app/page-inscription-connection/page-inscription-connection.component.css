@@ -2,4 +2,13 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-row: auto;
+  align-items: center;
 }
+
+app-formulaire-connexion {
+  background-color: #154734;
+  color: white;
+  height: 100%;
+}
+
+

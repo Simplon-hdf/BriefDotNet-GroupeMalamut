@@ -3,226 +3,192 @@
     box-sizing: border-box;
 }
 
+h3 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 3vh;
+}
+
+h4 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 3.5vh;
+}
+
 .btn-container {
     display: flex;
     justify-content: flex-end;
-    gap: 100px;
-
+    gap: 15px;
+    margin-top: 4vh
 }
 
-.boutons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #535953;
-    color: white;
-    width: 350px;
-    height: 75px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 45px;
-    font-weight: 450;
-    letter-spacing: 1px;
-    margin: 1px; /* Ajout de marge */
-    position: relative;
-    top:70px;    
+.boutons,
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #154734;
+  color: white;
+  width: 250px;
+  height: 60px;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: 100ms ease-in-out;
 }
+.boutons:hover,
+  button:hover {
+    color: #FFF;
+    background-color: #49a255;
+  }
 
 /* Pour titre */
 
 .hero-page_container {
+  height: 100vh;
+  display: flex;
+  justify-content: left;
+  align-items: end;
+  padding-left: 10vw;
+  padding-bottom: 15vh;
+  background-color: #C5C5A9;
+  background-image: linear-gradient(180deg, rgba(111,130,122,0.5) 0%, rgba(235,234,241,0.8) 90%, rgba(255,255,255, 1) 100%), url(https://marchedeviens.com/wp-content/uploads/2023/04/DSC8709-1024x683.jpg);
+  backdrop-filter: grayscale();
+  background-position: left;
+  background-size: cover;
+  box-sizing: border-box; /* Assure que le padding est inclus dans la largeur et la hauteur */
+  margin-bottom: 80px; /* Ajout de marge */
+}
+
+.hero-page_content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px; /* Ajout de padding */
-    background-color: #C5C5A9;
-    width: 100%;
-    height: 73vh;
-    box-sizing: border-box; /* Assure que le padding est inclus dans la largeur et la hauteur */
-    margin-bottom: 80px; /* Ajout de marge */
+    justify-content: left;
+
 }
 
 .hero-page_title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 70px;
-    font-size: 60px;
-    margin-bottom: 20px; /* Augmentation de la marge */
+    font-size: 6rem;
+    margin-bottom: 5px; /* Augmentation de la marge */
     color: #000000;
 }
 
 .hero-page_subtitle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-weight: lighter;
-    padding:15px; /* Augmentation du padding */
+    font-size: 3rem;
+    padding-top: 3vh;
 }
 
 /* Partie présentation */
 
 .presentation-container {
-    border: 2px solid #8C8989;
-    padding: 20px; /* Augmentation du padding */
-    border-radius: 5px;
-    margin-bottom: 80px; /* Augmentation de la marge */
-    height: 299px;
-    width: 65%;
-    background-color: #8C8989;
-    margin-left: 260px;
-    margin-right: auto;
-    cursor: pointer;
-    position: relative;
+    display: flex;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    gap: 2vw;
+    margin-bottom: 15vh
 }
 
-.presentation-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 70px;
-    font-size: 25px;
-    margin-bottom: 35px; /* Augmentation de la marge */
-    color: #000000;
-}
-
-.video-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    background-color: #8C8989;
-    color: white;
-    padding: 20px; /* Ajout de padding */
+video {
+    width: 70%;
 }
 
 .video-info {
-    position: absolute;
-    right: -300px;
-    top: 70px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: end;
+    justify-content: center;
+    gap: 2vh
 }
 
-.btnEnSavoirPlus {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: #535953;
-    color: white;
-    width: 200px;
-    height: 45px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 20px;
-    font-weight: 450;
-    letter-spacing: 0.5px;
-    margin: 10px; /* Ajout de marge */
-}
 
 /* Partie événements */
 
-.evenements-title {
+.evenements,
+.nos-avis {
+    background-color: #001508;
+    color: white;
     display: flex;
+    flex-flow: column wrap;
     justify-content: center;
-    align-items: center;
-    margin-top: 150px;
-    margin-bottom: 30px; /* Augmentation de la marge */
-    color: #000000;
+    align-content: center;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    margin-bottom: 5vh;
 }
 
 .evenements-wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 150px;
-    margin-bottom: 10px; /* Augmentation de la marge */
-    padding: 20px; /* Ajout de padding */
-}
-
-.evenements-container {
-    border: 2px solid #8C8989;
+    height: 400px;
+    width: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background-color: #C5C5A9;
-    width: 427px;
-    height: auto;
-    margin: 10px; /* Augmentation de la marge */
-}
-
-.evenement-image-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 25px;
-    margin-bottom: 80px; /* Augmentation de la marge */
-    color: #000000;
-    text-align: center; 
-}
-
-.image-evenement {
-    width: 30%;
-    height: 30%;
+    margin-bottom: 10px; /* Augmentation de la marge */
+    padding: 20px; /* Ajout de padding */
     border-radius: 5px;
-    margin-bottom: 30px;
+    background-color: white;
+    color: black;
 }
 
-.details-evenement {
-    text-align: center;
+  .evenements-wrapper img {
+    width: auto;
+    height: 250px;
+    overflow: clip;
+  }
+
+.evenements-wrapper h5 {
+    font-size: 2rem;
+    margin-top: 1.4vh;
 }
 
-.divBtnDevis {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    margin-bottom: 20px; /* Augmentation de la marge */
-}
 
-.btnDevis {
-    background-color: #535953;
-    color: white;
-    width: 200px;
-    height: auto;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 20px;
-    font-weight: 450;
-    letter-spacing: 0.5px;
-    text-align: center;
-    margin: 30px; /* Ajout de marge */
+.evenements button {
+    width: auto;
 }
 
 /* Partie cohésion */
 
-.venez-seuls-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 150px;
-    color: #000000;
-}
-
-.venez-seuls-subtitle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: lighter;
-    margin-bottom: 70px;
-}
-
 .page-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30vh; 
-    
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 50% 50%;
+    gap: 5px;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    margin-bottom: 10vh;
+    height: 600px;
 }
 
-/* Partie carousel avis */
+.page-container img {
+    height: 100%;
+}
+
+.page-container img:first-child {
+    grid-column: 1;
+    grid-row-start: 1 / 3;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 60%;
+}
+
+  .page-container img:last-child {
+    grid-column: 2;
+    grid-row-start: 2;
+    object-fit: contain;
+    overflow: hidden;
+  }
+
+#img3 {
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+
 
 .cohesion-container {
     display: flex;
@@ -237,37 +203,12 @@
     padding: 30px; /* Ajout de padding */
 }
 
-.carousel-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 300px;
-    width: 65%;
-    background-color: #C5C5A9;
-    color: white;
-    margin-bottom: 60px; /* Augmentation de la marge */
-    border: 2px solid #8C8989;
-    padding: 30px; /* Ajout de padding */
-}
+/* Partie carousel avis */
 
-.carousel-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top:150px;
-    margin-bottom: 90px; /* Ajout de marge */
-}
+
+
 
 /* Partie "ils nous ont fait confiance" */
-
-.confiance-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top:150px;
-    margin-bottom: 60px; /* Augmentation de la marge */
-    color: #000000;
-}
 
 .confiance-wrapper {
     display: flex;
@@ -277,14 +218,3 @@
     padding: 30px; /* Ajout de padding */
 }
 
-.confiance-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid #8C8989;
-    height: 368px;
-    width: 15%;
-    background-color: #C5C5A9;
-    margin-bottom: 80px; /* Augmentation de la marge */
-    padding: 30px; /* Ajout de padding */
-}

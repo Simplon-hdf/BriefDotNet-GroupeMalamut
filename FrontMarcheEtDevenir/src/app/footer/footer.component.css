@@ -1,54 +1,43 @@
-.btn-footer-container {
+.footer-container {
+    background-color: black;
+    color: white;
     display: flex;
-    justify-content: center; 
+    justify-content: space-between; 
     align-items: center; 
     flex-wrap: wrap;
-    text-align: center; 
+    text-align: center;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
 }
 
-.footer-column {
-position: relative;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-margin: 0 100px;
-bottom: 5px;
-font-size: larger;
-font-weight: 600;
-letter-spacing: 0.75px;
+.footer-container img {
+    height: 100px;
 }
 
-.footer-column > p {
-    cursor: pointer;
-}
-
-.footer-linkedin-logo {
-    width: 50px;
+  .footer-container .footer-linkedin-logo {
     height: 50px;
-    margin: 10px;
-    cursor: pointer;
+  }
+
+a:hover {
+  color: rgb(164, 238, 118);
 }
 
-/* From Uiverse.io */ 
+/* From Uiverse.io */
 .button {
-    width: 75px;
-    height:75px;
-    border-radius: 50%;
-    background-color: rgb(20, 20, 20);
-    border: none;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 0px 0px 4px rgba(180, 160, 255, 0.253);
-    cursor: pointer;
-    transition-duration: 0.3s;
-    overflow: hidden;
-    position: relative;
-    left: 75%;
-    bottom: 100px
-  }
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 0px 4px rgba(180, 160, 255, 0.253);
+  transition-duration: 0.3s;
+  overflow: hidden;
+  filter: grayscale();
+}
   
   .svgIcon {
     width: 18px;
@@ -58,14 +47,14 @@ letter-spacing: 0.75px;
   .svgIcon path {
     fill: white;
   }
-  
-  .button:hover {
-    width: 140px;
-    border-radius: 50px;
-    transition-duration: 0.3s;
-    background-color: rgb(181, 160, 255);
-    align-items: center;
-  }
+
+.button:hover {
+  width: 140px;
+  border-radius: 50px;
+  transition-duration: 0.3s;
+  background-color: rgb(180, 160, 255);
+  align-items: center;
+}
   
   .button:hover .svgIcon {
     /* width: 20px; */
@@ -89,4 +78,3 @@ letter-spacing: 0.75px;
     /* transform: translateY(-30px); */
     transition-duration: 0.3s;
   }
-  
