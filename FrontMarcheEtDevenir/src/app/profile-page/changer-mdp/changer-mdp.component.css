@@ -1,28 +1,57 @@
-h2{
-  display:flex;
-  justify-content:center;
+/* centrer le contenue de la page*/
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+  padding-top: 24.5vh;
+  padding-bottom: 24.5vh;
+}
+
+h3 {
+  text-align: center;
+  font-size: 2.5rem;
 }
 
 form {
-  display: grid;
-  justify-content: center
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 15vh;
+  padding-right: 15vh;
+  margin-top: 5vh;
 }
 
+/* affiche un message d'erreur si erreur dans le mail ou le mot de passe*/
+.Inactif {
+  display: none
+}
+
+.Actif {
+  display: flex;
+  justify-content: center;
+  color: red;
+}
+
+/* stylisation des "input" */
 input {
-  height: 30px;
-  font-size: 1.2rem;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
 }
 
-.submit {
-  margin-top: 1vh;
-}
+  input[type=submit]:hover {
+    background-color: black;
+  }
 
-textarea {
-  height: 140px;
-  font-size: 1.2rem;
-}
-
-label {
-  font-size: 1.5em;
-  margin-bottom: 0.8vh;
-}
+  /*application de style sur le "input" de type "submit"*/
+  input[type=submit] {
+    background-color: rgb(88, 129, 87);
+    color: white;
+    border: 0;
+    transition: 100ms ease-in-out;
+  }

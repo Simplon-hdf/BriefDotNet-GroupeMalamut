@@ -1,12 +1,16 @@
 section {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 60% 40%;
   grid-row: auto;
+  align-items: center;
+  height: 90vh;
 }
 
-h1 {
-  display: flex;
-  font-size: 2.5rem;
-  font-weight: bolder;
-  justify-content: center;
+app-changer-mdp {
+  background-color: #154734;
+  color: white;
+  overflow: hidden;
+  object-fit: cover;
 }
+
+

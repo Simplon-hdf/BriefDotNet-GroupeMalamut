@@ -5,7 +5,7 @@ import { Randonneur} from '../../services/randonneur.model';
 @Component({
   selector: 'app-information-personalles-display',
   standalone: true,
-  imports: [Randonneur],
+  imports: [],
   templateUrl: './information-personalles-display.component.html',
   styleUrl: './information-personalles-display.component.css'
 })
