@@ -27,10 +27,6 @@ constructor(public service: FormulaireInscriptionService){}
       error:err =>{console.log(err)}
     })
   }
-
- CreerCompte() {
-  // Code
- }
  
 
 }
