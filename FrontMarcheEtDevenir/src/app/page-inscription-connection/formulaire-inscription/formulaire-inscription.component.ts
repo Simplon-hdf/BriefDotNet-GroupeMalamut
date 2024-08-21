@@ -1,7 +1,7 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, Injectable, input} from '@angular/core';
 import { FormulaireInscriptionService } from '../../services/formulaire-inscription.service';
 import { ModuleFormulairesModule } from '../module-formulaires/module-formulaires.module';
-import { NgForm } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, NgForm, ValidationErrors, Validators } from '@angular/forms';
 
 
 @Component({
@@ -13,50 +13,55 @@ import { NgForm } from '@angular/forms';
 })
 
 @Injectable({ providedIn: 'root' })
-export class FormulaireInscriptionComponent {
+export class FormulaireInscriptionComponent{
 
-constructor(public service: FormulaireInscriptionService){}
+constructor(public service: FormulaireInscriptionService, private formBuilder: FormBuilder){}
+// variable qui récupère la valeur des "input" 
+
+formulaire!: FormGroup;
+
+// Variables pour la vérifications
+
+static messageErreur = "";
 
 
-  // vérifie si les mot de passe sont identique
- /* MotDePasseIdentique(){
-   let motDePasse  = document.getElementsByName("motDePasse");
-   let confirmationMotDePasse = document.getElementsByName("inscriptionConfirmationMotdePasse");
-   while(motDePasse != confirmationMotDePasse){
-    return false
-   };
-  }*/
+ngOnInit(){
+  this.formulaire = this.formBuilder.group({
+    nom: ['', Validators.required],
+    prenom : ['', Validators.required],
+    mail : ['', [Validators.required, Validators.email]],
+    telephone : ['', Validators.required],
+    motDePasse : ['', Validators.required],
+    confirmationMotDePasse : ['', Validators.required]
+  },{Validators : this.passwordMatchValidator});
+}
+passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
+  const motDePasse = control.get('motDePasse');
+  const confirmationMotDePasse = control.get('confirmationMotDePasse');
 
-  // vérifier le mot de passe comporte des nombres, minuscule, majuscule, caractère spécial et de la
-  // taille requis
- /* MotDePasseRegex(){
-    let motDePasse  = document.getElementsByName("motDePasse");
-    const patternMotDePasse = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
-    if(motDePasse.length > 8 && motDePasse.length < 16)
-    {
+  if (!motDePasse || !confirmationMotDePasse) {
+    return null;
+  }
 
-    }
-    else if(motDePasse.) 
-    {
+  const match = motDePasse.value === confirmationMotDePasse.value;
+  return match ? null : { passwordMismatch: true };
+}
 
-    }
-    else if() 
-    {
+onSubmit(form: NgForm) {
 
-    }
-    else if()
-    {
-
-    }
-  }*/
-
-  onSubmit(form: NgForm) {
+    if(this.formulaire.valid){
     this.service.postEnregistrer()
     .subscribe({
       next:res=>{
-        console.log(res)
+        console.log(res);
       },
-      error:err =>{console.log(err)}
+      error:err =>{console.log(err);}
     })
+    this.service.formReset();
+  }else if(this.formulaire.invalid){
+     alert(FormulaireInscriptionComponent.messageErreur)
+  }else{
+     alert(FormulaireInscriptionComponent.messageErreur)
+  }
   }
 }

@@ -20,16 +20,6 @@ form {
   margin-top: 5vh;
 }
 
-/* affiche un message d'erreur si erreur dans le mail ou le mot de passe*/
-.Inactif {
-  display: none
-}
-
-.Actif {
-  display: flex;
-  justify-content: center;
-  color: red;
-}
 
 /* stylisation des "input" */
 input {
