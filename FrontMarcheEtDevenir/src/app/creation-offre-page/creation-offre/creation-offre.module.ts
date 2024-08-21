@@ -3,15 +3,20 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 
-
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    
   ],
   exports: [
     FormsModule
   ]
 })
-export class CreationOffreModule { }
+export class CreationOffreModule {
+  //constructor(public router: Router) { }
+  //redirect() {
+  //  this.router.navigateByUrl('/');
+  //}
+}
