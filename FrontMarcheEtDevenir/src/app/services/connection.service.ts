@@ -3,21 +3,42 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Randonneur } from '../services/randonneur.model';
 
+/**
+ * Service de connexion pour gérer les opérations d'authentification.
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class ConnectionService {
-
+  /**
+   * URL de l'API pour l'authentification.
+   */
   private Url = environment.apiBaseurl + "/Authentification/login";
+
+  /**
+   * Données du formulaire de connexion.
+   */
   FormData: Randonneur = new Randonneur();
+
+  /**
+   * Constructeur du service de connexion.
+   * @param http Client HTTP pour effectuer les requêtes.
+   */
   constructor(public http: HttpClient) { }
 
-
-
-  postEnregistrer() {
-    return this.http.post(this.Url, this.FormData)
+  /**
+   * Envoie une requête POST pour se connecter.
+   * @param email L'adresse email de l'utilisateur.
+   * @param motDePasse Le mot de passe de l'utilisateur.
+   * @returns Un observable de la réponse HTTP.
+   */
+  postLogin(email: string, motDePasse: string) {
+    return this.http.post(this.Url, { email: email, motDePasse: motDePasse });
   }
 
+  /**
+   * Réinitialise les données du formulaire de connexion.
+   */
   formReset() {
     this.FormData = new Randonneur();
   }

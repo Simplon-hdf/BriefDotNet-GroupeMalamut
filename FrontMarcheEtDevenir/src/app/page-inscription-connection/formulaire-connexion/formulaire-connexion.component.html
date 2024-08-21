@@ -1,20 +1,45 @@
 <section>
+  <!-- Section de connexion -->
+  <!-- Cette section contient le formulaire de connexion pour les utilisateurs. -->
+  
+  <!-- Titre de la section de connexion -->
+  <!-- Affiche le titre de la section de connexion. -->
   <h3> Se connecter</h3>
+  
+  <!-- Formulaire de connexion -->
+  <!-- Formulaire permettant aux utilisateurs de se connecter en entrant leur adresse mail et mot de passe. -->
   <form #form="ngForm" (submit)="onSubmit(form)">
+    
+    <!-- Label et champ de saisie pour l'adresse mail -->
+    <!-- Label demandant à l'utilisateur d'entrer son adresse mail. -->
     <label for="inscriptionMail">Veuillez entrer votre Adresse Mail</label>
+    <!-- Champ de saisie pour l'adresse mail de l'utilisateur. -->
+    <!-- Utilise la directive ngModel pour la liaison de données avec connectionService.FormData.Mail. -->
     <input type="email" name="inscriptionMail" id="inscriptionMail" #mail="ngModel"
-      [(ngModel)]="connectionService.FormData.Mail" required required />
-
+      [(ngModel)]="connectionService.FormData.Mail" required />
+    
+    <!-- Label et champ de saisie pour le mot de passe -->
+    <!-- Label demandant à l'utilisateur d'entrer son mot de passe. -->
     <label for="inscriptionMotdePasse">Veuillez entrer un Mot de Passe</label>
+    <!-- Champ de saisie pour le mot de passe de l'utilisateur. -->
+    <!-- Utilise la directive ngModel pour la liaison de données avec connectionService.FormData.MotDePasse. -->
     <input type="password" name="inscriptionMotdePasse" id="inscriptionMotdePasse" #MotDePasse="ngModel"
       [(ngModel)]="connectionService.FormData.MotDePasse" required />
-
-    <form #form="ngForm" (submit)="onSubmit(form)">
-      <a href="">Mot de passe oublié?</a>
-    </form>
-
+    
+    <!-- Lien pour mot de passe oublié -->
+    <!-- Lien permettant à l'utilisateur de récupérer son mot de passe en cas d'oubli. -->
+    <a href="">Mot de passe oublié?</a>
+    
+    <!-- Formulaire pour gérer le clic sur le bouton de connexion -->
+    <!-- Formulaire supplémentaire pour gérer les événements de clic sur le bouton de connexion. -->
     <form #form="ngForm" (submit)="onClick(form)"></form>
+    
+    <!-- Bouton de soumission du formulaire de connexion -->
+    <!-- Bouton permettant de soumettre le formulaire de connexion. -->
     <input type="submit" value="Se connecter" />
   </form>
-
+  
+  <!-- Message d'erreur pour utilisateur inconnu -->
+  <!-- Message affiché lorsque les informations de connexion sont incorrectes. -->
   <p class="Inactif"> Utilisateur inconnu, veuillez vérifier l'adresse mail et le mot de passe'</p>
+</section>

@@ -30,6 +30,7 @@ export class FormulaireConnexionComponent {
           console.log(res);
         },
         error: err => {
+          alert('Erreur de connexion');
           console.log(err);
         }
       });
@@ -44,6 +45,7 @@ export class FormulaireConnexionComponent {
             // Logique supplémentaire après une connexion réussie
           },
           error: err => {
+            alert('Erreur de connexion');
             console.log('Erreur de connexion', err);
           }
         });
