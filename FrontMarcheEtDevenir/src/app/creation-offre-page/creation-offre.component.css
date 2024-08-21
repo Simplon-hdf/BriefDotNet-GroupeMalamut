@@ -10,3 +10,8 @@ h1 {
   font-weight: bolder;
   align-self: center;
 }
+
+app-creation-offre-form {
+    padding-left: 15vw;
+    padding-right: 15vw;
+}
