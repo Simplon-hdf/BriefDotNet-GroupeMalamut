@@ -46,6 +46,7 @@ namespace APIMarcheEtDeviens.Controllers
 			randonneur.Prenom = requete.Prenom;
 			randonneur.MotDePasseHash = motDePasseHash;
 			randonneur.MotDePasseSalt = motDePasseSalt;
+			randonneur.Telephone = requete.Telephone;
 			randonneur.RoleId = 1;
 			_dataContext.Randonneur.Add(randonneur);
 			_dataContext.SaveChanges();
