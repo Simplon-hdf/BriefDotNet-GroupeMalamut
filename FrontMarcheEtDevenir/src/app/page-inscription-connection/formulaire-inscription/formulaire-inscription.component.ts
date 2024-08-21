@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
   selector: 'app-formulaire-inscription',
   templateUrl: './formulaire-inscription.component.html',
   styleUrl: './formulaire-inscription.component.css',
-  imports:[ModuleFormulairesModule]
+  imports: [ModuleFormulairesModule]
 })
 
 @Injectable({ providedIn: 'root' })
@@ -28,7 +28,9 @@ constructor(public service: FormulaireInscriptionService){}
     })
   }
 
- 
+ CreerCompte() {
+  // Code
+ }
  
 
 }
