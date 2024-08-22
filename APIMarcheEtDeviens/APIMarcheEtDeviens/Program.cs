@@ -58,7 +58,7 @@ if (app.Environment.IsDevelopment())
 }
 
 // Utilisez la politique CORS configurée
-app.UseCors("AllowSpecificOrigin");
+app.UseCors("AllowAngularApp");
 
 
 
