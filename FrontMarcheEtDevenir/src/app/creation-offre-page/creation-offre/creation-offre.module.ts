@@ -10,15 +10,11 @@ le module recupère les mdules ng, forms et common pour pouvoir les utiliser sur
   imports: [
     CommonModule,
     FormsModule,
-    
   ],
   exports: [
     FormsModule
   ]
 })
 export class CreationOffreModule {
-  //constructor(public router: Router) { }
-  //redirect() {
-  //  this.router.navigateByUrl('/');
-  //}
+
 }
