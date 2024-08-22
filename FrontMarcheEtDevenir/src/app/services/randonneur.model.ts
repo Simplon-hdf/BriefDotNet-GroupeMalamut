@@ -3,6 +3,6 @@ export class Randonneur {
   Prenom: string = ""
   Mail: string = ""
   MotDePasse: string = ""
-  Telephone: number = 1010101010;
+  Telephone!: number;
   RoleId: number = 1
 }

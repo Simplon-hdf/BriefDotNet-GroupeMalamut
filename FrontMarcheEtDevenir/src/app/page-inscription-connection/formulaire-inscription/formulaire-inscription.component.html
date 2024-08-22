@@ -42,6 +42,25 @@
 
     <!-- Label et champ de saisie pour le mot de passe -->
     <!-- Label demandant à l'utilisateur d'entrer un mot de passe. -->
+    <input type="email" 
+    name="mail" 
+    id="inscriptionMail"
+    placeholder="jean@mail.com" 
+    #mail="ngModel"
+    [(ngModel)]="service.FormData.Mail"
+    required />
+
+    <label for="telephone">Veuillez entrer votre numéro de telephone</label>
+    <input type="text" name="telephone" 
+    id="inscriptionTelephone"
+    placeholder="0707070707" 
+    #telephone="ngModel"
+    [(ngModel)]="service.FormData.Telephone"
+    minlength="10"
+    maxlength="10"
+    
+    required />
+
     <label for="motDePasse">Veuillez entrer un Mot de Passe</label>
     <!-- Champ de saisie pour le mot de passe de l'utilisateur. -->
     <!-- Utilise la directive ngModel pour la liaison de données avec service.FormData.MotDePasse. -->
@@ -67,12 +86,32 @@
 
     <!-- Label et champ de saisie pour la confirmation du mot de passe -->
     <!-- Label demandant à l'utilisateur de confirmer son mot de passe. -->
+    <input type="password" 
+    name="motDePasse" 
+    id="inscriptionMotdePasse" 
+    placeholder="votre mot de passe"
+    #motDePasse="ngModel"
+    
+    [(ngModel)]="service.FormData.MotDePasse"
+    minlength="8"
+    maxlength="16"
+    required />
+
     <label for="inscriptionConfirmationMotdePasse">Veuillez confirmer votre Mot de Passe</label>
     <!-- Champ de saisie pour la confirmation du mot de passe de l'utilisateur. -->
     <input type="password" name="inscriptionConfirmationMotdePasse" id="inscriptionConfirmationMotdePasse" required />
+    <input type="password" 
+    name="inscriptionConfirmationMotdePasse" 
+    id="inscriptionConfirmationMotdePasse"
+    placeholder="répéter votre mot de passe" 
+    minlength="8"
+    maxlength="16"
+    
+    required />
 
     <!-- Bouton de soumission du formulaire de création de compte -->
     <!-- Bouton permettant de soumettre le formulaire de création de compte. -->
     <input type="submit" value="Créer un compte" />
+    <input type="submit" value="Creer un compte" class="BouttonEnvoie"/>
   </form>
 </section>
