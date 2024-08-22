@@ -42,7 +42,7 @@ builder.Services.AddAuthentication();
 // Ajoutez les services CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowSpecificOrigin",
+    options.AddPolicy("AllowAngularApp",
         builder => builder.WithOrigins("http://localhost:4200")
             .AllowAnyMethod()
             .AllowAnyHeader());
@@ -58,13 +58,14 @@ if (app.Environment.IsDevelopment())
 }
 
 // Utilisez la politique CORS configurée
-app.UseCors("AllowSpecificOrigin");
+app.UseCors("AllowAngularApp");
 
 
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
 
 app.MapControllers();
 

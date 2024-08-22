@@ -15,10 +15,10 @@ export class FormulaireConnexionComponent {
   constructor(public service: ConnectionService){}
 
   onSubmit(form: NgForm) {
-    this.service.postEnregistrer()
+    this.service.postSeConnecterr()
     .subscribe({
       next:res=>{
-        console.log(res)
+        alert()
       },
       error:err =>{console.log(err)}
     })
