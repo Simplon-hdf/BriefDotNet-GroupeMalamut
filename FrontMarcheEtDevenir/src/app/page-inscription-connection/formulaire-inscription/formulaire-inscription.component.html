@@ -4,35 +4,25 @@
   <h3> Créer un compte</h3>
   <form #form="ngForm"  (submit)="onSubmit(form)">
     <label for="nom">Veuillez entrer votre Nom</label>
-    <!-- Champ de saisie pour le nom de l'utilisateur. -->
-    <!-- Utilise la directive ngModel pour la liaison de données avec service.FormData.Nom. -->
-    <input type="text" name="nom" id="inscriptionNom" #nom="ngModel" [(ngModel)]="service.FormData.Nom" required />
+    <input type="text" 
+    name="nom" 
+    id="inscriptionNom"
+    placeholder="Petit"
+    #nom="ngModel"
+    
+    [(ngModel)]="service.FormData.Nom"
+    required />
 
-    <!-- Label et champ de saisie pour le prénom -->
-    <!-- Label demandant à l'utilisateur d'entrer son prénom. -->
-    <label for="prenom">Veuillez entrer votre Prénom</label>
-    <!-- Champ de saisie pour le prénom de l'utilisateur. -->
-    <!-- Utilise la directive ngModel pour la liaison de données avec service.FormData.Prenom. -->
-    <input type="text" name="prenom" id="inscriptionPrenom" #prenom="ngModel" [(ngModel)]="service.FormData.Prenom"
-      required />
+    <label for="prenom">Veuillez entrer votre Prenom</label>
+    <input type="text" 
+    name="prenom" 
+    id="inscriptionPrenom"
+    placeholder="Jean"     
+    #prenom="ngModel"
+    [(ngModel)]="service.FormData.Prenom" 
+    required />
 
-    <!-- Label et champ de saisie pour l'adresse mail -->
-    <!-- Label demandant à l'utilisateur d'entrer son adresse mail. -->
     <label for="mail">Veuillez entrer votre Adresse Mail</label>
-    <!-- Champ de saisie pour l'adresse mail de l'utilisateur. -->
-    <!-- Utilise la directive ngModel pour la liaison de données avec service.FormData.Mail. -->
-    <input type="email" name="mail" id="inscriptionMail" #mail="ngModel" [(ngModel)]="service.FormData.Mail" required />
-
-    <!-- Label et champ de saisie pour le numéro de téléphone -->
-    <!-- Label demandant à l'utilisateur d'entrer son numéro de téléphone. -->
-    <label for="telephone">Veuillez entrer votre numéro de téléphone</label>
-    <!-- Champ de saisie pour le numéro de téléphone de l'utilisateur. -->
-    <!-- Utilise la directive ngModel pour la liaison de données avec service.FormData.Telephone. -->
-    <input type="text" name="telephone" id="inscriptionTelephone" #telephone="ngModel"
-      [(ngModel)]="service.FormData.Telephone" required />
-
-    <!-- Label et champ de saisie pour le mot de passe -->
-    <!-- Label demandant à l'utilisateur d'entrer un mot de passe. -->
     <input type="email" 
     name="mail" 
     id="inscriptionMail"
@@ -53,30 +43,6 @@
     required />
 
     <label for="motDePasse">Veuillez entrer un Mot de Passe</label>
-    <!-- Champ de saisie pour le mot de passe de l'utilisateur. -->
-    <!-- Utilise la directive ngModel pour la liaison de données avec service.FormData.MotDePasse. -->
-    <!-- Le mot de passe doit avoir une longueur minimale de 8 caractères. -->
-    <input type="password" name="motDePasse" id="inscriptionMotdePasse" #motDePasse="ngModel"
-      [(ngModel)]="service.FormData.MotDePasse" minlength="8" required />
-
-    <!-- Section des exigences du mot de passe -->
-    <!-- Cette section affiche les exigences que doit respecter le mot de passe. -->
-    <section class="messageCache">
-      <h4>Le mot de passe doit contenir :</h4>
-      <!-- Exigence : au moins une minuscule -->
-      <p class="messageCache">au moins une <b>minuscule</b></p>
-      <!-- Exigence : au moins une majuscule -->
-      <p class="messageCache">au moins une <b>majuscule</b></p>
-      <!-- Exigence : au moins un chiffre -->
-      <p class="messageCache">au moins un <b>chiffre</b></p>
-      <!-- Exigence : au moins un caractère spécial -->
-      <p class="messageCache">au moins un <b>caractère spécial</b></p>
-      <!-- Exigence : au moins 8 caractères -->
-      <p class="messageCache">au moins <b>8 caractères</b></p>
-    </section>
-
-    <!-- Label et champ de saisie pour la confirmation du mot de passe -->
-    <!-- Label demandant à l'utilisateur de confirmer son mot de passe. -->
     <input type="password" 
     name="motDePasse" 
     id="inscriptionMotdePasse" 
@@ -89,8 +55,6 @@
     required />
 
     <label for="inscriptionConfirmationMotdePasse">Veuillez confirmer votre Mot de Passe</label>
-    <!-- Champ de saisie pour la confirmation du mot de passe de l'utilisateur. -->
-    <input type="password" name="inscriptionConfirmationMotdePasse" id="inscriptionConfirmationMotdePasse" required />
     <input type="password" 
     name="inscriptionConfirmationMotdePasse" 
     id="inscriptionConfirmationMotdePasse"
@@ -100,9 +64,6 @@
     
     required />
 
-    <!-- Bouton de soumission du formulaire de création de compte -->
-    <!-- Bouton permettant de soumettre le formulaire de création de compte. -->
-    <input type="submit" value="Créer un compte" />
     <input type="submit" value="Creer un compte" class="BouttonEnvoie"/>
   </form>
 </section>
