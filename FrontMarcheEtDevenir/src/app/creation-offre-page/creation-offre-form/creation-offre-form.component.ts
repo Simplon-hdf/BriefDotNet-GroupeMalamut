@@ -23,8 +23,13 @@ export class CreationOffreFormComponent {
       .subscribe({
         next: res => {
           console.log(res)
+          alert("La randonnée à bien été ajoutée");
+          //this.router.redirect();
         },
-        error: err => { console.log(err) }
+        error: err => {
+          console.log(err)
+          alert("Une erreur est survenue. Merci de réesayer plus tard");
+        }
       })
     this.service.formReset();
   }

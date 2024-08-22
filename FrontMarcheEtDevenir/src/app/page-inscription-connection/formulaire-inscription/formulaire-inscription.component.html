@@ -1,17 +1,8 @@
 <section>
-  <!-- Section de création de compte -->
-  <!-- Cette section contient le formulaire de création de compte pour les nouveaux utilisateurs. -->
+  <a href="/"><p> <b><</b> Page d'accueil</p></a>
 
-  <!-- Titre de la section de création de compte -->
-  <!-- Affiche le titre de la section de création de compte. -->
-  <h3>Créer un compte</h3>
-
-  <!-- Formulaire de création de compte -->
-  <!-- Formulaire permettant aux utilisateurs de créer un compte en entrant leurs informations personnelles. -->
-  <form #form="ngForm" (submit)="onSubmit(form)">
-
-    <!-- Label et champ de saisie pour le nom -->
-    <!-- Label demandant à l'utilisateur d'entrer son nom. -->
+  <h3> Créer un compte</h3>
+  <form #form="ngForm"  (submit)="onSubmit(form)">
     <label for="nom">Veuillez entrer votre Nom</label>
     <!-- Champ de saisie pour le nom de l'utilisateur. -->
     <!-- Utilise la directive ngModel pour la liaison de données avec service.FormData.Nom. -->
