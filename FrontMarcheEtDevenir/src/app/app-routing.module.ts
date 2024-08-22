@@ -6,7 +6,8 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
 import { CreationOffreComponent } from './creation-offre-page/creation-offre.component';
 import { ProfilPageComponent } from './profile-page/profil-page.component';
 import { PageAccueilComponent } from './page-accueil/page-accueil.component';
-import { PageInscriptionConnectionComponent } from './page-inscription-connection/page-inscription-connection.component'
+import { PageInscriptionConnectionComponent } from './page-inscription-connection/page-inscription-connection.component';
+import { PageAProposComponent } from './page-a-propos/page-a-propos.component';
 
 const routes: Routes = [
   { path: 'admin/ajoutrandonnee', component: CreationOffreComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
    { path: 'offreRandonnees', component: OffreRandonneesComponent},
   { path: 'contact', component: ContactPageComponent },
   { path: '', pathMatch: 'full', component: PageAccueilComponent },
-  {  path: 'login', component: PageInscriptionConnectionComponent},
+  { path: 'login', component: PageInscriptionConnectionComponent },
+  { path: 'about', component: PageAProposComponent },
 
   { path: '**', redirectTo: '' }
 ];
