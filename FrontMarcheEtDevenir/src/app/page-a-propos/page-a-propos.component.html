@@ -1,6 +1,6 @@
 <website-header></website-header>
 <!-- Présentation vidéo -->
-<h3 class="presentation-title"><strong>Présentation</strong></h3>
+<h2 class="presentation-title"><strong>Présentation</strong></h2>
 <nav class="presentation-container">
   <video src="http://marchedeviens.com/wp-content/uploads/2023/03/Marche-et-Deviens-VF.mp4" controls preload="metadata" controlslist="nodownload"></video>
   <div class="video-info">
@@ -14,17 +14,20 @@
 
 <section class="evenements">
   <h3 class="evenements-title"><strong>Nos événements passés</strong></h3>
-  <a href="/offreRandonnees">
-    <div class="evenements-wrapper">
-
-      <img class="image-evenement" src="https://th.bing.com/th/id/OIP.77iWTkARr3usKEGZDcomsgHaE6?rs=1&pid=ImgDetMain" alt="(insérer image du lieu)">
-      <h5>Titre</h5>
-      <div class="details-evenement">
-        <p>Description</p>
-        <p>Date</p>
-        <p>Tarif</p>
+  <a href="/offreRandonnees" >
+    <section class="evenements-container">
+    <div *ngFor="let randonnee of randonnees">
+        <div class="card" *ngIf="dateParse(randonnee.date) < today">
+          <img src="https://th.bing.com/th/id/OIP.77iWTkARr3usKEGZDcomsgHaE6?rs=1&pid=ImgDetMain" alt="Image 1" class="image-evenement"/>
+          <h5 id="titreCard">{{randonnee.name}}</h5>
+          <p class="details-evenements">
+            <b>Description :</b><br />
+            {{ randonnee.description }}
+          </p>
+          <p>{{ randonnee.date }} </p>
+        </div>
       </div>
-    </div>
+  </section>
   </a>
 </section>
 
