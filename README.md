@@ -1,18 +1,111 @@
 ![GitHub forks](https://img.shields.io/github/forks/Simplon-hdf/BriefDotNet-GroupeMalamut?style=for-the-badge)
 ![GitHub Repo stars](https://img.shields.io/github/stars/Simplon-hdf/BriefDotNet-GroupeMalamut?style=for-the-badge)
 
+# "Marche et Deviens" PoC
 
-<h1 align="center">Brief Marcher et Devenir</h1>
+## **Table des Matières**
 
-<div align="center">
 
-## Project Description
+1. Introduction
+2. Installation et Configuration
+    1. Pré-requis
+    2. Installation du projet
+    3. Configuration
+    4. Utilisation
+3. Contributeurs
+4. Technologies Utilisées
+5. Fonctionnalités principales
+6. Dépannage
 
-Ce repository contient le projet pour un "**proof of concept**" de "**Marche et Devient**".
+## **Introduction**
 
-</div>
+"Marche et Deviens" est un projet de proof of concept (PoC) d’un projet visant à fédérer des équipes à travers des randonnées organisées.  
 
-## About The Project
+  
+Le projet est divisé en deux parties principales : 
+- Une API backend développée en C# / .NET
+- Une application frontend développée en Angular.
+
+## **Installation et Configuration**
+
+### **Prérequis**
+
+- Votre IDE favori (Visual Studio Code / Visual Studio / JetBrains Rider…etc)
+- Node.js *(version utilisée : 20.16.0)*
+- Npm *(version utilisée : 10.8.1)*
+- .NET 8
+- Angular 18
+- Angular CLI
+
+### **Installation du projet**
+
+1. Clonez le repository dans votre Terminal : `git clone https://github.com/Simplon-hdf/BriefDotNet-GroupeMalamut.git`
+2. Installez les dépendances pour le front-end dans votre Terminal : `npm install`
+    
+    
+3. Installez les dépendances pour le back-end : `dotnet tool install`
+
+### **Configuration**
+
+Assurez-vous de configurer les fichiers `environment.ts` pour le front-end et `appsettings.json` pour le back-end avec les bonnes valeurs pour les URLs de l'API, les clés de sécurité, etc.
+
+## **Utilisation**
+
+Pour démarrer l'application : dans le Terminal de votre IDE, tapez `ng serve`
+
+L'application sera accessible à l’adresse `http://localhost:4200`. 
+
+## **Technologies Utilisées**
+
+- **Frontend** : Angular
+- **Backend** : C# & .NET
+- **Base de Données** : MySQL
+- **Authentification** : JWT
+- **Styling** : CSS
+
+## **Fonctionnalités principales liées aux randonnées**
+
+Une fois sur le site, l’utilisateur pourra :
+
+1. **Consulter les Randonnées Disponibles** :
+    - L'utilisateur pourra voir une liste de randonnées disponibles, y compris les détails tels que la date, le pays, la région, la commune de départ, le prix, la durée, et le nombre de participants.
+2. **Réserver des Randonnées** :
+    - L'utilisateur pourra réserver des randonnées directement via l'application
+3. **Accéder à des informations détaillées** :
+    - L'utilisateur pourra accéder à des informations détaillées sur chaque randonnée, y compris des descriptions et des images.
+4. **Participer à des Séjours Courts et Longs** :
+    - L'utilisateur pourra choisir entre des séjours courts et longs, en fonction de ses préférences et de sa disponibilité.
+5. **Utiliser une Interface Intuitive** :
+    - L'application fournira une interface utilisateur intuitive et facile à utiliser, permettant une navigation fluide et une expérience utilisateur agréable
+
+### **Gestion des Randonnées**
+
+- **Voir les Randonnées** : Accédez à la liste des randonnées disponibles via l'onglet "Randonnées".
+- **Ajouter une Randonnée** : Utilisez le formulaire pour ajouter une nouvelle randonnée avec des détails tels que le nom, la date, et la description.
+
+### **Gestion des Utilisateurs**
+
+- **Inscription** : Créer un compte utilisateur via le formulaire d'inscription.
+- **Connexion** : Connecter un  compte pour accéder à des fonctionnalités personnalisées.
+- **Administrateur :** Assigner un compte Admin
+- **Profil Utilisateur** : Consulter et modifier les informations personnelles dans la section "Profil".
+
+### **Authentification**
+
+- **Connexion** : Utilisez votre email et mot de passe pour vous connecter.
+- **Changer le Mot de Passe** : Accédez à la section "Changer le mot de passe" pour mettre à jour votre mot de passe *(à venir…)*.
+
+## **Dépannage**
+
+### **Problèmes Courants**
+
+- **Problèmes de Connexion** : Assurez-vous que votre email et mot de passe sont corrects. Si vous avez oublié votre mot de passe, changez-le *(à venir…)*.
+- **API Inaccessible** : Vérifiez que le back-end est bien démarré et accessible à l'URL correcte.
+
+### **Logs et Erreurs**
+
+- **Frontend** : Les erreurs du front-end sont affichées dans la console du navigateur.
+- **Backend** : Les erreurs du back-end sont loguées dans la console où l'API est démarrée.
 
 
 ### Built With
