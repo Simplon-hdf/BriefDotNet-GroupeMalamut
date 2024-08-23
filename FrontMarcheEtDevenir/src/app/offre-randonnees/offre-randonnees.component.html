@@ -1,3 +1,4 @@
+<!-- En-tête du site web : composant Angular -->
 <website-header></website-header>
 
 <main>
@@ -7,6 +8,7 @@
 
 <section class="sejours_courts">
   <h1>Séjours courts</h1>
+  
   <div class="cardSejourCourt">
     <div *ngFor="let randonnee of randonnees">
       <div class="card" *ngIf="(randonnee.duree < 72) && dateParse(randonnee.date) > today">
@@ -25,6 +27,7 @@
   </div>
 </section>
 
+<!-- Section des séjours longs -->
 <section class="sejours_longs">
   <h1>Séjours longs</h1>
   <div class="cardSejourCourt">
