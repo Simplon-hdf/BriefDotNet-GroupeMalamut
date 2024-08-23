@@ -1,5 +1,5 @@
 import { Component, Injectable} from '@angular/core';
-import { FormulaireInscriptionService } from '../../services/formulaire-inscription.service';
+import { FormulaireInscriptionService } from '../../services/Gestion-Inscription-Connection/formulaire-inscription.service';
 import { ModuleFormulairesModule } from '../module-formulaires/module-formulaires.module';
 import {   
   AbstractControl,
