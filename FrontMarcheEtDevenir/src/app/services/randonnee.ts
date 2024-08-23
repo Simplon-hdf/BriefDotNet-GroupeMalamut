@@ -1,12 +1,12 @@
 export class Randonnee {
-  Date: Date = new Date()
-	Name : string = ""
-	Pays : string = ""
-	Region : string = ""
-	Ville : string = ""
-	PrixTotal : number = 1
-	Duree : number = 24
-	Description : string = ""
-	NombreMinPersonnes : number = 0
-	NombreMaxPersonnes : number = 1
+  date: Date = new Date()
+	name : string = ""
+	pays : string = ""
+	region : string = ""
+	ville : string = ""
+	prixTotal : number = 1
+	duree : number = 24
+	description : string = ""
+	nombreMinPersonnes : number = 0
+	nombreMaxPersonnes : number = 1
 }
