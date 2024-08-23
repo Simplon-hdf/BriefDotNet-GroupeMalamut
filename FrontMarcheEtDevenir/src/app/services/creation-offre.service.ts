@@ -8,7 +8,7 @@ import { Randonnee } from './randonnee';
 })
 export class CreationOffreService {
   
-  private Url = environment.apiBaseurl + "/Randonee/";
+  private Url = environment.apiBaseurl + "/Randonee";
   FormData: Randonnee = new Randonnee();
   constructor(public http: HttpClient) { }
 
