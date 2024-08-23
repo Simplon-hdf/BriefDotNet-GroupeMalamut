@@ -13,42 +13,26 @@ import { NgForm } from '@angular/forms';
 export class FormulaireConnexionComponent {
   constructor(public connectionService: ConnectionService) { }
 
-  isValidEmail(email: string, form: NgForm): boolean {
-    const valideurUtilisateur: RegExp = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-    return valideurUtilisateur.test(form.value.email!);
-  }
-
-  isValidPassword(motDePasse: string, form: NgForm): boolean {
-    const valideurMotDePasse: RegExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/g;
-    return valideurMotDePasse.test(form.value.motDePasse!);
-  }
 
   onSubmit(form: NgForm) {
-    this.connectionService.postLogin(form.value.email, form.value.motDePasse)
-      .subscribe({
-        next: res => {
-          console.log(res);
-        },
-        error: err => {
-          alert('Erreur de connexion');
-          console.log(err);
-        }
-      });
-  }
+    if (form.valid) {
+      const email = form.value.email;
+      const motDePasse = form.value.motDePasse;
 
-  onClick(form: NgForm) {
-    if (this.isValidEmail(form.value.email, form) && this.isValidPassword(form.value.motDePasse, form)) {
-      this.connectionService.postLogin(form.value.email, form.value.motDePasse)
+      this.connectionService.postLogin(email, motDePasse)
         .subscribe({
           next: res => {
-            console.log('Connexion réussie', res);
-            // Logique supplémentaire après une connexion réussie
+            alert('Connexion réussie');
+            console.log(res);
           },
           error: err => {
-            alert('Erreur de connexion');
-            console.log('Erreur de connexion', err);
+            console.error('Erreur de connexion:', err);
+            console.log(FormData);
+            
           }
         });
+    } else {
+      alert('Formulaire invalide. Veuillez remplir tous les champs correctement.');
     }
   }
 }
