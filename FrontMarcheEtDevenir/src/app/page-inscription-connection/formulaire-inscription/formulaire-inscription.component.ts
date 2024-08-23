@@ -83,17 +83,20 @@ export class FormulaireInscriptionComponent {
     if (this.formulaire.valid) {
       this.service.postEnregistrer(this.formulaire.value).subscribe({
         next: (formulaire) => {
-          return console.log(formulaire);
+          console.log(formulaire)
+          this.service.formReset();
         },
         error: (err) => {
           return console.log(err);
         },
+        
       });
     }else{
       Object.keys(this.formulaire.controls).forEach(key => {
         const control = this.formulaire.get(key);
         control?.markAsTouched();
       });
+      
   }
   }
 }

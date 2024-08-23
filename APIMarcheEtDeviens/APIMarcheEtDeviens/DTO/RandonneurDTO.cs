@@ -5,6 +5,7 @@ namespace APIMarcheEtDeviens.Services
 {
 	public class RandonneurDTO
 	{
+		public Guid RandonneurId { get; set; }
 		public string Nom { get; set; } = string.Empty;
 		public string Prenom { get; set; } = string.Empty;
 

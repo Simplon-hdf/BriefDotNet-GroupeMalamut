@@ -4,6 +4,7 @@ using APIMarcheEtDeviens.Services;
 using APIMarcheEtDeviens.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography;
 
 namespace APIMarcheEtDeviens.Controllers
 {
@@ -68,6 +69,15 @@ namespace APIMarcheEtDeviens.Controllers
             return Ok(result);
         }
 
-    }
+
+		private void CreatePasswordHash(string password, out byte[] motDePasseHash, out byte[] motDePasseSalt)
+		{
+			using (var hmac = new HMACSHA512())
+			{
+				motDePasseSalt = hmac.Key;
+				motDePasseHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+			}
+		}
+	}
 }
 
