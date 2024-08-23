@@ -18,8 +18,12 @@
         </p>
         <h4>{{ randonnee.date }} </h4>
         <h4>{{ randonnee.duree >= 24 ? (randonnee.duree / 24).toFixed(0) + " jours" + (randonnee.duree % 24 ? " " + randonnee.duree % 24 + " heures." : ".") : "1 jour." }}</h4>
-        <h4>{{ randonnee.prixTotal }} TTC</h4>
-        <button class="reservation-btn">Réservation</button>
+        <h2>{{ randonnee.prixTotal }}€ TTC</h2>
+        <h4>Participants:</h4>
+        <div class="progress-bar">
+          <div class="progress" [style.width.%]="(fetchParticipantFor(randonnee.randonneeId)/randonnee.nombreMaxPersonnes) * 100"></div>
+        </div>
+        <button class="reservation-btn" *ngIf="fetchParticipantFor(randonnee.randonneeId) < randonnee.nombreMaxPersonnes ">Réservation</button>
       </div>
     </div>
   </div>
@@ -38,8 +42,12 @@
         </p>
         <h4>{{ randonnee.date }} </h4>
         <h4>{{ (randonnee.duree / 24).toFixed(0) + " jours" + (randonnee.duree % 24 ? " " + randonnee.duree % 24 + " heures." : ".") }}</h4>
-        <h4>{{ randonnee.prixTotal }} TTC</h4>
-        <button class="reservation-btn">Réservation</button>
+        <h2>{{ randonnee.prixTotal }} TTC</h2>
+        <h4>Participants:</h4>
+        <div class="progress-bar">
+          <div class="progress" [style.width.%]="(fetchParticipantFor(randonnee.randonneeId)/randonnee.nombreMaxPersonnes) * 100"></div>
+        </div>
+        <button class="reservation-btn" *ngIf="fetchParticipantFor(randonnee.randonneeId) < randonnee.nombreMaxPersonnes ">Réservation</button>
       </div>
     </div>
   </div>

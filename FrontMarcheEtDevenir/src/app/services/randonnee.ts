@@ -1,4 +1,5 @@
 export class Randonnee {
+  randonneeId : string = ""
   date: Date = new Date()
 	name : string = ""
 	pays : string = ""

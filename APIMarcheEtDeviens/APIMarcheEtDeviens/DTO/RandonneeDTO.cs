@@ -4,6 +4,7 @@ namespace APIMarcheEtDeviens.Services
 {
     public class RandonneeDto
     {
+		public Guid RandonneeId { get; set; }
 		public DateTime Date { get; set; }
 		public string Name { get; set; } = string.Empty;
 		public string Pays { get; set; } = string.Empty;
