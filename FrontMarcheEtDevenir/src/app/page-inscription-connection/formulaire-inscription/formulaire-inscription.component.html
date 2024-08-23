@@ -40,8 +40,26 @@
     </div>
 
     <label for="motDePasse">Veuillez entrer un Mot de Passe</label>
-    <input type="password" name="motDePasse" placeholder="votre mot de passe" formControlName="MotDePasse" minlength="8" maxlength="16" required />
+    <input type="password" 
+    name="motDePasse" 
+    placeholder="votre mot de passe" 
+    formControlName="MotDePasse" 
+    (focus)="togglePasswordRequirements()" 
+    (blur)="togglePasswordRequirements()"
+    required />
       
+    <div *ngIf="showPasswordRequirements" class="password-requirements">
+      <p>Le mot de passe doit contenir :</p>
+      <ul>
+        <li [class.valid]="hasNumber(formulaire.get('MotDePasse')?.value)">Au moins un chiffre</li>
+        <li [class.valid]="hasUpperCase(formulaire.get('MotDePasse')?.value)">Au moins une majuscule</li>
+        <li [class.valid]="hasLowerCase(formulaire.get('MotDePasse')?.value)">Au moins une minuscule</li>
+        <li [class.valid]="hasSpecialChar(formulaire.get('MotDePasse')?.value)">Au moins un caractère spécial</li>
+        <li [class.valid]="hasMinLength(formulaire.get('MotDePasse')?.value)">Au moins 6 caractères</li>
+      </ul>
+    </div>
+    
+
     <div class="contenair-erreur" *ngIf="formulaire.get('MotDePasse')?.invalid && formulaire.get('MotDePasse')?.touched">
       <span> {{getMessageErreur('MotDePasse')}}</span>
     </div>
