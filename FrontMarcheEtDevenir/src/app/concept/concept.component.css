@@ -70,7 +70,7 @@ section img {
 
 
 .sejour .descriptionSejour {
-  //display:flex;
+  display:flex;
   width: auto;
   height:700px;
  
@@ -84,7 +84,7 @@ section img {
     margin:150px auto 0;
     text-align:center;
     padding:25px;
-    //background-color:pink;
+    background-color:pink;
     height:200px;
     
 }
@@ -207,7 +207,7 @@ section img {
     display:flex;
     justify-content:space-around;
     margin:25px;
-    //background-color:red;
+    background-color:red;
 
 }
 

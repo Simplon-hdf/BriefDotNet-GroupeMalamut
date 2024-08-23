@@ -16,16 +16,15 @@ export class FormulaireConnexionComponent {
 
   onSubmit(form: NgForm) {
     if (form.valid) {
-      const email = form.value.email;
-      const motDePasse = form.value.motDePasse;
 
-      this.connectionService.postLogin(email, motDePasse)
+      this.connectionService.postLogin()
         .subscribe({
           next: res => {
-            alert('Connexion réussie');
+            alert('Connexion réussie !');
             console.log(res);
           },
           error: err => {
+            alert('Erreur de connexion. Veuillez vérifier vos identifiants.');
             console.error('Erreur de connexion:', err);
             console.log(FormData);
             

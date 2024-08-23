@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Randonneur } from '../services/randonneur.model';
@@ -10,10 +10,10 @@ import { Randonneur } from '../services/randonneur.model';
   providedIn: 'root'
 })
 export class ConnectionService {
-  /**
-   * URL de l'API pour l'authentification.
-   */
-  private Url = environment.apiBaseurl + "/Authentification/login";
+ /**
+ * URL de l'API pour l'authentification.
+ */
+private Url = environment.apiBaseurl + "/Authentification/login";
 
   /**
    * Données du formulaire de connexion.
@@ -32,8 +32,8 @@ export class ConnectionService {
    * @param motDePasse Le mot de passe de l'utilisateur.
    * @returns Un observable de la réponse HTTP.
    */
-  postLogin(email: string, motDePasse: string) {
-    return this.http.post(this.Url, { email: email, motDePasse: motDePasse });
+  postLogin() {
+    return this.http.post(this.Url, this.FormData, { observe: 'response' });
   }
 
   /**
