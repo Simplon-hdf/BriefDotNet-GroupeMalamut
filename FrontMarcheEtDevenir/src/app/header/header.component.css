@@ -7,7 +7,6 @@
   justify-content: space-between;
   align-content: center;
   position: fixed;
-  background: none;
   padding-top: 1vh;
   background: linear-gradient( 115deg, rgba(21,71,34,0.5) 0%, rgba(164,238,118, 0.5) 5%, rgba(255,255,255, 0.5) 10%), linear-gradient(0deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,1) 100%);
 }
@@ -128,7 +127,6 @@ li {
 .menu-unfold {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     align-content: flex-end;
     justify-content: left;
     height: 50vh;
