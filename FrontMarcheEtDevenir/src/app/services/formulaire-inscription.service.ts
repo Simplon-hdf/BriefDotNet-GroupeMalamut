@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Randonneur } from './randonneur.model';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -16,8 +17,9 @@ export class FormulaireInscriptionService {
 
 
 
-  postEnregistrer() {
-    return this.http.post(this.Url, this.FormData)
+  postEnregistrer(FormData: any): Observable<any>{
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.http.post(this.Url, FormData, {headers})
   }
     formReset() {
       this.FormData = new Randonneur();

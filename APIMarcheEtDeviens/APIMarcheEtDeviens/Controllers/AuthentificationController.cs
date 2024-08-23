@@ -32,7 +32,7 @@ namespace APIMarcheEtDeviens.Controllers
 
 
 		// methode d'enregistrement d'un randonneur
-		[EnableCors]
+		
 		[HttpPost("enregistrer")]
 		public async  Task<ActionResult<Randonneur>> Enregistrer(RandonneurDTO requete)
 		{
