@@ -1,23 +1,19 @@
 <section>
-  <h3> Se connecter</h3>
+  <h3>Se connecter</h3>
   <form #form="ngForm" (submit)="onSubmit(form)">
     <label for="inscriptionMail">Veuillez entrer votre Adresse Mail</label>
-    <input type="email" name="inscriptionMail" id="inscriptionMail" 
-    #mail="ngModel"
-    [(ngModel)]="service.FormData.Mail"
-    required/>
-
+    <input type="email" name="email" id="inscriptionMail" 
+    #mail="ngModel" 
+    [(ngModel)]="connectionService.FormData.Mail"
+    required />
+    
     <label for="inscriptionMotdePasse">Veuillez entrer un Mot de Passe</label>
-    <input type="password" name="inscriptionMotdePasse" id="inscriptionMotdePasse" 
-    #MotDePasse="ngModel"
-    [(ngModel)]="service.FormData.MotDePasse"
-     required/>
-
+    <input type="password" name="motDePasse" id="inscriptionMotdePasse" #MotDePasse="ngModel" 
+    [(ngModel)]="connectionService.FormData.MotDePasse"
+    required />
+    
     <a href="">Mot de passe oublié?</a>
-
     <input type="submit" value="Se connecter" />
   </form>
-
-  <p class="Inactif"> Utilisateur inconnu, veuillez vérifier l'adresse mail et le mot de passe'</p>
-  
+  <p class="Inactif">Utilisateur inconnu, veuillez vérifier l'adresse mail et le mot de passe</p>
 </section>

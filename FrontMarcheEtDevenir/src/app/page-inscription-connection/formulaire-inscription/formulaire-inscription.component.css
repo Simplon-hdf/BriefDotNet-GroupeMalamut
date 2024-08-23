@@ -50,3 +50,9 @@ input {
     border: 0;
     transition: 100ms ease-in-out;
   }
+
+  .error-message {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 5px;
+  }

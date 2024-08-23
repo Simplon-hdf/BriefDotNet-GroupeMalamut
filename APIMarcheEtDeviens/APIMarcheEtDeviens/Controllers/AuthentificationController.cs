@@ -32,7 +32,7 @@ namespace APIMarcheEtDeviens.Controllers
 
 
 		// methode d'enregistrement d'un randonneur
-		[EnableCors]
+		
 		[HttpPost("enregistrer")]
 		public async  Task<ActionResult<Randonneur>> Enregistrer(RandonneurDTO requete)
 		{
@@ -70,7 +70,6 @@ namespace APIMarcheEtDeviens.Controllers
 				motDePasseHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
 			}
 		}
-
 		[HttpPost("login")]
 		// fonction qui connecte un randonneur avec un DTO
 		public async Task<ActionResult<Randonneur>> Connecter(LoginDTO requete)
@@ -85,8 +84,9 @@ namespace APIMarcheEtDeviens.Controllers
 			var randonneur = await _dataContext.Randonneur.FirstOrDefaultAsync(r => r.Mail == requete.Mail);
 
 			// si randonneur n'est pas trouvé ou si le mdp est incorrect, renvoie d'un mesaage
-			if (randonneur == null ||VerifyPasswordHash(requete.MotDePasse, randonneur.MotDePasseHash, randonneur.MotDePasseSalt))
+			if (randonneur == null || !VerifyPasswordHash(requete.MotDePasse, randonneur.MotDePasseHash, randonneur.MotDePasseSalt))
 			{
+				
 				return BadRequest("Mail ou Mot de passe  incorrect");
 			}
 			try
