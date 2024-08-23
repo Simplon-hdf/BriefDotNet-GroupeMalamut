@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { PageInscriptionConnectionComponent } from './page-inscription-connection/page-inscription-connection.component';
 import { provideHttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent,
@@ -14,7 +15,7 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     PageInscriptionConnectionComponent,
     CommonModule,
-    
+    FormsModule
   ],
   exports: [
   ],
