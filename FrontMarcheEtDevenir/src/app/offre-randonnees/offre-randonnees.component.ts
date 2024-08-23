@@ -25,6 +25,7 @@ export class OffreRandonneesComponent implements OnInit {
 
   randonnees!: Randonnee[];
   today: number;
+  dateFormat: any = { weekday: 'long',  year: 'numeric',month: 'long', day: 'numeric' };
 
   constructor(private service: ListeOffresService) {
     this.today = Date.now()
@@ -33,11 +34,18 @@ export class OffreRandonneesComponent implements OnInit {
   ngOnInit() {
     this.service.getRandonnees().subscribe((res) => {
       this.randonnees = res;
-      console.log(this.randonnees);
-      this.randonnees.sort((a, b) => (a.date < b.date ? -1 : 1));
-      console.log(this.randonnees);
+      this.randonnees.sort((a, b) => ((a.date) < b.date ? -1 : 1));
     });
 
       return this.randonnees;
+  }
+
+  prettyDate(date: any) {
+
+    return date.toLocaleDateString("fr-FR", this.dateFormat);
+  }
+
+  dateParse(date: any) {
+    return Date.parse(date);
   }
 }
