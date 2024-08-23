@@ -2,6 +2,7 @@ import { Component, Injectable } from '@angular/core';
 import { CreationOffreModule } from '../creation-offre/creation-offre.module';
 import { NgForm } from '@angular/forms';
 import { CreationOffreService } from '../../services/creation-offre.service';
+import { Routes, Router } from '@angular/router';
 
 @Component({
   selector: 'app-creation-offre-form',
@@ -10,13 +11,13 @@ import { CreationOffreService } from '../../services/creation-offre.service';
   standalone: true,
   imports: [
     CreationOffreModule,
-  ]
+  ],
 })
 @Injectable({ providedIn: 'root' })
 
 export class CreationOffreFormComponent {
 
-  constructor(public service: CreationOffreService) { }
+  constructor(public service: CreationOffreService, public router: Router) { }
 
   onSubmit(form: NgForm) {
     this.service.postEnregistrer()
@@ -24,7 +25,7 @@ export class CreationOffreFormComponent {
         next: res => {
           console.log(res)
           alert("La randonnée à bien été ajoutée");
-          //this.router.redirect();
+          this.router.navigate(['/offreRandonnees']);
         },
         error: err => {
           console.log(err)

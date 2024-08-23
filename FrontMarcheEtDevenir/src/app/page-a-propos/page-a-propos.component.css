@@ -3,11 +3,17 @@
   box-sizing: border-box;
 }
 
+h2 {
+  font-size: 2rem;
+  text-align: center;
+  padding-top: 15vh;
+  margin-bottom: 3.5vh;
+}
+
 h3 {
   font-size: 2rem;
   text-align: center;
   margin-bottom: 3vh;
-  padding-top: 15vh;
 }
 
 h4 {
@@ -71,34 +77,46 @@ video {
   margin-bottom: 5vh;
 }
 
-.evenements-wrapper {
-  height: 400px;
-  width: 600px;
+.evenements-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  height: auto;
+  width: 100%;
+  padding: 5vh 10vw 5vh 10vw;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin-bottom: 10px; /* Augmentation de la marge */
-  padding: 20px; /* Ajout de padding */
-  border-radius: 5px;
-  background-color: white;
+  align-items: center;
+  width: 400px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 30px;
+  transition: transform 0.3s;
   color: black;
 }
 
-  .evenements-wrapper img {
-    width: auto;
-    height: 250px;
-    overflow: clip;
+  .card:hover {
+    transform: translateY(-10px);
   }
 
-  .evenements-wrapper h5 {
+  .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .card h5 {
     font-size: 2rem;
     margin-top: 1.4vh;
   }
 
-
-.evenements button {
-  width: auto;
-}
 
 /* Partie cohésion */
 
