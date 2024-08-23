@@ -17,7 +17,7 @@
           {{ randonnee.description }}
         </p>
         <h4>{{ randonnee.date }} </h4>
-        <h4>{{ randonnee.duree / 24 }} jours.</h4>
+        <h4>{{ randonnee.duree >= 24 ? (randonnee.duree / 24).toFixed(0) + "jours" + (randonnee.duree % 24 ? " " + randonnee.duree % 24 + " heures." : ".") : "1 jour." }}</h4>
         <h4>{{ randonnee.prixTotal }} TTC</h4>
         <button class="reservation-btn">Réservation</button>
       </div>
@@ -37,7 +37,7 @@
           {{ randonnee.description }}
         </p>
         <h4>{{ randonnee.date }} </h4>
-        <h4>{{ randonnee.duree / 24 }} jours.</h4>
+        <h4>{{ (randonnee.duree / 24).toFixed(0) + "jours" + (randonnee.duree % 24 ? " " + randonnee.duree % 24 + " heures." : ".") }}</h4>
         <h4>{{ randonnee.prixTotal }} TTC</h4>
         <button class="reservation-btn">Réservation</button>
       </div>

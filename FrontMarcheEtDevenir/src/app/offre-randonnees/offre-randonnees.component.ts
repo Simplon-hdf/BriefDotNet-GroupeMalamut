@@ -24,15 +24,20 @@ import { CommonModule } from '@angular/common';
 export class OffreRandonneesComponent implements OnInit {
 
   randonnees!: Randonnee[];
+  today: number;
 
-  constructor(private service: ListeOffresService) { }
+  constructor(private service: ListeOffresService) {
+    this.today = Date.now()
+}
 
   ngOnInit() {
     this.service.getRandonnees().subscribe((res) => {
       this.randonnees = res;
       console.log(this.randonnees);
-      console.log(this.randonnees[12].name);
+      this.randonnees.sort((a, b) => (a.date < b.date ? -1 : 1));
+      console.log(this.randonnees);
     });
+
       return this.randonnees;
   }
 }
