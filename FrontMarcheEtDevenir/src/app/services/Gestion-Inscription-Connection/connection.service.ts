@@ -13,7 +13,7 @@ export interface LoginResponse {
   providedIn: 'root'
 })
 export class ConnectionService {
-  private Url = environment.apiBaseurl + "/Authentification/login";
+  private Url = environment.apiBaseurl + "/Randonneur/login";
 
   FormData: Randonneur = new Randonneur();
 
