@@ -1,6 +1,6 @@
 ﻿namespace APIMarcheEtDeviens.Services
 {
-	public class LoginDTO
+	public class ConnectionRandonneurDTO
 	{
 		public string Mail { get; set; } = string.Empty;
 

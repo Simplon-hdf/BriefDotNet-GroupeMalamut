@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IdentiteUtilisateurService } from '../../services/identite-utilisateur.service';
-import { Randonneur} from '../../services/randonneur.model';
+//import { Randonneur} from '../../services/randonneur.model';
 
 @Component({
   selector: 'app-information-personalles-display',

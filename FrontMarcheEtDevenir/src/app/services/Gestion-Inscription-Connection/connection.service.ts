@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
-import { Randonneur } from '../services/randonneur.model';
+import { environment } from '../../../environments/environment';
+import { Randonneur } from '../Models/randonneur.model';
 import { Observable } from 'rxjs';
 
 export interface LoginResponse {
@@ -13,7 +13,7 @@ export interface LoginResponse {
   providedIn: 'root'
 })
 export class ConnectionService {
-  private Url = environment.apiBaseurl + "/Authentification/login";
+  private Url = environment.apiBaseurl + "/Randonneur/login";
 
   FormData: Randonneur = new Randonneur();
 

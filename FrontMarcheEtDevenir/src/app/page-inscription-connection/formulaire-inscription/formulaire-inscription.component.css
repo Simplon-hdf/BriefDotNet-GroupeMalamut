@@ -51,8 +51,41 @@ input {
     transition: 100ms ease-in-out;
   }
 
-  .error-message {
+  .contenair-erreur {
     color: red;
     font-size: 0.8em;
-    margin-top: 5px;
   }
+
+
+  .password-requirements {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  
+  .password-requirements ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .password-requirements li {
+    margin-bottom: 5px;
+    color: #666;
+  }
+  
+  .password-requirements li.valid {
+    color: green;
+  }
+  
+  .password-requirements li.valid::before {
+    content: '✓ ';
+    color: green;
+  }
+  
+  .password-requirements li:not(.valid)::before {
+    content: '✗ ';
+    color: red;
+  }
+  

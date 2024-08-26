@@ -1,5 +1,5 @@
 import { Component, Injectable, OnInit } from '@angular/core';
-import { ConnectionService } from '../../services/connection.service';
+import { ConnectionService } from '../../services/Gestion-Inscription-Connection/connection.service';
 import { ModuleFormulairesModule } from '../module-formulaires/module-formulaires.module';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../services/ls-authentification.service';
