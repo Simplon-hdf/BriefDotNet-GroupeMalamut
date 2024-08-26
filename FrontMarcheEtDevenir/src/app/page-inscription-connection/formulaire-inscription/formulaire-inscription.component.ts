@@ -58,16 +58,16 @@ export class FormulaireInscriptionComponent {
   }
 
 
-  // vérification des prérequis sur le mot de passe
+  // Vérification du mot de passe avec des regex
   passwordValidator(control: AbstractControl): { [key: string]: boolean } | null {
-    // récupère la valeur du mot de passe
+    // Récupère la valeur du mot de passe
     const password = control.value;
-    // recupere le boolean des méthodes de test des regex
+    // Récupère les boolean de chaque regex
     const hasNumber = /[0-9]/.test(password);
     const hasUpper = /[A-Z]/.test(password);
     const hasLower = /[a-z]/.test(password);
     const hasSpecial = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(password);
-    // constante qui récupère l'ensemble des boolean stocker ci-dessus
+    // Récupère la validité du mot de passe
     const valid = hasNumber && hasUpper && hasLower && hasSpecial;
     // si non valide, renvoie true
     if (!valid) {
@@ -77,7 +77,7 @@ export class FormulaireInscriptionComponent {
     return null;
   }
 
-  // methode qui vérifie si le mot de passe contient le regex
+  //Méthodes pour vérifier si le mot de passe respecte les critères de sécurité
   hasNumber(value: string | undefined): boolean {
     return value ? /[0-9]/.test(value) : false;
   }
