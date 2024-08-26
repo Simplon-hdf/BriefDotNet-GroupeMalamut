@@ -52,7 +52,7 @@ export class FormulaireInscriptionComponent {
       Telephone:              new FormControl('', [Validators.pattern(/^[0-9]{10}$/)]),
       // vérification du champs MotDepasse et ConfirmationMotDePasse
       MotDePasse:             new FormControl('', Validators.required),
-      ConfirmationMotDePasse: new FormControl('', Validators.required)
+      ConfirmationMotDePasse: new FormControl('', [Validators.required, this.passwordValidator])
       //ajout d'un validateur personalisée
     }, { validators: FormulaireInscriptionComponent.checkPasswords });
   }
