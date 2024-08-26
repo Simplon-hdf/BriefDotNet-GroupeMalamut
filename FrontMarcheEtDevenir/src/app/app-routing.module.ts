@@ -9,6 +9,8 @@ import { PageAccueilComponent } from './page-accueil/page-accueil.component';
 import { PageInscriptionConnectionComponent } from './page-inscription-connection/page-inscription-connection.component';
 import { PageAProposComponent } from './page-a-propos/page-a-propos.component';
 
+
+// Définition des routes de l'application (chemin d'accès)
 const routes: Routes = [
   { path: 'admin/ajoutrandonnee', component: CreationOffreComponent },
    { path: 'user/profil', component: ProfilPageComponent },

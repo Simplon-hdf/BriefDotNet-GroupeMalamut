@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Ajout des services pour l'authentification
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<IController<Guid, ParticipantDTO>, ParticipantService>();
@@ -25,7 +25,6 @@ builder.Services.AddDbContext<DataContext>(options =>
 });
 
 builder.Services.AddAuthentication();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -42,11 +41,12 @@ builder.Services.AddAuthentication();
 // Ajoutez les services CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAngularApp",
-        builder => builder.WithOrigins("http://localhost:4200")
+    options.AddPolicy("AllowAllOrigins",
+        builder => builder.AllowAnyOrigin()
             .AllowAnyMethod()
             .AllowAnyHeader());
 });
+
 
 var app = builder.Build();
 
@@ -57,15 +57,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// Utilisez la politique CORS configurée
-app.UseCors("AllowAngularApp");
+// Ajout de l'authentification CORS
+app.UseCors("AllowAllOrigins");
 
 
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
 
 app.MapControllers();
 

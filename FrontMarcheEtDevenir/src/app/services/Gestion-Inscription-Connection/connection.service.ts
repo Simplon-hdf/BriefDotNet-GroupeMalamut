@@ -4,6 +4,7 @@ import { environment } from '../../../environments/environment';
 import { Randonneur } from '../Models/randonneur.model';
 import { Observable } from 'rxjs';
 
+// Interface pour la réponse de la requête de connexion
 export interface LoginResponse {
   randonneur: Randonneur;
   token: string;
@@ -13,6 +14,7 @@ export interface LoginResponse {
   providedIn: 'root'
 })
 export class ConnectionService {
+  // URL de l'API pour la connexion (url de base + route définie)
   private Url = environment.apiBaseurl + "/Randonneur/login";
 
   FormData: Randonneur = new Randonneur();
